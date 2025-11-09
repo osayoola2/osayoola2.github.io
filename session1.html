@@ -1,10 +1,139 @@
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-  <iframe 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;" 
-    src="https://drive.google.com/file/d/1zOQTdDhlBogWP0owl0qNXWCPb1mNiT6u/preview?autoplay=1&loop=1" 
-    title="Background video" 
-    frameborder="0" 
-    allow="autoplay; encrypted-media" 
-    allowfullscreen>
-  </iframe>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 90%;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: auto;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 50px;
+            background: #000;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        .warning {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .warning strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Video Player</h1>
+        
+        <div class="video-wrapper">
+            <iframe 
+                src="https://drive.google.com/file/d/1zOQTdDhlBogWP0owl0qNXWCPb1mNiT6u/preview" 
+                allowfullscreen
+                allow="autoplay">
+            </iframe>
+            <div class="overlay"></div>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ Protected Content</strong>
+            This video is protected. Right-click and downloading are disabled for casual users.
+        </div>
+    </div>
+
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Disable common keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.keyCode == 123 || 
+                (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) ||
+                (e.ctrlKey && e.keyCode == 85)) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable text selection
+        document.onselectstart = function() {
+            return false;
+        };
+        
+        // Additional protection against dragging
+        document.ondragstart = function() {
+            return false;
+        };
+        
+        // Console warning
+        console.log('%c⚠️ WARNING', 'color: red; font-size: 40px; font-weight: bold;');
+        console.log('%cThis content is protected. Unauthorized access or downloading is prohibited.', 'font-size: 16px;');
+    </script>
+</body>
+</html>
