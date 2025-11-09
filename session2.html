@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session 2: RAIN x Meta AI Developer Academy Nigeria</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Session 2: Introduction to Meta AI Models - RAIN x Meta AI Developer Academy</title>
+    <meta name="description" content="Watch Session 1 of Meta AI Developer Academy Nigeria - Introduction to Llama, Dino, SAM and other Meta AI Models. Exclusive training content for enrolled students.">
+    <meta name="keywords" content="Meta AI session, Llama introduction, Meta AI models, SAM model, Dino model, AI training Nigeria, Meta Academy session 1">
+    <meta name="robots" content="noindex, nofollow">
+    
     <style>
         * {
             margin: 0;
@@ -78,6 +84,13 @@
             color: #666;
         }
 
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
         .header-info {
             display: flex;
             gap: 30px;
@@ -86,9 +99,10 @@
             align-items: center;
         }
 
-        .back-btn {
+        .back-btn,
+        .assessment-btn,
+        .main-site-btn {
             padding: 10px 25px;
-            background: var(--meta-blue);
             color: white;
             border: none;
             border-radius: 6px;
@@ -97,10 +111,33 @@
             transition: background 0.3s;
             text-decoration: none;
             display: inline-block;
+            white-space: nowrap;
+        }
+
+        .back-btn {
+            background: var(--meta-blue);
         }
 
         .back-btn:hover {
             background: #0557c7;
+        }
+
+        .main-site-btn {
+            background: var(--accent-green);
+        }
+
+        .main-site-btn:hover {
+            background: #00b847;
+        }
+
+        .assessment-btn {
+            background: var(--accent-green);
+            font-size: 16px;
+            padding: 12px 30px;
+        }
+
+        .assessment-btn:hover {
+            background: #00b847;
         }
 
         /* Main Container */
@@ -208,44 +245,150 @@
             font-size: 16px;
         }
 
+        .assessment-section {
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--accent-green) 0%, #00b847 100%);
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+        }
+
+        .assessment-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .assessment-section p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: column;
-                align-items: flex-start;
+                padding: 15px;
             }
 
-            .header-info {
-                flex-direction: column;
-                gap: 10px;
+            .logo-section {
                 width: 100%;
+                justify-content: space-between;
+            }
+
+            .logo-images {
+                gap: 10px;
             }
 
             .logo-images img {
-                height: 40px;
+                height: 35px;
             }
 
             .logo-text h1 {
-                font-size: 18px;
+                font-size: 16px;
+                line-height: 1.3;
             }
 
             .logo-text p {
-                font-size: 11px;
+                font-size: 10px;
+            }
+
+            .header-buttons {
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-info {
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+                font-size: 13px;
+            }
+
+            .back-btn,
+            .main-site-btn,
+            .assessment-btn {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
             }
 
             .container {
                 padding: 0 15px;
+                margin: 20px auto;
             }
 
             .session-card {
-                padding: 25px;
+                padding: 20px;
+                border-radius: 12px;
             }
 
             .session-header h2 {
-                font-size: 24px;
+                font-size: 22px;
+            }
+
+            .session-header p {
+                font-size: 14px;
+            }
+
+            .session-info {
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .info-card {
+                padding: 15px;
+            }
+
+            .info-card h3 {
+                font-size: 16px;
+            }
+
+            .info-card p {
+                font-size: 13px;
+            }
+
+            .warning {
+                padding: 15px;
+                font-size: 13px;
+            }
+
+            .warning strong {
+                font-size: 14px;
+            }
+
+            .assessment-section {
+                padding: 20px;
+            }
+
+            .assessment-section h3 {
+                font-size: 20px;
+            }
+
+            .assessment-section p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-images img {
+                height: 30px;
+            }
+
+            .logo-text h1 {
+                font-size: 14px;
+            }
+
+            .logo-text p {
+                font-size: 9px;
+            }
+
+            .session-header h2 {
+                font-size: 20px;
+            }
+
+            .session-card {
                 padding: 15px;
             }
         }
@@ -265,21 +408,13 @@
                 <div class="logo-images">
                     <img src="metalogo.png" alt="Meta Logo">
                 </div>
-                  <div style="margin-top: 30px; text-align: center;">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEbd5agZYMN0ZUoF5pqCx_FB5pWLXTS4R9VRJ132m78_5WRg/viewform?usp=dialog " 
-                   target="_blank" 
-                   class="back-btn" 
-                   style="background: var(--accent-green); font-size: 18px; padding: 15px 40px; display: inline-block;">
-                    📝 Take Session 2 Assessment
-                </a>
-                <p style="margin-top: 15px; color: #666; font-size: 14px;">
-                    <strong>Prize:</strong> NGN 50,000 for top performer!
-                </p>
             </div>
-            </div>
-            <div class="header-info">
-                <div><strong>Program:</strong> Nov 1 - Dec 19, 2025</div>
-                <a href="index.html" class="back-btn">← Back to Portal</a>
+            <div class="header-buttons">
+                <div class="header-info">
+                    <div><strong>Program:</strong> Nov 1 - Dec 19, 2025</div>
+                </div>
+                <a href="https://rainigeria.com" class="main-site-btn">Main Website</a>
+                <a href="index.html" class="back-btn">Back to Portal</a>
             </div>
         </div>
     </header>
@@ -287,7 +422,7 @@
     <div class="container">
         <div class="session-card">
             <div class="session-header">
-                <h2>📚 Main Session 2</h2>
+                <h2>Main Session 2</h2>
                 <p>Techniques in Prompt Engineering with Meta</p>
             </div>
 
@@ -302,25 +437,39 @@
 
             <div class="session-info">
                 <div class="info-card">
-                    <h3>📅 Session Date</h3>
+                    <h3>Session Date</h3>
                     <p>Saturday, November 8, 2025</p>
                 </div>
                 <div class="info-card">
-                    <h3>⏱️ Duration</h3>
+                    <h3>Duration</h3>
                     <p>2 hours (9:00 AM - 11:00 AM)</p>
                 </div>
                 <div class="info-card">
-                    <h3>👨‍🏫 Instructor</h3>
+                    <h3>Instructor</h3>
                     <p>Samuel Esogbue, Senior AI Researcher, RAIN</p>
                 </div>
                 <div class="info-card">
-                    <h3>📊 Week</h3>
+                    <h3>Week</h3>
                     <p>Week 1 of 7</p>
                 </div>
             </div>
 
+            <div class="assessment-section">
+                <h3>Session 2 Assessment</h3>
+                <p>Test your knowledge from this session and compete for the NGN 50,000 prize!</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEbd5agZYMN0ZUoF5pqCx_FB5pWLXTS4R9VRJ132m78_5WRg/viewform?usp=dialog" 
+                   target="_blank" 
+                   class="assessment-btn"
+                   style="background: white; color: var(--accent-green);">
+                    Take Assessment Now
+                </a>
+                <p style="margin-top: 15px; font-size: 14px; opacity: 0.9;">
+                    <strong>Prize:</strong> NGN 50,000 for top performer
+                </p>
+            </div>
+
             <div class="warning">
-                <strong>⚠️ Important Notice</strong>
+                <strong>Important Notice</strong>
                 <p>This video is for enrolled students only. Recording, downloading, or sharing this content is strictly prohibited and violates program terms. All sessions are monitored for compliance.</p>
             </div>
         </div>
