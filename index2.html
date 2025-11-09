@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta AI Developer Academy - Learning Portal</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Meta AI Developer Academy Nigeria | Free 7-Week Agentic AI Training Program 2025</title>
+    <meta name="description" content="Join Meta AI Developer Academy Nigeria - A fully-funded 7-week intensive training program in Agentic AI Systems development using Meta's Llama, PyTorch, and AI tools. 300+ students, 100% free, certification included. Powered by RAIN Nigeria.">
+    <meta name="keywords" content="Meta AI Academy, AI training Nigeria, Llama AI course, PyTorch training, Agentic AI Systems, AI developer program, free AI course Nigeria, Meta Nigeria, RAIN Nigeria, artificial intelligence training, machine learning course, AI certification Nigeria, Meta Llama training, AI agents development">
+    <meta name="author" content="RAIN Nigeria">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rainigeria.com/meta-academy">
+    <meta property="og:title" content="Meta AI Developer Academy Nigeria | Free 7-Week AI Training">
+    <meta property="og:description" content="Join 300+ developers in a fully-funded intensive training program on Agentic AI Systems using Meta's cutting-edge tools. Learn Llama, PyTorch, AI Agents & more.">
+    <meta property="og:image" content="https://rainigeria.com/meta-academy-banner.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rainigeria.com/meta-academy">
+    <meta property="twitter:title" content="Meta AI Developer Academy Nigeria | Free AI Training">
+    <meta property="twitter:description" content="Join 300+ developers in a fully-funded intensive training program on Agentic AI Systems using Meta's cutting-edge tools.">
+    <meta property="twitter:image" content="https://rainigeria.com/meta-academy-banner.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rainigeria.com/meta-academy">
+    
     <style>
         * {
             margin: 0;
@@ -77,16 +101,23 @@
             color: #666;
         }
 
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
         .header-info {
             display: flex;
             gap: 30px;
             font-size: 14px;
             color: #666;
+            align-items: center;
         }
 
+        .main-site-btn,
         .student-login-btn {
             padding: 10px 25px;
-            background: var(--meta-blue);
             color: white;
             border: none;
             border-radius: 6px;
@@ -95,17 +126,56 @@
             transition: background 0.3s;
             text-decoration: none;
             display: inline-block;
+            white-space: nowrap;
+        }
+
+        .main-site-btn {
+            background: var(--accent-green);
+        }
+
+        .main-site-btn:hover {
+            background: #00b847;
+        }
+
+        .student-login-btn {
+            background: var(--meta-blue);
         }
 
         .student-login-btn:hover {
             background: #0557c7;
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--meta-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
         /* Navigation */
         nav {
             background: var(--meta-dark);
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
         }
 
         nav ul {
@@ -134,7 +204,7 @@
         }
 
         nav a.locked::after {
-            content: " 🔒";
+            content: " [Locked]";
             font-size: 12px;
         }
 
@@ -160,6 +230,13 @@
             font-size: 24px;
             border-bottom: 3px solid var(--meta-blue);
             padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: var(--meta-dark);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 20px;
         }
 
         /* Locked Section */
@@ -290,7 +367,7 @@
             display: none;
         }
 
-        /* Schedule Table - MOBILE OPTIMIZED */
+        /* Schedule Table */
         .table-wrapper {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
@@ -316,8 +393,6 @@
             background: var(--bg-light);
             font-weight: 600;
             color: var(--meta-dark);
-            position: sticky;
-            top: 0;
         }
 
         .schedule-table tr:hover {
@@ -382,6 +457,10 @@
             background: linear-gradient(135deg, var(--accent-green) 0%, #00b847 100%);
         }
 
+        .link-card.tertiary {
+            background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+        }
+
         /* Social Media Section */
         .social-grid {
             display: grid;
@@ -405,11 +484,6 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
-        .social-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
         .social-card h3 {
             color: var(--meta-dark);
             margin-bottom: 15px;
@@ -430,7 +504,7 @@
             background: #0557c7;
         }
 
-        /* Social Feed - MOBILE OPTIMIZED */
+        /* Social Feed */
         .social-feed {
             background: var(--bg-light);
             padding: 20px;
@@ -463,6 +537,26 @@
         .alert p {
             color: #155724;
             margin: 0;
+        }
+
+        .alert.warning {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+
+        .alert.warning h3,
+        .alert.warning p {
+            color: #856404;
+        }
+
+        .alert.info {
+            background: #cce5ff;
+            border-left-color: var(--meta-blue);
+        }
+
+        .alert.info h3,
+        .alert.info p {
+            color: #004085;
         }
 
         /* Hero Section */
@@ -512,9 +606,36 @@
             letter-spacing: 1px;
         }
 
-        /* MOBILE RESPONSIVE - ENHANCED */
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
-            /* Header Optimization */
+            /* Show Hamburger, Hide Desktop Nav */
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav.mobile-active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 0;
+            }
+
+            nav li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            nav a {
+                padding: 15px 30px;
+            }
+
+            /* Header */
             .header-content {
                 padding: 15px;
                 gap: 15px;
@@ -523,7 +644,6 @@
             .logo-section {
                 width: 100%;
                 justify-content: space-between;
-                gap: 10px;
             }
 
             .logo-images {
@@ -543,6 +663,12 @@
                 font-size: 10px;
             }
 
+            .header-buttons {
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+            }
+
             .header-info {
                 width: 100%;
                 flex-direction: column;
@@ -550,20 +676,11 @@
                 font-size: 13px;
             }
 
+            .main-site-btn,
             .student-login-btn {
                 width: 100%;
                 text-align: center;
                 padding: 12px 20px;
-            }
-
-            /* Navigation */
-            nav ul {
-                padding: 0 10px;
-            }
-
-            nav a {
-                padding: 12px 15px;
-                font-size: 14px;
             }
 
             /* Container */
@@ -579,6 +696,10 @@
 
             .section h2 {
                 font-size: 20px;
+            }
+
+            .section h3 {
+                font-size: 18px;
             }
 
             .locked-section {
@@ -692,7 +813,6 @@
             }
         }
 
-        /* Extra Small Devices */
         @media (max-width: 480px) {
             .logo-images img {
                 height: 30px;
@@ -721,15 +841,6 @@
             .section h2 {
                 font-size: 18px;
             }
-
-            nav a {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-
-            .topic-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -748,14 +859,22 @@
                     <img src="metalogo.png" alt="Meta Logo">
                 </div>
             </div>
-            <div class="header-info">
-                <div><strong>Program:</strong> Nov 1 - Dec 19, 2025</div>
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="header-buttons">
+                <div class="header-info">
+                    <div><strong>Program:</strong> Nov 1 - Dec 19, 2025</div>
+                </div>
+                <a href="https://rainigeria.com" class="main-site-btn">Back to Main Site</a>
                 <button class="student-login-btn" onclick="showLoginModal()">Student Login</button>
             </div>
         </div>
     </header>
 
-    <nav>
+    <nav id="mainNav">
         <ul>
             <li><a href="#overview" class="active">Overview</a></li>
             <li><a href="#about">About</a></li>
@@ -799,7 +918,7 @@
             <h2>Program Overview</h2>
             <div class="alert">
                 <h3>Welcome to the Meta AI Developer Academy!</h3>
-                <p>A 7-week intensive training program in Agentic AI Systems development using Meta's cutting-edge AI tools and platforms. <strong>This program is fully funded by Meta.</strong></p>
+                <p>A 7-week intensive training program in Agentic AI Systems development using Meta's cutting-edge AI tools and platforms. This program is fully funded by Meta.</p>
             </div>
             <p><strong>Course Title:</strong> Development of Agentic AI Systems Using Meta AI Resources</p>
             <p><strong>Duration:</strong> 7 Weeks (November 1 - December 19, 2025)</p>
@@ -915,20 +1034,19 @@
         <!-- How to Apply -->
         <section id="apply" class="section">
             <h2>How to Apply</h2>
-            <div class="alert" style="background: #fff3cd; border-left-color: #ffc107;">
-                <h3 style="color: #856404;">Application Process</h3>
-                <p style="color: #856404;">Applications for the current cohort have closed. Selected students have received admission emails. Stay tuned for future cohorts!</p>
+            <div class="alert warning">
+                <h3>Application Process</h3>
+                <p>Applications for the current cohort have closed. Selected students have received admission emails. Stay tuned for future cohorts!</p>
             </div>
-            <div style="margin-top: 30px;">
-                <h3 style="margin-bottom: 15px;">What We Look For:</h3>
-                <ul style="padding-left: 20px; line-height: 2;">
-                    <li>Passion for AI and technology</li>
-                    <li>Basic programming knowledge (Python preferred)</li>
-                    <li>Commitment to attend all sessions</li>
-                    <li>Willingness to collaborate and learn</li>
-                    <li>Interest in building real-world AI solutions</li>
-                </ul>
-            </div>
+            <h3>What We Look For:</h3>
+            <ul style="padding-left: 20px; line-height: 2;">
+                <li>Passion for AI and technology</li>
+                <li>Basic programming knowledge (Python preferred)</li>
+                <li>Commitment to attend all sessions</li>
+                <li>Willingness to collaborate and learn</li>
+                <li>Interest in building real-world AI solutions</li>
+            </ul>
+            
             <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, var(--meta-blue) 0%, #0557c7 100%); border-radius: 12px; color: white;">
                 <h3 style="margin-bottom: 15px; color: white;">What You Get:</h3>
                 <ul style="padding-left: 20px; line-height: 2;">
@@ -950,28 +1068,24 @@
 
             <div class="social-grid">
                 <div class="social-card">
-                    <div class="social-icon">🔗</div>
                     <h3>LinkedIn</h3>
                     <p>Professional updates & insights</p>
                     <a href="https://www.linkedin.com/school/robotics-artificial-intelligence-nigeria-rain/posts/" target="_blank" class="social-btn">Follow Us</a>
                 </div>
 
                 <div class="social-card">
-                    <div class="social-icon">📘</div>
                     <h3>Facebook</h3>
                     <p>Community & discussions</p>
                     <a href="https://www.facebook.com/RAINRobotics" target="_blank" class="social-btn">Like Page</a>
                 </div>
 
                 <div class="social-card">
-                    <div class="social-icon">📷</div>
                     <h3>Instagram</h3>
                     <p>Behind the scenes</p>
                     <a href="https://www.instagram.com/rain_robotics" target="_blank" class="social-btn">Follow</a>
                 </div>
 
                 <div class="social-card">
-                    <div class="social-icon">𝕏</div>
                     <h3>Twitter/X</h3>
                     <p>Live updates & news</p>
                     <a href="https://x.com/RAINigeria" target="_blank" class="social-btn">Follow</a>
@@ -980,7 +1094,7 @@
 
             <!-- Twitter Feed -->
             <div style="margin-top: 40px;">
-                <h3 style="margin-bottom: 20px;">🐦 Latest Tweets</h3>
+                <h3 style="margin-bottom: 20px;">Latest Tweets</h3>
                 <div class="social-feed">
                     <a class="twitter-timeline" 
                        data-height="600" 
@@ -994,7 +1108,7 @@
 
             <!-- Instagram Feed -->
             <div style="margin-top: 40px;">
-                <h3 style="margin-bottom: 20px;">📸 Instagram Feed</h3>
+                <h3 style="margin-bottom: 20px;">Instagram Feed</h3>
                 <div class="social-feed">
                     <iframe class="feed-embed" 
                             src="https://www.instagram.com/rain_robotics/embed" 
@@ -1007,7 +1121,7 @@
 
             <!-- Facebook Feed -->
             <div style="margin-top: 40px;">
-                <h3 style="margin-bottom: 20px;">📘 Facebook Updates</h3>
+                <h3 style="margin-bottom: 20px;">Facebook Updates</h3>
                 <div class="social-feed">
                     <iframe class="feed-embed" 
                             src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/RAINRobotics&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" 
@@ -1021,7 +1135,7 @@
 
             <!-- LinkedIn Feed -->
             <div style="margin-top: 40px;">
-                <h3 style="margin-bottom: 20px;">🔗 LinkedIn Posts</h3>
+                <h3 style="margin-bottom: 20px;">LinkedIn Posts</h3>
                 <div class="link-grid">
                     <a href="https://www.linkedin.com/school/robotics-artificial-intelligence-nigeria-rain" target="_blank" class="link-card">
                         <h3>View Our LinkedIn</h3>
@@ -1039,7 +1153,7 @@
         
         <div id="student-resources">
             <div class="locked-section">
-                <h2>🔒 Student Resources</h2>
+                <h2>Student Resources</h2>
                 <p>Access to live classes, recordings, materials, assessments, and more requires student authentication.</p>
                 <button class="unlock-btn" onclick="showLoginModal()">Login as Student</button>
             </div>
@@ -1047,14 +1161,14 @@
 
         <!-- Contact -->
         <section id="contact" class="section">
-            <h2>📞 Contact Us</h2>
+            <h2>Contact Us</h2>
             <div class="link-grid">
                 <a href="mailto:info@rainigeria.com" class="link-card">
-                    <h3>✉️ Email Us</h3>
+                    <h3>Email Us</h3>
                     <p>info@rainigeria.com</p>
                 </a>
                 <a href="https://www.facebook.com/RAINRobotics" target="_blank" class="link-card secondary">
-                    <h3>💬 Message Us</h3>
+                    <h3>Message Us</h3>
                     <p>Send us a message on social media</p>
                 </a>
             </div>
@@ -1080,6 +1194,7 @@
                 <a href="#schedule" style="color: white; text-decoration: none; opacity: 0.8;">Schedule</a>
                 <a href="#social" style="color: white; text-decoration: none; opacity: 0.8;">Social Media</a>
                 <a href="#contact" style="color: white; text-decoration: none; opacity: 0.8;">Contact</a>
+                <a href="https://rainigeria.com" style="color: white; text-decoration: none; opacity: 0.8;">Main Website</a>
             </div>
         </div>
     </footer>
@@ -1087,7 +1202,7 @@
     <!-- Password Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <h2>🔐 Student Login</h2>
+            <h2>Student Login</h2>
             <p>Enter your student access code to view resources</p>
             <input type="password" id="password-input" placeholder="Enter Access Code" />
             <p class="error-msg" id="error-msg">Invalid access code. Please try again.</p>
@@ -1103,167 +1218,161 @@
         <div class="container">
             <!-- Live Classes -->
             <section id="classes" class="section">
-                <h2>🎥 Live Class Links</h2>
+                <h2>Live Class Links</h2>
                 <div class="link-grid">
                     <a href="https://meet.google.com/ztd-jrnr-qgh" target="_blank" class="link-card">
-                        <h3>📹 Join Live Class</h3>
+                        <h3>Join Live Class</h3>
                         <p>Click to join the current Google Meet session</p>
                     </a>
                     <a href="https://meet.google.com/ztd-jrnr-qgh" target="_blank" class="link-card secondary">
-                        <h3>📅 Class Calendar</h3>
+                        <h3>Class Calendar</h3>
                         <p>View all upcoming sessions</p>
                     </a>
                 </div>
                 <p style="margin-top: 20px; color: #666;">
-                    <strong>⚠️ Important:</strong> Attendance is mandatory for assessment and certification eligibility.
+                    <strong>Important:</strong> Attendance is mandatory for assessment and certification eligibility.
                 </p>
             </section>
 
             <!-- Recorded Sessions -->
             <section id="recordings" class="section">
-                <h2>📼 Recorded Sessions</h2>
+                <h2>Recorded Sessions</h2>
                 <p style="margin-bottom: 20px;">Access all previous class recordings here. Watch any missed sessions to stay up to date.</p>
 
-                <div style="margin-top: 30px;">
-                    <h3 style="margin-bottom: 15px; color: var(--meta-dark);">Recent Sessions:</h3>
-                    <div class="link-grid">
-                        <a href="/session1" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 1</h3>
-                            <p>Introduction to Llama, Dino, SAM and other models by Meta</p>
-                        </a>
-                        <a href="/session2" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 2</h3>
-                            <p>Techniques in Prompt Engineering with Meta</p>
-                        </a>
-                        <a href="/session3" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 3</h3>
-                            <p>Use Cases of Llama Models in Reality</p>
-                        </a>
-                        <a href="/session4" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 4</h3>
-                            <p>Python-Based Data Analytics with Facebook Data for Good</p>
-                        </a>
-                        <a href="/session5" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 5</h3>
-                            <p>Meta's Machine Learning Tool PyTorch</p>
-                        </a>
-                        <a href="/session6" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 6</h3>
-                            <p>Smart Deployment of Python-Based Automated Engines</p>
-                        </a>
-                        <a href="/session7" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 7</h3>
-                            <p>Developing LLAMA 4 Based Fine-Tuned Model (Part 1)</p>
-                        </a>
-                        <a href="/session8" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 8</h3>
-                            <p>Developing LLAMA 4 Based Fine-Tuned Model (Part 2)</p>
-                        </a>
-                        <a href="/session9" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 9</h3>
-                            <p>Meta Guidelines for Responsible AI</p>
-                        </a>
-                        <a href="/session10" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 10</h3>
-                            <p>AI Agents: Introduction and Fundamentals</p>
-                        </a>
-                        <a href="/session11" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 11</h3>
-                            <p>Automation + Llama + Expert Domain Knowledge</p>
-                        </a>
-                        <a href="/session12" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 12</h3>
-                            <p>LangGraph-Based Practical Development of an AI Agent</p>
-                        </a>
-                        <a href="/session13" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 13</h3>
-                            <p>Guidelines on AI Agent Hosting and Launch</p>
-                        </a>
-                        <a href="/session14" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 14</h3>
-                            <p>Practical AI Agent Construction</p>
-                        </a>
-                        <a href="/session15" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 15</h3>
-                            <p>Practical AI Agent Deployment</p>
-                        </a>
-                        <a href="/session16" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 16</h3>
-                            <p>Introduction to Agentic AI Systems</p>
-                        </a>
-                        <a href="/session17" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 17</h3>
-                            <p>Understanding Agent2Agent and MCP Protocol</p>
-                        </a>
-                        <a href="/session18" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 18</h3>
-                            <p>Developing an Agentic AI System for Payment Clearing (Part 1)</p>
-                        </a>
-                        <a href="/session19" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
-                            <h3>Main Session 19</h3>
-                            <p>Practical Agentic AI System Development (Part 2)</p>
-                        </a>
-                    </div>
+                <h3>Recent Sessions:</h3>
+                <div class="link-grid">
+                    <a href="/session1" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 1</h3>
+                        <p>Introduction to Llama, Dino, SAM and other models by Meta</p>
+                    </a>
+                    <a href="/session2" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 2</h3>
+                        <p>Techniques in Prompt Engineering with Meta</p>
+                    </a>
+                    <a href="/session3" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 3</h3>
+                        <p>Use Cases of Llama Models in Reality</p>
+                    </a>
+                    <a href="/session4" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 4</h3>
+                        <p>Python-Based Data Analytics with Facebook Data for Good</p>
+                    </a>
+                    <a href="/session5" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 5</h3>
+                        <p>Meta's Machine Learning Tool PyTorch</p>
+                    </a>
+                    <a href="/session6" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 6</h3>
+                        <p>Smart Deployment of Python-Based Automated Engines</p>
+                    </a>
+                    <a href="/session7" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 7</h3>
+                        <p>Developing LLAMA 4 Based Fine-Tuned Model (Part 1)</p>
+                    </a>
+                    <a href="/session8" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 8</h3>
+                        <p>Developing LLAMA 4 Based Fine-Tuned Model (Part 2)</p>
+                    </a>
+                    <a href="/session9" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 9</h3>
+                        <p>Meta Guidelines for Responsible AI</p>
+                    </a>
+                    <a href="/session10" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 10</h3>
+                        <p>AI Agents: Introduction and Fundamentals</p>
+                    </a>
+                    <a href="/session11" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 11</h3>
+                        <p>Automation + Llama + Expert Domain Knowledge</p>
+                    </a>
+                    <a href="/session12" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 12</h3>
+                        <p>LangGraph-Based Practical Development of an AI Agent</p>
+                    </a>
+                    <a href="/session13" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 13</h3>
+                        <p>Guidelines on AI Agent Hosting and Launch</p>
+                    </a>
+                    <a href="/session14" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 14</h3>
+                        <p>Practical AI Agent Construction</p>
+                    </a>
+                    <a href="/session15" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 15</h3>
+                        <p>Practical AI Agent Deployment</p>
+                    </a>
+                    <a href="/session16" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 16</h3>
+                        <p>Introduction to Agentic AI Systems</p>
+                    </a>
+                    <a href="/session17" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 17</h3>
+                        <p>Understanding Agent2Agent and MCP Protocol</p>
+                    </a>
+                    <a href="/session18" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 18</h3>
+                        <p>Developing an Agentic AI System for Payment Clearing (Part 1)</p>
+                    </a>
+                    <a href="/session19" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                        <h3>Main Session 19</h3>
+                        <p>Practical Agentic AI System Development (Part 2)</p>
+                    </a>
                 </div>
             </section>
 
             <!-- Challenges & Competitions -->
             <section id="challenges" class="section">
-                <h2>🏆 Daily Challenges & Competitions</h2>
+                <h2>Daily Challenges & Competitions</h2>
                 
-                <div class="alert" style="background: #fff3cd; border-left-color: #ffc107;">
-                    <h3 style="color: #856404;">Upcoming Challenge</h3>
-                    <p style="color: #856404;"><strong>Challenge:</strong> Ideathon Pitch of what community problem you can solve using Llama | <strong>Prize:</strong> 1,500,000 Naira / Ray Ban Meta Glasses</p>
+                <div class="alert warning">
+                    <h3>Upcoming Challenge</h3>
+                    <p><strong>Challenge:</strong> Ideathon Pitch of what community problem you can solve using Llama | <strong>Prize:</strong> 1,500,000 Naira / Ray Ban Meta Glasses</p>
                 </div>
 
                 <div class="link-grid">
-                    <a href="#" target="_blank" class="link-card">
+                    <a href="#" class="link-card">
                         <h3>View Assessments</h3>
                         <p>Check past assessments taken</p>
                     </a>
-                    <a href="#" target="_blank" class="link-card secondary">
-                        <h3>📈 Leaderboard</h3>
+                    <a href="#" class="link-card secondary">
+                        <h3>Leaderboard</h3>
                         <p>See top performers and rankings</p>
                     </a>
                 </div>
 
-                <div style="margin-top: 30px;">
-                    <h3 style="margin-bottom: 15px;">Prize Winners:</h3>
-                    <div style="background: var(--bg-light); padding: 20px; border-radius: 8px;">
-                        <ul style="list-style: none; padding: 0; line-height: 2;">
-                            <li>🏆 Iyeoluwa Akinrinola - NGN 50,000 (Daily Assessment 1)</li>
-                            <li>🏆 Benedict Isaac - NGN 50,000 (Daily Assessment 2)</li>
-                            <li>🎯 TBD - NGN 50,000 (Daily Assessment 3)</li>
-                            <li>💰 TBD - NGN 150,000 (Social Engagement 1)</li>
-                        </ul>
-                    </div>
+                <h3>Prize Winners:</h3>
+                <div style="background: var(--bg-light); padding: 20px; border-radius: 8px;">
+                    <ul style="list-style: none; padding: 0; line-height: 2;">
+                        <li><strong>Iyeoluwa Akinrinola</strong> - NGN 50,000 (Daily Assessment 1)</li>
+                        <li><strong>Benedict Isaac</strong> - NGN 50,000 (Daily Assessment 2)</li>
+                        <li><strong>TBD</strong> - NGN 50,000 (Daily Assessment 3)</li>
+                        <li><strong>TBD</strong> - NGN 150,000 (Social Engagement 1)</li>
+                    </ul>
                 </div>
 
-                <div style="margin-top: 30px;">
-                    <h3 style="margin-bottom: 15px;">Upcoming Competitions:</h3>
-                    <div class="topic-grid">
-                        <div class="topic-card" style="border-left-color: var(--accent-green);">
-                            <strong>Week 4 - AI Ideathon</strong><br>
-                            Best Use Case Design for Llama Powered Agentic AI System<br>
-                            <em>Prize: 1.5 million NGN / Ray Ban Meta Glasses</em>
-                        </div>
-                        <div class="topic-card" style="border-left-color: var(--accent-green);">
-                            <strong>Week 7 - Hackathon</strong><br>
-                            Build Complete Agentic AI System<br>
-                            <em>Prize: 3 million NGN + Ray Ban Meta Glasses</em>
-                        </div>
-                        <div class="topic-card" style="border-left-color: var(--accent-green);">
-                            <strong>Week 7 - Final Showcase</strong><br>
-                            Final Project Presentation<br>
-                            <em>Prize: Internship + Partnership Opportunities</em>
-                        </div>
+                <h3>Upcoming Competitions:</h3>
+                <div class="topic-grid">
+                    <div class="topic-card" style="border-left-color: var(--accent-green);">
+                        <strong>Week 4 - AI Ideathon</strong><br>
+                        Best Use Case Design for Llama Powered Agentic AI System<br>
+                        <em>Prize: 1.5 million NGN / Ray Ban Meta Glasses</em>
+                    </div>
+                    <div class="topic-card" style="border-left-color: var(--accent-green);">
+                        <strong>Week 7 - Hackathon</strong><br>
+                        Build Complete Agentic AI System<br>
+                        <em>Prize: 3 million NGN + Ray Ban Meta Glasses</em>
+                    </div>
+                    <div class="topic-card" style="border-left-color: var(--accent-green);">
+                        <strong>Week 7 - Final Showcase</strong><br>
+                        Final Project Presentation<br>
+                        <em>Prize: Internship + Partnership Opportunities</em>
                     </div>
                 </div>
             </section>
 
             <!-- Announcements -->
             <section id="announcements" class="section">
-                <h2>📢 Announcements</h2>
+                <h2>Announcements</h2>
                 
                 <div class="alert">
                     <h3>Program Launch - November 1, 2025</h3>
@@ -1277,10 +1386,10 @@
                     <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Posted: October 30, 2025</div>
                 </div>
 
-                <div class="alert" style="background: #cce5ff; border-left-color: var(--meta-blue);">
-                    <h3 style="color: #004085;">💻 Technical Requirements</h3>
-                    <p style="color: #004085;">Ensure you have Python 3.8+ installed on your computer. We'll be using Google Colab for hands-on sessions, so make sure you have a Google account. Links to setup guides have been shared in the WhatsApp group.</p>
-                    <div style="font-size: 12px; opacity: 0.8; margin-top: 5px; color: #004085;">Posted: October 28, 2025</div>
+                <div class="alert info">
+                    <h3>Technical Requirements</h3>
+                    <p>Ensure you have Python 3.8+ installed on your computer. We'll be using Google Colab for hands-on sessions, so make sure you have a Google account. Links to setup guides have been shared in the WhatsApp group.</p>
+                    <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Posted: October 28, 2025</div>
                 </div>
             </section>
 
@@ -1288,9 +1397,9 @@
             <section class="section">
                 <h2>Student Registration</h2>
                 <div class="link-grid">
-                    <div class="link-card" style="background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);">
+                    <div class="link-card tertiary">
                         <h3>Complete Registration</h3>
-                        <p>This has Closed - Fill out your course registration form</p>
+                        <p>Registration has closed - Fill out your course registration form</p>
                     </div>
                     <a href="https://wa.me/2348114276861?text=Hello,%20is%20this%20RAIN%20x%20Meta%20Academy?" target="_blank" class="link-card secondary">
                         <h3>WhatsApp Group</h3>
@@ -1336,6 +1445,13 @@
 
     <script>
         const correctPassword = "MetaAI2025";
+
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mainNav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.toggle('mobile-active');
+            hamburger.classList.toggle('active');
+        }
 
         function showLoginModal() {
             document.getElementById('loginModal').style.display = 'flex';
@@ -1395,6 +1511,12 @@
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
+                
+                // Close mobile menu after clicking
+                const nav = document.getElementById('mainNav');
+                const hamburger = document.querySelector('.hamburger');
+                nav.classList.remove('mobile-active');
+                hamburger.classList.remove('active');
                 
                 if (targetId === 'student-resources' && sessionStorage.getItem('authenticated') !== 'true') {
                     showLoginModal();
@@ -1459,9 +1581,6 @@
             section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(section);
         });
-
-        console.log('%c Meta AI Developer Academy', 'color: #0668E1; font-size: 20px; font-weight: bold;');
-        console.log('%cFunded by Meta | Powered by RAIN Nigeria', 'color: #00D856; font-size: 14px;');
     </script>
 </body>
 </html>
