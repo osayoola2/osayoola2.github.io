@@ -105,6 +105,7 @@
         nav {
             background: var(--meta-dark);
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         nav ul {
@@ -210,6 +211,7 @@
             background: rgba(0,0,0,0.7);
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         .modal-content {
@@ -217,7 +219,7 @@
             padding: 40px;
             border-radius: 16px;
             max-width: 400px;
-            width: 90%;
+            width: 100%;
             text-align: center;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
@@ -288,11 +290,19 @@
             display: none;
         }
 
-        /* Schedule Table */
+        /* Schedule Table - MOBILE OPTIMIZED */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            min-width: 600px;
         }
 
         .schedule-table th,
@@ -306,6 +316,8 @@
             background: var(--bg-light);
             font-weight: 600;
             color: var(--meta-dark);
+            position: sticky;
+            top: 0;
         }
 
         .schedule-table tr:hover {
@@ -418,7 +430,7 @@
             background: #0557c7;
         }
 
-        /* Social Feed */
+        /* Social Feed - MOBILE OPTIMIZED */
         .social-feed {
             background: var(--bg-light);
             padding: 20px;
@@ -500,32 +512,53 @@
             letter-spacing: 1px;
         }
 
-        /* Responsive */
+        /* MOBILE RESPONSIVE - ENHANCED */
         @media (max-width: 768px) {
+            /* Header Optimization */
             .header-content {
-                flex-direction: column;
-                align-items: flex-start;
+                padding: 15px;
+                gap: 15px;
             }
 
-            .header-info {
-                flex-direction: column;
+            .logo-section {
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .logo-images {
                 gap: 10px;
             }
 
             .logo-images img {
-                height: 40px;
+                height: 35px;
             }
 
             .logo-text h1 {
-                font-size: 18px;
+                font-size: 16px;
+                line-height: 1.3;
             }
 
             .logo-text p {
-                font-size: 11px;
+                font-size: 10px;
             }
 
+            .header-info {
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+                font-size: 13px;
+            }
+
+            .student-login-btn {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+            }
+
+            /* Navigation */
             nav ul {
-                padding: 0 15px;
+                padding: 0 10px;
             }
 
             nav a {
@@ -533,32 +566,168 @@
                 font-size: 14px;
             }
 
+            /* Container */
             .container {
                 padding: 15px;
             }
 
+            /* Sections */
             .section {
-                padding: 20px;
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            .locked-section {
+                padding: 30px 15px;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 40px 20px;
             }
 
             .hero h1 {
-                font-size: 28px;
+                font-size: 24px;
+                line-height: 1.3;
             }
 
             .hero p {
-                font-size: 16px;
-            }
-
-            .stat-number {
-                font-size: 36px;
+                font-size: 15px;
+                line-height: 1.5;
             }
 
             .hero-stats {
-                gap: 30px;
+                gap: 25px;
             }
 
+            .stat-number {
+                font-size: 32px;
+            }
+
+            .stat-label {
+                font-size: 12px;
+            }
+
+            /* Grids */
             .topic-grid,
-            .link-grid {
+            .link-grid,
+            .social-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            /* Cards */
+            .topic-card,
+            .link-card,
+            .social-card {
+                padding: 15px;
+            }
+
+            .link-card h3 {
+                font-size: 16px;
+            }
+
+            .link-card p {
+                font-size: 13px;
+            }
+
+            /* Table */
+            .schedule-table th,
+            .schedule-table td {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            /* Modal */
+            .modal {
+                padding: 15px;
+            }
+
+            .modal-content {
+                padding: 25px 20px;
+            }
+
+            .modal-content h2 {
+                font-size: 20px;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
+            }
+
+            .modal-buttons button {
+                width: 100%;
+            }
+
+            /* Alert */
+            .alert {
+                padding: 15px;
+            }
+
+            .alert h3 {
+                font-size: 16px;
+            }
+
+            .alert p {
+                font-size: 14px;
+            }
+
+            /* Social Feed */
+            .feed-embed {
+                height: 400px;
+            }
+
+            .social-feed {
+                padding: 15px;
+            }
+
+            /* Buttons */
+            .unlock-btn {
+                width: 100%;
+                padding: 14px;
+            }
+        }
+
+        /* Extra Small Devices */
+        @media (max-width: 480px) {
+            .logo-images img {
+                height: 30px;
+            }
+
+            .logo-text h1 {
+                font-size: 14px;
+            }
+
+            .logo-text p {
+                font-size: 9px;
+            }
+
+            .hero h1 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .section h2 {
+                font-size: 18px;
+            }
+
+            nav a {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .topic-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -577,12 +746,11 @@
                 </div>
                 <div class="logo-images">
                     <img src="metalogo.png" alt="Meta Logo">
-                    
                 </div>
             </div>
             <div class="header-info">
-                <div> <strong>Program:</strong> Nov 1 - Dec 19, 2025</div>
-                <button class="student-login-btn" onclick="showLoginModal()">Student Login </button>
+                <div><strong>Program:</strong> Nov 1 - Dec 19, 2025</div>
+                <button class="student-login-btn" onclick="showLoginModal()">Student Login</button>
             </div>
         </div>
     </header>
@@ -640,21 +808,21 @@
             <p><strong>Implementation Partner:</strong> RAIN Nigeria</p>
             <p><strong>Program Lead:</strong> Dr. Olusola Ayoola</p>
             <p style="margin-top: 15px; padding: 15px; background: #e8f4fd; border-left: 4px solid var(--meta-blue); border-radius: 8px;">
-                <strong> About the Funding:</strong> Meta is investing in African talent development by providing this world-class AI training completely free of charge. This includes access to Meta's proprietary AI tools, expert instruction, certification, and competition prizes.
+                <strong>About the Funding:</strong> Meta is investing in African talent development by providing this world-class AI training completely free of charge. This includes access to Meta's proprietary AI tools, expert instruction, certification, and competition prizes.
             </p>
         </section>
 
         <!-- About Section -->
         <section id="about" class="section">
-            <h2> What You'll Learn</h2>
+            <h2>What You'll Learn</h2>
             <p style="margin-bottom: 20px;">This intensive program will transform you into an expert in Agentic AI Systems. You'll gain hands-on experience with:</p>
             <div class="topic-grid">
                 <div class="topic-card">
-                    <strong> Meta's Llama Models</strong><br>
+                    <strong>Meta's Llama Models</strong><br>
                     Master the latest in large language models
                 </div>
                 <div class="topic-card">
-                    <strong> PyTorch</strong><br>
+                    <strong>PyTorch</strong><br>
                     Build and deploy machine learning models
                 </div>
                 <div class="topic-card">
@@ -662,7 +830,7 @@
                     Create intelligent autonomous systems
                 </div>
                 <div class="topic-card">
-                    <strong> Agentic AI Systems</strong><br>
+                    <strong>Agentic AI Systems</strong><br>
                     Develop multi-agent architectures
                 </div>
                 <div class="topic-card">
@@ -670,7 +838,7 @@
                     Analyze real-world data with Python
                 </div>
                 <div class="topic-card">
-                    <strong> Deployment</strong><br>
+                    <strong>Deployment</strong><br>
                     Launch your AI applications to production
                 </div>
             </div>
@@ -678,7 +846,7 @@
 
         <!-- Course Topics -->
         <section id="topics" class="section">
-            <h2> Complete Course Curriculum</h2>
+            <h2>Complete Course Curriculum</h2>
             <div class="topic-grid">
                 <div class="topic-card">Introduction to Llama, Dino, SAM and other Meta models</div>
                 <div class="topic-card">Techniques in Prompt Engineering with Meta</div>
@@ -706,37 +874,39 @@
 
         <!-- Schedule -->
         <section id="schedule" class="section">
-            <h2> Weekly Schedule</h2>
-            <table class="schedule-table">
-                <thead>
-                    <tr>
-                        <th>Day</th>
-                        <th>Time</th>
-                        <th>Duration</th>
-                        <th>Focus</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Friday</strong></td>
-                        <td>5:00 PM - 7:00 PM</td>
-                        <td>2 hours</td>
-                        <td>Introductions and Deep Dives</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Saturday</strong></td>
-                        <td>9:00 AM - 11:00 AM</td>
-                        <td>2 hours</td>
-                        <td>Intensive Hands-on Sessions</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sunday</strong></td>
-                        <td>8:00 PM - 10:00 PM</td>
-                        <td>2 hours</td>
-                        <td>Intensive Hands-on Sessions</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2>Weekly Schedule</h2>
+            <div class="table-wrapper">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Time</th>
+                            <th>Duration</th>
+                            <th>Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Friday</strong></td>
+                            <td>5:00 PM - 7:00 PM</td>
+                            <td>2 hours</td>
+                            <td>Introductions and Deep Dives</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saturday</strong></td>
+                            <td>9:00 AM - 11:00 AM</td>
+                            <td>2 hours</td>
+                            <td>Intensive Hands-on Sessions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sunday</strong></td>
+                            <td>8:00 PM - 10:00 PM</td>
+                            <td>2 hours</td>
+                            <td>Intensive Hands-on Sessions</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <p style="margin-top: 20px; color: #666; font-style: italic;">
                 <strong>Note:</strong> Surgery classes and hackathon group meetings will be scheduled on other days, subject to mutual agreement.
             </p>
@@ -744,7 +914,7 @@
 
         <!-- How to Apply -->
         <section id="apply" class="section">
-            <h2> How to Apply</h2>
+            <h2>How to Apply</h2>
             <div class="alert" style="background: #fff3cd; border-left-color: #ffc107;">
                 <h3 style="color: #856404;">Application Process</h3>
                 <p style="color: #856404;">Applications for the current cohort have closed. Selected students have received admission emails. Stay tuned for future cohorts!</p>
@@ -760,7 +930,7 @@
                 </ul>
             </div>
             <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, var(--meta-blue) 0%, #0557c7 100%); border-radius: 12px; color: white;">
-                <h3 style="margin-bottom: 15px; color: white;"> What You Get:</h3>
+                <h3 style="margin-bottom: 15px; color: white;">What You Get:</h3>
                 <ul style="padding-left: 20px; line-height: 2;">
                     <li>Free world-class AI training</li>
                     <li>Access to Meta's AI tools and platforms</li>
@@ -775,7 +945,7 @@
 
         <!-- Social Media Feed -->
         <section id="social" class="section">
-            <h2> Follow Our Journey</h2>
+            <h2>Follow Our Journey</h2>
             <p style="margin-bottom: 20px;">Stay updated with the latest from the Meta AI Developer Academy. Follow our hashtag <strong>#metaaideveloperacademynigeria</strong> across all platforms!</p>
 
             <div class="social-grid">
@@ -797,14 +967,14 @@
                     <div class="social-icon">📷</div>
                     <h3>Instagram</h3>
                     <p>Behind the scenes</p>
-                    <a href="YOUR_INSTAGRAM_LINK" target="_blank" class="social-btn">Follow</a>
-                </div>https://www.instagram.com/rain_robotics
+                    <a href="https://www.instagram.com/rain_robotics" target="_blank" class="social-btn">Follow</a>
+                </div>
 
                 <div class="social-card">
                     <div class="social-icon">𝕏</div>
                     <h3>Twitter/X</h3>
                     <p>Live updates & news</p>
-                    <a href="https://x.com/RAINigeriaYOUR_TWITTER_LINK" target="_blank" class="social-btn">Follow</a>
+                    <a href="https://x.com/RAINigeria" target="_blank" class="social-btn">Follow</a>
                 </div>
             </div>
 
@@ -812,7 +982,6 @@
             <div style="margin-top: 40px;">
                 <h3 style="margin-bottom: 20px;">🐦 Latest Tweets</h3>
                 <div class="social-feed">
-                    <!-- Replace YOUR_TWITTER_USERNAME with your actual Twitter handle -->
                     <a class="twitter-timeline" 
                        data-height="600" 
                        data-theme="light" 
@@ -827,7 +996,6 @@
             <div style="margin-top: 40px;">
                 <h3 style="margin-bottom: 20px;">📸 Instagram Feed</h3>
                 <div class="social-feed">
-                    <!-- Instagram Embed - Replace with your Instagram embed code -->
                     <iframe class="feed-embed" 
                             src="https://www.instagram.com/rain_robotics/embed" 
                             frameborder="0" 
@@ -841,7 +1009,6 @@
             <div style="margin-top: 40px;">
                 <h3 style="margin-bottom: 20px;">📘 Facebook Updates</h3>
                 <div class="social-feed">
-                    <!-- Facebook Page Plugin -->
                     <iframe class="feed-embed" 
                             src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/RAINRobotics&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" 
                             scrolling="no" 
@@ -960,7 +1127,6 @@
                 <div style="margin-top: 30px;">
                     <h3 style="margin-bottom: 15px; color: var(--meta-dark);">Recent Sessions:</h3>
                     <div class="link-grid">
-
                         <a href="/session1" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
                             <h3>Main Session 1</h3>
                             <p>Introduction to Llama, Dino, SAM and other models by Meta</p>
@@ -1037,63 +1203,40 @@
                             <h3>Main Session 19</h3>
                             <p>Practical Agentic AI System Development (Part 2)</p>
                         </a>
-
                     </div>
                 </div>
             </section>
-
-
-
-
 
             <!-- Challenges & Competitions -->
             <section id="challenges" class="section">
                 <h2>🏆 Daily Challenges & Competitions</h2>
                 
                 <div class="alert" style="background: #fff3cd; border-left-color: #ffc107;">
-                    <h3 style="color: #856404;"> Upcoming Challenge</h3>
+                    <h3 style="color: #856404;">Upcoming Challenge</h3>
                     <p style="color: #856404;"><strong>Challenge:</strong> Ideathon Pitch of what community problem you can solve using Llama | <strong>Prize:</strong> 1,500,000 Naira / Ray Ban Meta Glasses</p>
                 </div>
 
                 <div class="link-grid">
-                    <a href="YOUR_DAILY_CHALLENGE_LINK" target="_blank" class="link-card">
-                        <h3> View Assessments taken so far's Challenge</h3>
-                        
+                    <a href="#" target="_blank" class="link-card">
+                        <h3>View Assessments</h3>
+                        <p>Check past assessments taken</p>
                     </a>
-                    <a href="YOUR_LEADERBOARD_LINK" target="_blank" class="link-card secondary">
+                    <a href="#" target="_blank" class="link-card secondary">
                         <h3>📈 Leaderboard</h3>
                         <p>See top performers and rankings</p>
-                        <ul>
-                            <li>Iyeoluwa Akinrinola - NGN 50,000 Winner of Daily Assessment 1</li>
-                            <li>Benedict Isaac - NGN 50,000 Winner of Daily Assessment 2</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 3</li>
-                            <li>TBD - NGN 150,000 Winner of Social Engagement Challenge 1</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 4</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 5</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 6</li>
-                            <li>TBD - NGN 150,000 Winner of Social Engagement Challenge 2</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 7</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 8</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 9</li>
-                            <li>TBD - NGN 150,000 Winner of Social Engagement Challenge 3</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 10</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 11</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 12</li>
-                            <li>TBD - NGN 150,000 Winner of Social Engagement Challenge 4</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 13</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 14</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 15</li>
-                            <li>TBD - NGN 150,000 Winner of Social Engagement Challenge 5</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 16</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 17</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 18</li>
-                            <li>TBD - NGN 150,000 Winner of Social Engagement Challenge 6</li>
-                            <li>TBD - NGN 50,000 Winner of Daily Assessment 19</li>
-                            <li>TBD - NGN 150,000 Winner of Social Engagement Challenge 7</li>
-                        </ul>
-                       
                     </a>
+                </div>
 
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">Prize Winners:</h3>
+                    <div style="background: var(--bg-light); padding: 20px; border-radius: 8px;">
+                        <ul style="list-style: none; padding: 0; line-height: 2;">
+                            <li>🏆 Iyeoluwa Akinrinola - NGN 50,000 (Daily Assessment 1)</li>
+                            <li>🏆 Benedict Isaac - NGN 50,000 (Daily Assessment 2)</li>
+                            <li>🎯 TBD - NGN 50,000 (Daily Assessment 3)</li>
+                            <li>💰 TBD - NGN 150,000 (Social Engagement 1)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div style="margin-top: 30px;">
@@ -1101,7 +1244,7 @@
                     <div class="topic-grid">
                         <div class="topic-card" style="border-left-color: var(--accent-green);">
                             <strong>Week 4 - AI Ideathon</strong><br>
-                            Best Use Case Design for Llamma Powered Agentic AI System<br>
+                            Best Use Case Design for Llama Powered Agentic AI System<br>
                             <em>Prize: 1.5 million NGN / Ray Ban Meta Glasses</em>
                         </div>
                         <div class="topic-card" style="border-left-color: var(--accent-green);">
@@ -1123,13 +1266,13 @@
                 <h2>📢 Announcements</h2>
                 
                 <div class="alert">
-                    <h3> Program Launch - November 1, 2025</h3>
+                    <h3>Program Launch - November 1, 2025</h3>
                     <p>Welcome to the Meta AI Developer Academy! Please ensure you've completed your registration form and joined all communication channels. Our first session is this Friday at 5:00 PM.</p>
                     <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Posted: October 31, 2025</div>
                 </div>
 
                 <div class="alert">
-                    <h3> Attendance Policy Reminder</h3>
+                    <h3>Attendance Policy Reminder</h3>
                     <p>Attendance is mandatory for all sessions. Missing more than 2 sessions may affect your eligibility for certification and prizes. If you must miss a session, please inform the program coordinators in advance.</p>
                     <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Posted: October 30, 2025</div>
                 </div>
@@ -1145,58 +1288,54 @@
             <section class="section">
                 <h2>Student Registration</h2>
                 <div class="link-grid">
-                    <!--<a href="https://docs.google.com/forms/d/e/1FAIpQLSfsAN26uvcLWKTG1UwQPZ2V9mIZGU_iokJBho_9zBwNfFVE4w/viewform" target="_blank" class="link-card"> -->
-                        <h3> Complete Registration</h3>
+                    <div class="link-card" style="background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);">
+                        <h3>Complete Registration</h3>
                         <p>This has Closed - Fill out your course registration form</p>
-                    <!-- </a> -->
-                    <a href="wa.me/2348114276861?text=Hello,%2C%20is%20this%20RAIN%20x%20Meta%20Academy?" target="_blank" class="link-card secondary">
-                        <h3> WhatsApp Group - This is a closed community group for all participants Please contact admin first</h3>
-                        <p>Join the student community</p>
+                    </div>
+                    <a href="https://wa.me/2348114276861?text=Hello,%20is%20this%20RAIN%20x%20Meta%20Academy?" target="_blank" class="link-card secondary">
+                        <h3>WhatsApp Group</h3>
+                        <p>This is a closed community group - contact admin first</p>
                     </a>
                 </div>
             </section>
 
             <!-- Quick Links -->
             <section class="section">
-                <h2> Quick Links</h2>
+                <h2>Quick Links</h2>
                 <div class="topic-grid">
                     <div class="topic-card">
                         <strong>Meta AI Resources</strong><br>
                         <a href="https://ai.meta.com/" target="_blank" style="color: var(--meta-blue);">Official Meta AI Website</a>
                     </div>
                     <div class="topic-card">
-                        <strong> Llama Documentation</strong><br>
+                        <strong>Llama Documentation</strong><br>
                         <a href="https://llama.meta.com/" target="_blank" style="color: var(--meta-blue);">Llama Models Documentation</a>
                     </div>
                     <div class="topic-card">
-                        <strong> PyTorch</strong><br>
+                        <strong>PyTorch</strong><br>
                         <a href="https://pytorch.org/" target="_blank" style="color: var(--meta-blue);">PyTorch Official Site</a>
                     </div>
                     <div class="topic-card">
-                        <strong> RAIN Nigeria</strong><br>
+                        <strong>RAIN Nigeria</strong><br>
                         <a href="https://rainigeria.com/" target="_blank" style="color: var(--meta-blue);">RAIN Official Website</a>
                     </div>
-
                     <div class="topic-card">
-                        <strong> Course Handbook</strong><br>
-                        <p> To be available soon</p>
+                        <strong>Course Handbook</strong><br>
+                        <p>To be available soon</p>
                     </div>
                 </div>
             </section>
 
             <div style="text-align: center; padding: 30px;">
                 <button class="unlock-btn" onclick="logoutStudent()" style="background: #dc3545;">
-                     Logout
+                    Logout
                 </button>
             </div>
         </div>
     </div>
 
     <script>
-        // ================================
-        // PASSWORD PROTECTION
-        // ================================
-        const correctPassword = "MetaAI2025"; // CHANGE THIS PASSWORD
+        const correctPassword = "MetaAI2025";
 
         function showLoginModal() {
             document.getElementById('loginModal').style.display = 'flex';
@@ -1213,22 +1352,11 @@
             const errorMsg = document.getElementById('error-msg');
             
             if (input === correctPassword) {
-                // Hide modal
                 closeLoginModal();
-                
-                // Hide public content
                 document.querySelector('.container').style.display = 'none';
-                
-                // Show student content
                 document.getElementById('student-content').style.display = 'block';
-                
-                // Update navigation
                 document.querySelector('nav a.locked').classList.remove('locked');
-                
-                // Store authentication
                 sessionStorage.setItem('authenticated', 'true');
-                
-                // Scroll to student resources
                 setTimeout(() => {
                     document.getElementById('classes').scrollIntoView({ behavior: 'smooth' });
                 }, 100);
@@ -1243,14 +1371,12 @@
             location.reload();
         }
 
-        // Allow Enter key to submit password
         document.getElementById('password-input')?.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 checkPassword();
             }
         });
 
-        // Check if already authenticated
         window.addEventListener('load', function() {
             if (sessionStorage.getItem('authenticated') === 'true') {
                 document.querySelector('.container').style.display = 'none';
@@ -1259,23 +1385,17 @@
             }
         });
 
-        // Close modal when clicking outside
         document.getElementById('loginModal')?.addEventListener('click', function(e) {
             if (e.target === this) {
                 closeLoginModal();
             }
         });
 
-        // ================================
-        // NAVIGATION
-        // ================================
-        
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 
-                // Check if trying to access student resources
                 if (targetId === 'student-resources' && sessionStorage.getItem('authenticated') !== 'true') {
                     showLoginModal();
                     return;
@@ -1299,7 +1419,6 @@
             });
         });
 
-        // Update active nav on scroll
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('.section');
             const navLinks = document.querySelectorAll('nav a');
@@ -1320,10 +1439,6 @@
             });
         });
 
-        // ================================
-        // ANIMATIONS
-        // ================================
-        
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1345,11 +1460,8 @@
             observer.observe(section);
         });
 
-        // ================================
-        // CONSOLE MESSAGE
-        // ================================
         console.log('%c Meta AI Developer Academy', 'color: #0668E1; font-size: 20px; font-weight: bold;');
-        console.log('%cFunded by Meta | Powered by RAIN Nigeria ', 'color: #00D856; font-size: 14px;');
+        console.log('%cFunded by Meta | Powered by RAIN Nigeria', 'color: #00D856; font-size: 14px;');
     </script>
 </body>
 </html>
