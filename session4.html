@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program 3 Session ?: Meta AI Developer Academy Nigeria, RAIN</title>
+    <title>Program 3 Session 4: Meta AI Developer Academy Nigeria, RAIN</title>
     <style>
         * {
             margin: 0;
@@ -18,114 +18,158 @@
             justify-content: center;
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            user-select: none;
+            padding: 20px;
         }
         
         .container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 30px;
+            padding: 40px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             max-width: 900px;
-            width: 90%;
+            width: 100%;
         }
         
         h1 {
             text-align: center;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-size: 28px;
         }
         
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            background: #000;
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .materials-section {
+            background: #f8f9fa;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            margin-bottom: 20px;
         }
         
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            pointer-events: auto;
+        .materials-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 50px;
-            background: #000;
-            z-index: 10;
-            pointer-events: none;
+        .download-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         
-        .warning {
-            margin-top: 20px;
-            padding: 15px;
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            border-radius: 5px;
-            color: #856404;
+        .download-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .download-card h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .download-card p {
+            color: #666;
+            margin-bottom: 15px;
             font-size: 14px;
         }
         
-        .warning strong {
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 6px 20px rgba(240, 147, 251, 0.6);
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            color: #1565c0;
+            font-size: 14px;
+        }
+        
+        .info-box strong {
             display: block;
             margin-bottom: 5px;
+        }
+        
+        .icon {
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
-    <!--div class="container">
-        <div class="video-wrapper">
-            <iframe 
-                src="https://drive.google.com/file/d/1btbbnNSS5ulQbKCvNwPam4nzlDxlw6lu/preview"
-                allowfullscreen
-                allow="autoplay">
-            </iframe>
-            <div class="overlay"></div>
+    <div class="container">
+        <h1>📚 Session 4 Materials</h1>
+        <p class="subtitle">Meta AI Developer Academy Nigeria - Program 3 (RAIN)</p>
+        
+        <div class="materials-section">
+            <h2><span class="icon">📥</span> Download Class Materials</h2>
+            
+            <div class="download-card">
+                <h3>📂 Complete Session 4 Folder</h3>
+                <p>Access all materials, slides, code examples, and resources for today's session</p>
+                <a href="https://drive.google.com/drive/folders/1D4W27L8Q3hCf4wh8IPAINYsKGF84poVW?usp=sharing" 
+                   class="btn" 
+                   target="_blank">
+                   Open Google Drive Folder
+                </a>
+            </div>
+            
+            <div class="download-card">
+                <h3>🎥 Session Recording</h3>
+                <p>Video recording will be available after the session ends</p>
+                <a href="https://drive.google.com/drive/folders/1D4W27L8Q3hCf4wh8IPAINYsKGF84poVW?usp=sharing" 
+                   class="btn btn-secondary" 
+                   target="_blank">
+                   View Recordings
+                </a>
+            </div>
         </div>
-
-</div-->
-  <p>This is not yet available</p>
-
-    <script>
-        // Disable right-click
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
         
-        // Disable common keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-            if (e.keyCode == 123 || 
-                (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) ||
-                (e.ctrlKey && e.keyCode == 85)) {
-                e.preventDefault();
-                return false;
-            }
-        });
-        
-        // Disable text selection
-        document.onselectstart = function() {
-            return false;
-        };
-        
-        // Additional protection against dragging
-        document.ondragstart = function() {
-            return false;
-        };
-
-    </script>
+        <div class="info-box">
+            <strong>💡 How to Download:</strong>
+            Click the button above to open the Google Drive folder. From there, you can:
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li>Download individual files by clicking on them</li>
+                <li>Download the entire folder (click the three dots menu → Download)</li>
+                <li>Add the folder to your own Drive for easy access</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
