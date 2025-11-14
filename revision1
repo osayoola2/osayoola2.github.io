@@ -422,8 +422,8 @@
     <div class="container">
         <div class="session-card">
             <div class="session-header">
-                <h2>Main Session 3</h2>
-                <p>Use Cases of Llama Models in Reality</p>
+                <h2>2nd Revision</h2>
+                <p>Python Basics Refresher</p>
             </div>
 
             <div class="video-wrapper">
@@ -437,12 +437,12 @@
 
             <div class="session-info">
                 <div class="info-card">
-                    <h3>Session Date</h3>
-                    <p>Sunday, November 9, 2025</p>
+                    <h3>Revision Date</h3>
+                    <p>Tuesday, November 11, 2025</p>
                 </div>
                 <div class="info-card">
                     <h3>Duration</h3>
-                    <p>2 hours (8:00 PM - 10:00 PM)</p>
+                    <p>2 hours (7:00 PM - 9:00 PM)</p>
                 </div>
                 <div class="info-card">
                     <h3>Instructor</h3>
@@ -450,7 +450,7 @@
                 </div>
                 <div class="info-card">
                     <h3>Week</h3>
-                    <p>Week 1 of 7</p>
+                    <p>Week 2 of 7</p>
                 </div>
             </div>
 
@@ -462,10 +462,10 @@
        target="_blank" 
        class="assessment-btn"
        style="background: white; color: black;">
-        Download Slides Now
+        Download Materials Now
     </a>
     <p style="margin-top: 15px; font-size: 14px; opacity: 0.9;">
-        <strong>Access the full presentation materials</strong>
+        <strong>Access the full materials</strong>
     </p>
 </div>
             <div class="warning">
