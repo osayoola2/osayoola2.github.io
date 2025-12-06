@@ -345,6 +345,94 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
+        .hackathon-banner {
+    background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 50px rgba(255, 107, 107, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.hackathon-text h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hackathon-text p {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.hackathon-prizes {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.prize-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.hackathon-btn {
+    background: white !important;
+    color: #FF6B6B !important;
+    padding: 14px 35px !important;
+    border-radius: 8px;
+    font-weight: 700 !important;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+    font-size: 16px;
+}
+
+.hackathon-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+}
+
+nav a.hackathon {
+    background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);
+    font-weight: 700;
+    animation: blink-nav 2s infinite;
+}
+
+nav a.hackathon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+}
+
+@keyframes blink-nav {
+    0%, 49%, 51%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+/* Mobile responsive for hackathon banner */
+@media (max-width: 768px) {
+    .hackathon-banner {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hackathon-text h2 {
+        font-size: 24px;
+    }
+}
+
         /* Link Cards */
         .link-grid {
             display: grid;
@@ -761,6 +849,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#topics">Course Topics</a></li>
             <li><a href="#schedule">Schedule</a></li>
+            <li><a href="/hackathon" class="hackathon" target="_blank">🏆 HACKATHON</a></li>
             <li><a href="#apply">How to Apply</a></li>
             <li><a href="#social">Social Media</a></li>
             <li><a href="#student-resources" class="locked">Student Resources</a></li>
@@ -793,6 +882,23 @@
                 </div>
             </div>
         </div>
+
+        <!-- HACKATHON BANNER -->
+<div class="hackathon-banner">
+    <div>
+        <div class="hackathon-text">
+            <h2>🚀 HACKATHON CHALLENGE</h2>
+            <p>Build AI Agents That Transform Your Community</p>
+            <p style="font-size: 14px;">Develop CRM solutions for local micro, small & medium enterprises</p>
+            <div class="hackathon-prizes">
+                <div class="prize-badge">🥇 ₦1,500,000</div>
+                <div class="prize-badge">🥈 ₦1,000,000</div>
+                <div class="prize-badge">🥉 ₦500,000</div>
+            </div>
+        </div>
+    </div>
+    <a href="/hackathon" target="_blank" class="hackathon-btn">View Full Details →</a>
+</div>
 
         <!-- Program Overview -->
         <section id="overview" class="section">
