@@ -948,7 +948,7 @@
             </div>
         </section>
 
-        <!-- Student Resources -->
+        <!-- Student Resources (Locked) -->
         <div id="student-resources">
             <div class="locked-section">
                 <h2>🔒 Student Resources</h2>
@@ -957,20 +957,264 @@
             </div>
         </div>
 
-        <!-- Contact -->
-        <section class="section">
-            <h2>📞 Contact Us</h2>
-            <div class="link-grid">
-                <a href="mailto:info@rainigeria.com" class="link-card">
-                    <h3>✉️ Email Us</h3>
-                    <p>info@rainigeria.com</p>
-                </a>
-                <a href="https://www.facebook.com/RAINRobotics" target="_blank" class="link-card secondary">
-                    <h3>💬 Message Us</h3>
-                    <p>Send us a message on social media</p>
-                </a>
+        <!-- STUDENT-ONLY CONTENT (Hidden by default) -->
+        <div id="student-content" style="display: none;">
+            <!-- Live Classes -->
+            <section id="classes" class="section">
+                <h2>🎥 Live Class Links</h2>
+                <div class="link-grid">
+                    <a href="https://meet.google.com/ztd-jrnr-qgh" target="_blank" class="link-card">
+                        <h3>📹 Join Live Class</h3>
+                        <p>Click to join the current Google Meet session</p>
+                    </a>
+                    <a href="https://meet.google.com/ztd-jrnr-qgh" target="_blank" class="link-card secondary">
+                        <h3>📅 Class Calendar</h3>
+                        <p>View all upcoming sessions</p>
+                    </a>
+                </div>
+                <p style="margin-top: 20px; color: #666;">
+                    <strong>⚠️ Important:</strong> Attendance is mandatory for assessment and certification eligibility.
+                </p>
+            </section>
+
+            <!-- Recorded Sessions -->
+            <section id="recordings" class="section">
+                <h2>📼 Recorded Sessions</h2>
+                <p style="margin-bottom: 20px;">Access all previous class recordings (in Blue) here. Watch any missed sessions to stay up to date. Upcoming Sessions are in Red</p>
+
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px; color: var(--meta-dark);">Recent Sessions:</h3>
+                    <div class="link-grid">
+                        <a href="/session1" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 1</h3>
+                            <p>Introduction to Llama, Dino, SAM and other models by Meta</p>
+                        </a>
+                        <a href="/session2" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 2</h3>
+                            <p>Techniques in Prompt Engineering with Meta</p>
+                        </a>
+                        <a href="/session3" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 3</h3>
+                            <p>Use Cases of Llama Models in Reality</p>
+                        </a>
+
+                        <a href="/revision1" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4BBBE2 0%, #357ABD 100%);">
+                        <h3>1st Revision</h3>
+                            <p>Python Basics Refresher</p>
+                        </a>
+                        <a href="/revision2" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4BBBE2 0%, #357ABD 100%);">
+                        <h3>2nd Revision</h3>
+                            <p>Understanding Pandas</p>
+                        </a>
+                        <a href="/revision3" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4BBBE2 0%, #357ABD 100%);">
+                        <h3>3rd Revision</h3>
+                            <p>Data Analytics with Python Refresher</p>
+                        </a>
+
+                        <a href="/session4" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 4</h3>
+                            <p>Python-Based Data Analytics with Facebook Data for Good</p>
+                        </a>
+                        <a href="/session5" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 5</h3>
+                            <p>Meta's Machine Learning Tool PyTorch</p>
+                        </a>
+                        <a href="/session6" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 6</h3>
+                            <p>Smart Deployment of Python-Based Automated Engines</p>
+                        </a>
+                        
+                        <a href="/revision4" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4BBBE2 0%, #357ABD 100%);">
+                        <h3>4th Revision</h3>
+                            <p>Recap on all Sessions</p>
+                        </a>
+                        
+                        <a href="/session7" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 7</h3>
+                            <p>Developing LLAMA 4 Based Fine-Tuned Model (Part 1)</p>
+                        </a>
+                        <a href="/session8" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 8</h3>
+                            <p>Developing LLAMA 4 Based Fine-Tuned Model (Part 2)</p>
+                        </a>
+                        <a href="/session9" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 9</h3>
+                            <p>Meta Guidelines for Responsible AI</p>
+                        </a>
+                        <a href="/session10" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 10</h3>
+                            <p>AI Agents: Introduction and Fundamentals</p>
+                        </a>
+                        <a href="/session11" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 11</h3>
+                            <p>Automation + Llama + Expert Domain Knowledge</p>
+                        </a>
+                        <a href="/session12" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 12</h3>
+                            <p>LangGraph-Based Practical Development of an AI Agent</p>
+                        </a>
+                        <a href="/revision5" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4BBBE2 0%, #357ABD 100%);">
+                        <h3>5th Revision</h3>
+                            <p>Building with VSCode and Other IDE Platforms</p>
+                        </a>
+
+                        <a href="/session13" target="_blank" class="link-card" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);">
+                            <h3>Main Session 13</h3>
+                            <p>Practical AI Agent Construction</p>
+                        </a>
+                        <a href="/session14" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                            <h3>Main Session 14</h3>
+                            <p>Guidelines on AI Agent Hosting and Launch</p>
+                        </a>
+                        <a href="/session15" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                            <h3>Main Session 15</h3>
+                            <p>Practical AI Agent Deployment</p>
+                        </a>
+                        <a href="/session16" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                            <h3>Main Session 16</h3>
+                            <p>Introduction to Agentic AI Systems</p>
+                        </a>
+                        <a href="/session17" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                            <h3>Main Session 17</h3>
+                            <p>Understanding Agent2Agent and MCP Protocol</p>
+                        </a>
+                        <a href="/session18" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                            <h3>Main Session 18</h3>
+                            <p>Developing an Agentic AI System for Payment Clearing (Part 1)</p>
+                        </a>
+                        <a href="/session19" target="_blank" class="link-card" style="background: linear-gradient(135deg, #FF6B6B 0%, #ee5a52 100%);">
+                            <h3>Main Session 19</h3>
+                            <p>Practical Agentic AI System Development (Part 2)</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Challenges & Competitions -->
+            <section id="challenges" class="section">
+                <h2>🏆 Daily Challenges & Competitions</h2>
+                
+                <div class="alert" style="background: #fff3cd; border-left-color: #ffc107;">
+                    <h3 style="color: #856404;">Upcoming Challenge</h3>
+                    <p style="color: #856404;"><strong>Challenge:</strong> Ideathon Pitch of what community problem you can solve using Llama | <strong>Prize:</strong> 1,500,000 Naira / Ray Ban Meta Glasses</p>
+                </div>
+
+                <div class="link-grid">
+                    <a href="#" target="_blank" class="link-card">
+                        <h3>View Assessments</h3>
+                        <p>Check past assessments taken</p>
+                    </a>
+                    <a href="#" target="_blank" class="link-card secondary">
+                        <h3>📈 Leaderboard</h3>
+                        <p>See top performers and rankings</p>
+                    </a>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">Prize Winners:</h3>
+                    <div style="background: var(--bg-light); padding: 20px; border-radius: 8px;">
+                        <ul style="list-style: none; padding: 0; line-height: 2;">
+                            <li>🏆 Iyeoluwa Akinrinola - NGN 50,000 (Daily Assessment 1)</li>
+                            <li>🏆 Benedict Isaac - NGN 50,000 (Daily Assessment 2)</li>
+                            <li>🎯 TBD - NGN 50,000 (Daily Assessment 3)</li>
+                            <li>💰 TBD - NGN 150,000 (Social Engagement 1)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">Upcoming Competitions:</h3>
+                    <div class="topic-grid">
+                        <div class="topic-card" style="border-left-color: var(--accent-green);">
+                            <strong>Week 4 - AI Ideathon</strong><br>
+                            Best Use Case Design for Llama Powered Agentic AI System<br>
+                            <em>Prize: 1.5 million NGN / Ray Ban Meta Glasses</em>
+                        </div>
+                        <div class="topic-card" style="border-left-color: var(--accent-green);">
+                            <strong>Week 7 - Hackathon</strong><br>
+                            Build Complete Agentic AI System<br>
+                            <em>Prize: 3 million NGN + Ray Ban Meta Glasses</em>
+                        </div>
+                        <div class="topic-card" style="border-left-color: var(--accent-green);">
+                            <strong>Week 7 - Final Showcase</strong><br>
+                            Final Project Presentation<br>
+                            <em>Prize: Internship + Partnership Opportunities</em>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Announcements -->
+            <section id="announcements" class="section">
+                <h2>📢 Announcements</h2>
+                
+                <div class="alert">
+                    <h3>Program Launch - November 1, 2025</h3>
+                    <p>Welcome to the Meta AI Developer Academy! Please ensure you've completed your registration form and joined all communication channels. Our first session is this Friday at 5:00 PM.</p>
+                    <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Posted: October 31, 2025</div>
+                </div>
+
+                <div class="alert">
+                    <h3>Attendance Policy Reminder</h3>
+                    <p>Attendance is mandatory for all sessions. Missing more than 2 sessions may affect your eligibility for certification and prizes. If you must miss a session, please inform the program coordinators in advance.</p>
+                    <div style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Posted: October 30, 2025</div>
+                </div>
+
+                <div class="alert" style="background: #cce5ff; border-left-color: var(--meta-blue);">
+                    <h3 style="color: #004085;">💻 Technical Requirements</h3>
+                    <p style="color: #004085;">Ensure you have Python 3.8+ installed on your computer. We'll be using Google Colab for hands-on sessions, so make sure you have a Google account. Links to setup guides have been shared in the WhatsApp group.</p>
+                    <div style="font-size: 12px; opacity: 0.8; margin-top: 5px; color: #004085;">Posted: October 28, 2025</div>
+                </div>
+            </section>
+
+            <!-- Student Registration -->
+            <section class="section">
+                <h2>Student Registration</h2>
+                <div class="link-grid">
+                    <div class="link-card" style="background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);">
+                        <h3>Complete Registration</h3>
+                        <p>This has Closed - Fill out your course registration form</p>
+                    </div>
+                    <a href="https://wa.me/2348114276861?text=Hello,%20is%20this%20RAIN%20x%20Meta%20Academy?" target="_blank" class="link-card secondary">
+                        <h3>WhatsApp Group</h3>
+                        <p>This is a closed community group - contact admin first</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Quick Links -->
+            <section class="section">
+                <h2>Quick Links</h2>
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <strong>Meta AI Resources</strong><br>
+                        <a href="https://ai.meta.com/" target="_blank" style="color: var(--meta-blue);">Official Meta AI Website</a>
+                    </div>
+                    <div class="topic-card">
+                        <strong>Llama Documentation</strong><br>
+                        <a href="https://llama.meta.com/" target="_blank" style="color: var(--meta-blue);">Llama Models Documentation</a>
+                    </div>
+                    <div class="topic-card">
+                        <strong>PyTorch</strong><br>
+                        <a href="https://pytorch.org/" target="_blank" style="color: var(--meta-blue);">PyTorch Official Site</a>
+                    </div>
+                    <div class="topic-card">
+                        <strong>RAIN Nigeria</strong><br>
+                        <a href="https://rainigeria.com/" target="_blank" style="color: var(--meta-blue);">RAIN Official Website</a>
+                    </div>
+                    <div class="topic-card">
+                        <strong>Course Handbook</strong><br>
+                        <p>To be available soon</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; padding: 30px;">
+                <button class="unlock-btn" onclick="logoutStudent()" style="background: #dc3545;">
+                    Logout
+                </button>
             </div>
-        </section>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -1016,17 +1260,35 @@
             
             if (input === correctPassword) {
                 closeLoginModal();
-                alert('Login successful! Redirecting to student portal...');
-                window.location.href = '#student-resources';
+                document.querySelector('.container').style.display = 'none';
+                document.getElementById('student-content').style.display = 'block';
+                document.querySelector('nav a.locked')?.classList.remove('locked');
+                sessionStorage.setItem('authenticated', 'true');
+                setTimeout(() => {
+                    document.getElementById('classes').scrollIntoView({ behavior: 'smooth' });
+                }, 100);
             } else {
                 errorMsg.style.display = 'block';
                 document.getElementById('password-input').value = '';
             }
         }
 
+        function logoutStudent() {
+            sessionStorage.removeItem('authenticated');
+            location.reload();
+        }
+
         document.getElementById('password-input')?.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 checkPassword();
+            }
+        });
+
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('authenticated') === 'true') {
+                document.querySelector('.container').style.display = 'none';
+                document.getElementById('student-content').style.display = 'block';
+                document.querySelector('nav a.locked')?.classList.remove('locked');
             }
         });
 
@@ -1039,19 +1301,20 @@
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                if (href.startsWith('/hackathon')) {
+                if (href && href.startsWith('/hackathon')) {
                     return;
                 }
-                if (href.startsWith('#')) {
+                if (href && href.startsWith('#')) {
                     e.preventDefault();
                     const targetId = href.substring(1);
                     
-                    if (targetId === 'student-resources') {
+                    if (targetId === 'student-resources' && sessionStorage.getItem('authenticated') !== 'true') {
                         showLoginModal();
                         return;
                     }
                     
                     const targetSection = document.getElementById(targetId);
+                    
                     if (targetSection) {
                         const headerOffset = 140;
                         const elementPosition = targetSection.getBoundingClientRect().top;
@@ -1067,6 +1330,47 @@
                     }
                 }
             });
+        });
+
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
         });
 
         console.log('%c Meta AI Developer Academy', 'color: #0668E1; font-size: 20px; font-weight: bold;');
