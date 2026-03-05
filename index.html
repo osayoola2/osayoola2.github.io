@@ -819,6 +819,21 @@ nav a.hackathon:hover {
                 grid-template-columns: 1fr;
             }
         }
+
+        nav a.cert-nav {
+    background: linear-gradient(135deg, #FFB800 0%, #E5A600 100%);
+    font-weight: 700;
+    color: #1c2b33 !important;
+    animation: cert-glow 2.5s infinite;
+}
+nav a.cert-nav:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 184, 0, 0.5);
+}
+@keyframes cert-glow {
+    0%, 49%, 51%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
     </style>
 </head>
 <body>
@@ -850,6 +865,7 @@ nav a.hackathon:hover {
             <li><a href="/hackathon" class="hackathon" target="_blank">🏆 HACKATHON</a></li>
             <li><a href="#apply">How to Apply</a></li>
             <li><a href="#social">Social Media</a></li>
+            <li><a href="/certificates.html" class="cert-nav">🎓 Certificates</a></li>
             <li><a href="#student-resources" class="locked">Student Resources</a></li>
         </ul>
     </nav>
@@ -897,6 +913,14 @@ nav a.hackathon:hover {
     </div>
     <a href="/hackathon" target="_blank" class="hackathon-btn">View Full Details →</a>
 </div>
+<div style="background: linear-gradient(135deg, #FFB800 0%, #E5A600 100%); color: #1c2b33; padding: 35px 40px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 15px 50px rgba(255, 184, 0, 0.3); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+    <div>
+        <h2 style="font-size: 28px; margin-bottom: 8px;">🎓 Certificates Are Ready!</h2>
+        <p style="font-size: 16px; opacity: 0.9;">Congratulations to all graduates! Download your certificate of completion now.</p>
+    </div>
+    <a href="/certificates.html" style="background: #1c2b33; color: #FFB800; padding: 14px 35px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 16px; transition: all 0.3s; display: inline-block;">Download Certificate →</a>
+</div>
+
 
         <!-- Program Overview -->
         <section id="overview" class="section">
