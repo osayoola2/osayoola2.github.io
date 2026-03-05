@@ -1,1 +1,904 @@
-https://metaaideveloperacademy.rainigeria.com/certificates
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Download - Meta AI Developer Academy Nigeria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --meta-blue: #0668E1;
+            --meta-dark: #1c2b33;
+            --accent-green: #00D856;
+            --bg-light: #f5f7fa;
+            --text-dark: #1c1e21;
+            --border: #dfe3e8;
+            --gold: #FFB800;
+            --gold-dark: #E5A600;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            min-height: 100vh;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-images img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
+            font-size: 22px;
+            color: var(--meta-blue);
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .back-btn {
+            padding: 10px 25px;
+            background: var(--meta-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #0557c7;
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: var(--meta-dark);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        nav li { white-space: nowrap; }
+
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--meta-blue);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(135deg, #0668E1 0%, #0a4fb8 50%, #083a8a 100%);
+            color: white;
+            padding: 80px 30px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,184,0,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 20%, rgba(0,216,86,0.06) 0%, transparent 40%);
+            animation: drift 20s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-2%, 2%) rotate(1deg); }
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255,184,0,0.2);
+            color: var(--gold);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,184,0,0.3);
+        }
+
+        .hero h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .cert-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 4px 20px rgba(255,184,0,0.4));
+        }
+
+        /* ── MAIN CARD ── */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .download-section {
+            max-width: 640px;
+            margin: -40px auto 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 45px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            color: var(--meta-dark);
+            margin-bottom: 6px;
+        }
+
+        .card .subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* ── FORM ── */
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 18px;
+            border: 2px solid #e2e6ea;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            color: var(--text-dark);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: #fafbfc;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--meta-blue);
+            box-shadow: 0 0 0 4px rgba(6,104,225,0.1);
+            background: white;
+        }
+
+        .form-group input::placeholder {
+            color: #b0b8c1;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--meta-blue), #0557c7);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6,104,225,0.35);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        /* ── MESSAGES ── */
+        .message {
+            margin-top: 20px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            display: none;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.error {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+
+        .message.success {
+            background: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+        }
+
+        /* ── SUCCESS OVERLAY ── */
+        .success-overlay {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+            animation: slideUp 0.5s ease;
+        }
+
+        .success-overlay .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-green), #00b847);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,216,86,0.3);
+        }
+
+        .success-overlay h3 {
+            color: var(--meta-dark);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .success-overlay p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .success-overlay .name-display {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--meta-blue);
+            margin-bottom: 20px;
+        }
+
+        .retry-btn {
+            padding: 12px 30px;
+            background: var(--bg-light);
+            color: var(--meta-dark);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .retry-btn:hover {
+            border-color: var(--meta-blue);
+            color: var(--meta-blue);
+        }
+
+        /* ── INFO SECTION ── */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .info-card .icon {
+            font-size: 36px;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .info-card h4 {
+            font-size: 16px;
+            color: var(--meta-dark);
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--meta-dark);
+            color: white;
+            padding: 40px 30px;
+            margin-top: 50px;
+        }
+
+        footer .inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        footer h3 { margin-bottom: 10px; }
+        footer p { opacity: 0.85; font-size: 14px; margin-bottom: 6px; }
+
+        footer .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer .links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        footer .links a:hover { opacity: 1; }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            .header-content { padding: 15px; gap: 15px; }
+            .logo-images img { height: 35px; }
+            .logo-text h1 { font-size: 16px; }
+            .logo-text p { font-size: 10px; }
+            nav a { padding: 12px 15px; font-size: 14px; }
+
+            .hero { padding: 50px 20px 40px; }
+            .hero h2 { font-size: 28px; }
+            .hero p { font-size: 15px; }
+            .cert-icon { font-size: 56px; }
+
+            .download-section { margin: -30px 15px 30px; }
+            .card { padding: 30px 22px; border-radius: 16px; }
+            .card h3 { font-size: 19px; }
+
+            .info-cards { grid-template-columns: 1fr; margin-top: 30px; padding: 0 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-images img { height: 30px; }
+            .logo-text h1 { font-size: 14px; }
+            .hero h2 { font-size: 24px; }
+            .hero .badge { font-size: 12px; padding: 6px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-images">
+                    <img src="newlogobig.png" alt="RAIN Meta AI Developer Academy Nigeria Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>Meta AI Developer Academy, Nigeria</h1>
+                    <p>Funded by Meta | Powered by RAIN Nigeria</p>
+                </div>
+            </div>
+            <a href="/" class="back-btn">← Back to Academy</a>
+        </div>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+        <ul>
+            <li><a href="/">Overview</a></li>
+            <li><a href="/#topics">Curriculum</a></li>
+            <li><a href="/#schedule">Schedule</a></li>
+            <li><a href="/certificates.html" class="active">🎓 Certificates</a></li>
+            <li><a href="/#social">Social Media</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-inner">
+            <span class="cert-icon">🎓</span>
+            <span class="badge">Cohort 1 — Completed</span>
+            <h2>Download Your Certificate</h2>
+            <p>Congratulations on completing the Meta AI Developer Academy! Enter your details below to retrieve and download your certificate of completion.</p>
+        </div>
+    </div>
+
+    <!-- DOWNLOAD FORM CARD -->
+    <div class="download-section">
+        <div class="card" id="formCard">
+            <h3>Verify Your Identity</h3>
+            <p class="subtitle">Enter the email and surname you registered with</p>
+
+            <div id="formView">
+                <div class="form-group">
+                    <label for="email">Registered Email Address</label>
+                    <input type="email" id="email" placeholder="e.g. yourname@gmail.com" autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="surname">Surname (Last Name)</label>
+                    <input type="text" id="surname" placeholder="e.g. Adewale" autocomplete="family-name">
+                </div>
+
+                <button class="submit-btn" id="submitBtn" onclick="verifyCertificate()">
+                    Download My Certificate
+                </button>
+
+                <div class="message error" id="errorMsg"></div>
+                <div class="message success" id="successMsg"></div>
+            </div>
+
+            <div class="success-overlay" id="successView">
+                <div class="checkmark">✓</div>
+                <h3>Certificate Found!</h3>
+                <div class="name-display" id="nameDisplay"></div>
+                <p>Your certificate is downloading now.<br>If it doesn't start automatically, <a href="#" id="manualDownload" style="color:var(--meta-blue);font-weight:600;">click here</a>.</p>
+                <button class="retry-btn" onclick="resetForm()">Download Another Certificate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- INFO CARDS -->
+    <div class="info-cards">
+        <div class="info-card">
+            <span class="icon">🔐</span>
+            <h4>Secure Verification</h4>
+            <p>Only registered participants can download their certificates using their enrolled email and surname.</p>
+        </div>
+        <div class="info-card">
+            <span class="icon">📄</span>
+            <h4>High-Quality PNG</h4>
+            <p>Certificates are provided as high-resolution PNG images suitable for printing and sharing on social media.</p>
+        </div>
+        <div class="info-card">
+            <span class="icon">💬</span>
+            <h4>Having Issues?</h4>
+            <p>If you can't download your certificate, contact us at <strong>info@rainigeria.com</strong> or message our WhatsApp.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="inner">
+            <h3>Meta AI Developer Academy</h3>
+            <p>© 2025 Funded by Meta | Implemented by RAIN Nigeria</p>
+            <p>Empowering the next generation of AI developers in Africa</p>
+            <div class="links">
+                <a href="/">Overview</a>
+                <a href="/#topics">Curriculum</a>
+                <a href="/#schedule">Schedule</a>
+                <a href="/#social">Social Media</a>
+                <a href="/#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // ══════════════════════════════════════════════════════════
+    // PARTICIPANT DATABASE — email (lowercase) → { surname (lowercase), slide, fullName }
+    // ══════════════════════════════════════════════════════════
+    const participants = [
+        { email: "salimatakinwande@gmail.com", surname: "akinwande", slide: 1, fullName: "Salimat Oluwatobi Akinwande" },
+        { email: "fortunemitchell2003@gmail.com", surname: "amadiugo", slide: 2, fullName: "Fortune Adaugo Amadiugo" },
+        { email: "oluwademiladeeadeduntan@gmail.com", surname: "adeduntan", slide: 3, fullName: "Oluwademilade Daniel Adeduntan" },
+        { email: "inuwamuhammad930@gmail.com", surname: "muhammad", slide: 4, fullName: "Muhammad Inuwa Muhammad" },
+        { email: "nubel.ba@gmail.com", surname: "bariza", slide: 5, fullName: "Nubel Aagbara Bariza" },
+        { email: "oluwafunbi.onaeko@gmail.com", surname: "onaeko", slide: 6, fullName: "Oluwafunbi Joseph Onaeko" },
+        { email: "abdulrasheedoseni3@gmail.com", surname: "oseni", slide: 7, fullName: "Abdulrasheed Ayomide Oseni" },
+        { email: "aremuelerepa@gmail.com", surname: "oladiti", slide: 8, fullName: "Ahamod Olawale Oladiti" },
+        { email: "oladokuntijesunimi@gmail.com", surname: "oladokun", slide: 9, fullName: "Tijesunimi Precious Oladokun" },
+        { email: "hassanabdulfattah01@gmail.com", surname: "hassan", slide: 10, fullName: "Abdulfattah Oluwanisola Hassan" },
+        { email: "iabdulwahab298@gmail.com", surname: "abdulwahab", slide: 11, fullName: "Ibrahim Abdulwahab" },
+        { email: "akindelecomfort0@gmail.com", surname: "akindele", slide: 12, fullName: "Comfort Morayo Akindele" },
+        { email: "bolu.favour2004@gmail.com", surname: "olopade", slide: 13, fullName: "Boluwatife Favour Olopade" },
+        { email: "emmanueloluwapelumi12@gmail.com", surname: "ofobutu", slide: 14, fullName: "Emmanuel Oluwapelumi Ofobutu" },
+        { email: "aishaadenike13@gmail.com", surname: "tella", slide: 15, fullName: "Aishat Adenike Tella" },
+        { email: "adewalevictor132@gmail.com", surname: "adewale", slide: 16, fullName: "Victor Ayodele Adewale" },
+        { email: "daprof99@gmail.com", surname: "odukoya", slide: 17, fullName: "Adeniyi Musiliu Odukoya" },
+        { email: "abdulmuiizz77@gmail.com", surname: "ige", slide: 18, fullName: "Muiizz Olalekan Ige" },
+        { email: "azeezatakinpelu2006@gmail.com", surname: "akinpelu", slide: 19, fullName: "Azeezat Kofoworola Akinpelu" },
+        { email: "israelanuoluwaposimi955@gmail.com", surname: "ayeni", slide: 20, fullName: "Israel Anuoluwa Ayeni" },
+        { email: "pharmsaleemskhaleed@gmail.com", surname: "sani", slide: 21, fullName: "Salim Haladu Sani" },
+        { email: "olamidexgideon@gmail.com", surname: "owoyemi", slide: 22, fullName: "Gideon Olamide Owoyemi" },
+        { email: "augustineadah67@gmail.com", surname: "adah", slide: 23, fullName: "Augustine Adah" },
+        { email: "haleemolaosebikan3@gmail.com", surname: "olaosebikan", slide: 24, fullName: "Abdul-Haleem Olaosebikan" },
+        { email: "olisachukwuebuka1@gmail.com", surname: "olisa", slide: 25, fullName: "Chukwuebuka Martin Olisa" },
+        { email: "fachefavor@gmail.com", surname: "fache", slide: 26, fullName: "Favour Ohunene Fache" },
+        { email: "badmosjubril13@gmail.com", surname: "badmos", slide: 27, fullName: "Jubril Olabayo Badmos" },
+        { email: "chukwuebukaofor@gmail.com", surname: "ofor", slide: 28, fullName: "Chukwuebuka Emmanuel Ofor" },
+        { email: "ikechukwuoleh88@gmail.com", surname: "oleh", slide: 29, fullName: "Ikechukwu Christian Oleh" },
+        { email: "ndolawale@gmail.com", surname: "olaitan", slide: 30, fullName: "Olawale Samuel Olaitan" },
+        { email: "mahmudlawal75@gmail.com", surname: "lawal", slide: 31, fullName: "Mahmud Lawal" },
+        { email: "lawalolamide676@gmail.com", surname: "lawal", slide: 32, fullName: "Olamide Esther Lawal" },
+        { email: "oluwatomisinojo32@gmail.com", surname: "ojo", slide: 33, fullName: "Oluwatomisin Samuel Ojo" },
+        { email: "tomiwaojo001@gmail.com", surname: "ojo", slide: 34, fullName: "Olatomiwa Oyindamola Ojo" },
+        { email: "soloternenge638@gmail.com", surname: "abwa", slide: 35, fullName: "Ternenge Solomon Abwa" },
+        { email: "ohachordaniel2021@gmail.com", surname: "ohachor", slide: 36, fullName: "Daniel Chibueze Ohachor" },
+        { email: "oloketuyimoyosi@gmail.com", surname: "oloketuyi", slide: 37, fullName: "David Oluwaseun Oloketuyi" },
+        { email: "ajibadephilip13@gmail.com", surname: "ajibade", slide: 38, fullName: "Philip Oladapo Ajibade" },
+        { email: "abdulrasaqbolaji1@gmail.com", surname: "abdul-rasaq", slide: 39, fullName: "Uthman Bolaji Abdul-Rasaq" },
+        { email: "akinwandenurat0@gmail.com", surname: "akinwannde", slide: 40, fullName: "Nurat Opeyemi Akinwannde" },
+        { email: "fbiagent4441@gmail.com", surname: "benjamin", slide: 41, fullName: "Samuel Oluwaseun Benjamin" },
+        { email: "tijanialameenadekilekun23@gmail.com", surname: "tijani", slide: 42, fullName: "Al-ameen Adekilekun Tijani" },
+        { email: "oluwayooseboluwatife@gmail.com", surname: "adeyeye", slide: 43, fullName: "Israel Boluwatife Adeyeye" },
+        { email: "enifenihalimah@gmail.com", surname: "enifeni", slide: 44, fullName: "Halimat Olamikunbi Enifeni" },
+        { email: "bamideleprecious100@gmail.com", surname: "bamidele", slide: 45, fullName: "Ayomide Precious Sean Bamidele" },
+        { email: "roselynisimeto@gmail.com", surname: "isimeto", slide: 46, fullName: "Roselyn Isimeto" },
+        { email: "sefunmiosas@gmail.com", surname: "egharevba", slide: 47, fullName: "Osasemwinhia Oluwasefunmi Egharevba" },
+        { email: "dektar3@gmail.com", surname: "arapaja", slide: 48, fullName: "Taiwo Olayemi Arapaja" },
+        { email: "bennyadenugba@gmail.com", surname: "adenugba-omonubi", slide: 49, fullName: "Benny Boluwatife Adenugba-Omonubi" },
+        { email: "stmarkadebayo@gmail.com", surname: "adebayo", slide: 50, fullName: "Mark Adedayo Adebayo" },
+        { email: "aliyahibidun@gmail.com", surname: "ibidun", slide: 51, fullName: "Aliyah Ibiwunmi Ibidun" },
+        { email: "fawazolawuyi044@gmail.com", surname: "olawuyi", slide: 52, fullName: "Fawaz Ololade Olawuyi" },
+        { email: "awesomezainab18@gmail.com", surname: "ibrahim", slide: 53, fullName: "Zainab Ololade Ibrahim" },
+        { email: "wobobright100@gmail.com", surname: "wobo", slide: 54, fullName: "Bright Chidiebube Wobo" },
+        { email: "niyotokunlola@gmail.com", surname: "okunlola", slide: 55, fullName: "Emmanuel Oladele Okunlola" },
+        { email: "musaasalami@gmail.com", surname: "salami", slide: 56, fullName: "Musa Opeyemi Salami" },
+        { email: "madukajeff33@gmail.com", surname: "maduka", slide: 57, fullName: "Jeff Chima Maduka" },
+        { email: "garubaridwanullah@gmail.com", surname: "garuba", slide: 58, fullName: "Ridwanullahi Omobolaji Garuba" },
+        { email: "rebeccaayodele08@gmail.com", surname: "ayodele", slide: 59, fullName: "Rebecca Ayomide Ayodele" },
+        { email: "awinsmano@gmail.com", surname: "ambani", slide: 60, fullName: "Awazico Winsmano Ambani" },
+        { email: "peterquadri19@gmail.com", surname: "quadri", slide: 61, fullName: "Peter Iyanuoluwa Quadri" },
+        { email: "christo.archiesboy@gmail.com", surname: "archibong", slide: 62, fullName: "Christopher Archibong Archibong" },
+        { email: "monekejeffrey@gmail.com", surname: "moneke", slide: 63, fullName: "Chikaodili Jeffrey Moneke" },
+        { email: "imranadepoju04@gmail.com", surname: "adepoju", slide: 64, fullName: "Imran Gbolahan Adepoju" },
+        { email: "adrienoke@gmail.com", surname: "oke", slide: 65, fullName: "Adrien Adeleke Oke" },
+        { email: "abdullateefmaryamidowu@gmail.com", surname: "abdullateef", slide: 66, fullName: "Maryam Idowu Abdullateef" },
+        { email: "adishiemmanuel979@gmail.com", surname: "adishi", slide: 67, fullName: "Emmanuel Godwill Adishi" },
+        { email: "adigunkehinde05@gmail.com", surname: "adigun", slide: 68, fullName: "Kehinde Gabriel Adigun" },
+        { email: "kesibosoke@gmail.com", surname: "kesibo", slide: 69, fullName: "Sokeipirim Kesibo" },
+        { email: "cyber330d@gmail.com", surname: "edward", slide: 70, fullName: "Erasmus Obeth Edward" },
+        { email: "olaiyaalexander97@gmail.com", surname: "olaiya", slide: 71, fullName: "Alexander Kehinde Olaiya" },
+        { email: "oluwatimilehingoodnessogidan@gmail.com", surname: "ogidan", slide: 72, fullName: "Oluwatimilehin Goodness Ogidan" },
+        { email: "yekeentoyyib@gmail.com", surname: "yekeen", slide: 73, fullName: "Toyyib Anjolaoluwa Yekeen" },
+        { email: "iwowarigbanam@gmail.com", surname: "iwowari", slide: 74, fullName: "Igbanam Ogunte Iwowari" },
+        { email: "abdulganiymoshood007@gmail.com", surname: "abdulganiu", slide: 75, fullName: "Moshood Kehinde Abdulganiu" },
+        { email: "imietebriggs14@gmail.com", surname: "briggs", slide: 76, fullName: "Imiete Soberekon Briggs" },
+        { email: "sekonidairor@gmail.com", surname: "sekoni-dairo", slide: 77, fullName: "Raehanah Abebi Sekoni-Dairo" },
+        { email: "ayomideomotayo990@gmail.com", surname: "omotayo", slide: 78, fullName: "Ayomide Joshya Omotayo" },
+        { email: "ubangohidris@gmail.com", surname: "ubangoh", slide: 79, fullName: "Umeni Idris Ubangoh" },
+        { email: "olayiwolatheophilusayomide@gmail.com", surname: "olayiwola", slide: 80, fullName: "Theophilus Ayomide Olayiwola" },
+        { email: "darleneonuezichi@gmail.com", surname: "onu", slide: 81, fullName: "Darlene Ezichi Onu" },
+        { email: "kehindesegilola@student.oauife.edu.ng", surname: "segilola", slide: 82, fullName: "Kehinde Paul Segilola" },
+        { email: "royalroy65@gmail.com", surname: "adekale", slide: 83, fullName: "Adedamola Kenny Adekale" },
+        { email: "jimmymiracle2007@gmail.com", surname: "jimmy", slide: 84, fullName: "Miracle Udeme Jimmy" },
+        { email: "abiolanrewaju602@gmail.com", surname: "olanrewaju", slide: 85, fullName: "Abi Abimbola Olanrewaju" },
+        { email: "emodidome@gmail.com", surname: "oluyoye", slide: 86, fullName: "Mayowa Daniel Oluyoye" },
+        { email: "mbundesmond@gmail.com", surname: "mbun", slide: 87, fullName: "Desmond Eshuali Mbun" },
+        { email: "amixeniola@gmail.com", surname: "usman", slide: 88, fullName: "Amiant Peace Usman" },
+        { email: "charmingdee28@gmail.com", surname: "adekale", slide: 89, fullName: "Adedapo Adekale" },
+        { email: "qoyyumadegoke@gmail.com", surname: "adegoke", slide: 90, fullName: "Abdulqoyyum Adedayo Adegoke" },
+        { email: "fadhlullah532@gmail.com", surname: "abdulazeez", slide: 91, fullName: "Fadhlullah Olusola Abdulazeez" },
+        { email: "hanifayatullah2@gmail.com", surname: "showunmi", slide: 92, fullName: "Ayatullah Hanif Ayinde Showunmi" },
+        { email: "ibrahimmuhammad8407@gmail.com", surname: "ibrahim", slide: 93, fullName: "Mohammed Mohammed Ibrahim" },
+        { email: "afolayansteve2@gmail.com", surname: "afolayan", slide: 94, fullName: "Stephen Toba Afolayan" },
+        { email: "kponire@gmail.com", surname: "kuponiyi", slide: 95, fullName: "Oluwaponire Michael Kuponiyi" },
+        { email: "samuelebose123@gmail.com", surname: "abumere", slide: 96, fullName: "Samuel Ebosetalelase Abumere" },
+        { email: "mubarakishola2005@gmail.com", surname: "ishola", slide: 97, fullName: "AlMubarak Oladokun Ishola" },
+        { email: "ranchogha@gmail.com", surname: "gasali", slide: 98, fullName: "Hasraph Ayomide Gasali" },
+        { email: "abdurrahmanadesalu@gmail.com", surname: "adesalu", slide: 99, fullName: "Abdulrahman Adewale Adesalu" },
+        { email: "josephojezele012@gmail.com", surname: "ojezele", slide: 100, fullName: "Joseph Osezoba Ojezele" },
+        { email: "stephenadeleke494@gmail.com", surname: "adeleke", slide: 101, fullName: "Stephen Dolapo Adeleke" },
+        { email: "owoyemidavidoluwadamilare@gmail.com", surname: "owoyemi", slide: 102, fullName: "David Oluwadamilare Owoyemi" },
+        { email: "koredeoyebamiji68@gmail.com", surname: "oyebamiji", slide: 103, fullName: "Korede AbdulQudus Oyebamiji" },
+        { email: "bodeokunadeab@gmail.com", surname: "bode-okunade", slide: 104, fullName: "Abdulsalam Babajide Bode-Okunade" },
+        { email: "hamza.00dev1@gmail.com", surname: "hamza", slide: 105, fullName: "Muhammad Hamza" },
+        { email: "aderogbaiman@gmail.com", surname: "aderogba", slide: 106, fullName: "Iman Adekunbi Aderogba" },
+        { email: "adekolaprincess02@gmail.com", surname: "adekola", slide: 107, fullName: "Princess Adebola Adekola" },
+        { email: "muwafaqolajobi@gmail.com", surname: "olajobi", slide: 108, fullName: "Muwafaq Adebola Olajobi" },
+        { email: "omotoyosiagboola74@gmail.com", surname: "deji-agboola", slide: 109, fullName: "Oyindamola Omotoyosi Deji-Agboola" },
+        { email: "ktitilola@gmail.com", surname: "salisu", slide: 110, fullName: "Titilola Kazeem Salisu" },
+        { email: "mcfuja@gmail.com", surname: "olowofuja", slide: 111, fullName: "Mariam Sarah Olowofuja" },
+        { email: "rahmatullahiademoye@gmail.com", surname: "ademoye", slide: 112, fullName: "Rahmatullahi Ademoye" },
+        { email: "georgedammydan@gmail.com", surname: "george", slide: 113, fullName: "Daniel Obaloluwa George" },
+        { email: "nabeelsaniumar@gmail.com", surname: "sani umar", slide: 114, fullName: "Nabil Sani Umar" },
+        { email: "olawumisalaam@gmail.com", surname: "salaam", slide: 115, fullName: "Olawumi Suliat Salaam" },
+        { email: "meansworthdavid@gmail.com", surname: "david", slide: 116, fullName: "Meansworth Moyosore David" },
+        { email: "adekolakamaldeen4@gmail.com", surname: "adekola", slide: 117, fullName: "Kamaldeen Temitayo Adekola" },
+        { email: "tennisco19@gmail.com", surname: "fagbemi", slide: 118, fullName: "Tenifayo Oluwaseun Fagbemi" },
+        { email: "lamidotimothy@gmail.com", surname: "lamido", slide: 119, fullName: "Timothy Maina Lamido" },
+        { email: "okhaioisevai44@gmail.com", surname: "adeoye", slide: 120, fullName: "Okhaioisevai Ayobami Adeoye" },
+        { email: "dalhatuabdulhameed330@gmail.com", surname: "dalhatu", slide: 121, fullName: "Abdulhameed Shehu Dalhatu" },
+        { email: "ayoajala2005@gmail.com", surname: "ajala", slide: 122, fullName: "Ayoyimika Oluwadamilola Ajala" },
+        { email: "muktarayinde@gmail.com", surname: "ayinde", slide: 123, fullName: "Muktar Oluwasegun Ayinde" },
+        { email: "davidpatrick3007011@gmail.com", surname: "patrick", slide: 124, fullName: "David Chikwugozie Patrick" },
+        { email: "qosimmardiyyah071@gmail.com", surname: "qosim", slide: 125, fullName: "Mardiyyah Alominle Qosim" },
+        { email: "mofiyinfoluwa.praise@gmail.com", surname: "joshua", slide: 126, fullName: "Mofiyinfoluwa Monisade Joshua" },
+        { email: "nurudeenadesokan@gmail.com", surname: "adesokan", slide: 127, fullName: "Nurudeen Abiodun Adesokan" },
+        { email: "busayodele2009@gmail.com", surname: "adefehinti", slide: 128, fullName: "David Busayo Adefehinti" },
+        { email: "erioluwafadare@gmail.com", surname: "fadare", slide: 129, fullName: "David Erioluwa Fadare" },
+        { email: "shuttiwaleed@gmail.com", surname: "shutti", slide: 130, fullName: "Waleed Oluwakemi Shutti" },
+        { email: "mojeedadekola7@gmail.com", surname: "shittu", slide: 131, fullName: "Mojeed Adekola Shittu" },
+        { email: "sawmodabolaji@gmail.com", surname: "abolaji", slide: 132, fullName: "Abdusawmod Akande Abolaji" },
+        { email: "bakareusman7@gmail.com", surname: "bakare", slide: 133, fullName: "Usman Ayodeji Bakare" },
+        { email: "bashirsultanm1@gmail.com", surname: "bashir", slide: 134, fullName: "Sultan Mohammed Bashir" },
+        { email: "jherhemiaholatunji@gmail.com", surname: "olatunji", slide: 135, fullName: "Jeremiah Sodiq Olatunji" },
+        { email: "ogunleyepelumi123@gmail.com", surname: "ogunleye", slide: 136, fullName: "Pelumi Miracle Ogunleye" },
+        { email: "oleghegodwin1@gmail.com", surname: "oleghe", slide: 137, fullName: "Godwin Olaoluwasubomi Oleghe" },
+        { email: "melzyogedengbe@gmail.com", surname: "ogedengbe", slide: 138, fullName: "Melody Oluwademilade Ogedengbe" },
+        { email: "mmayokunomonona512@gmail.com", surname: "omonona", slide: 139, fullName: "Oluwamayokun Victor Omonona" },
+        { email: "ogunjoy0907@gmail.com", surname: "ogunmodede", slide: 140, fullName: "Joy Rereloluwa Ogunmodede" },
+        { email: "bellobasit790@gmail.com", surname: "bello", slide: 141, fullName: "Abdulbasit Olayemi Bello" },
+        { email: "banespeter@gmail.com", surname: "peter", slide: 142, fullName: "Banes Sossou Peter" },
+        { email: "adegoodabim@gmail.com", surname: "abimbola", slide: 143, fullName: "Goodness Adeboye Abimbola" },
+        { email: "ajaotemitope5@gmail.com", surname: "ajao", slide: 144, fullName: "Temitope Elizabeth Ajao" },
+        { email: "michelleokolocha05@gmail.com", surname: "okolocha", slide: 145, fullName: "Michelle Mmesomachukwu Okolocha" },
+        { email: "benjamingambo947@gmail.com", surname: "yahaya", slide: 146, fullName: "Benjamin Gambo Yahaya" },
+        { email: "adekanolasuccess@gmail.com", surname: "adekanola", slide: 147, fullName: "Success Oluwatobi Adekanola" },
+        { email: "sulaimanarabi041@gmail.com", surname: "arabi", slide: 148, fullName: "Suleiman Suleiman Arabi" },
+        { email: "abdulsobur245@gmail.com", surname: "ayinde", slide: 149, fullName: "Abdul-Sobur Olayinka Ayinde" },
+        { email: "haleemakintayo@gmail.com", surname: "akintayo", slide: 150, fullName: "Haleem Opeyemi Akintayo" },
+        { email: "timothyoyeniran@gmail.com", surname: "oyeniran", slide: 151, fullName: "Timothy Olawale Oyeniran" },
+        { email: "giwaibrahim98@gmail.com", surname: "giwa", slide: 152, fullName: "Ibrahim Abiola Giwa" },
+        { email: "abasiama.abazzz@gmail.com", surname: "james", slide: 153, fullName: "Abasiama Offiong James" },
+        { email: "michdokun@gmail.com", surname: "adedokun", slide: 154, fullName: "Michael Adebukola Adedokun" },
+        { email: "iferunwaodoko@gmail.com", surname: "odoko", slide: 155, fullName: "Serena Iferunwa Odoko" },
+        { email: "iyeakins@gmail.com", surname: "akinrinola", slide: 156, fullName: "Iyeoluwa Isaac Akinrinola" },
+        { email: "yakubaminu441@gmail.com", surname: "aminu", slide: 157, fullName: "Yakubu Aminu" },
+        { email: "davidhamzat4@gmail.com", surname: "hamzat", slide: 158, fullName: "David Damilare Hamzat" },
+        { email: "ugzman8@gmail.com", surname: "ikedinma", slide: 159, fullName: "Ugochukwu Ezenwa Ikedinma" },
+        { email: "deemuabae007@gmail.com", surname: "deemua", slide: 160, fullName: "Ruth Ewonubari Deemua" },
+        { email: "ayomzy2@gmail.com", surname: "bello", slide: 161, fullName: "Abdullahi Adeoye Bello" },
+        { email: "akinbioyinloluwa@gmail.com", surname: "akinbi", slide: 162, fullName: "Oyinloluwa Praise Akinbi" },
+        { email: "olamiposi456@gmail.com", surname: "olaleye", slide: 163, fullName: "Ayomide Peter Olaleye" },
+        { email: "benedictisaac258@gmail.com", surname: "isaac", slide: 164, fullName: "Benedict Isaac" },
+        { email: "shuaibonozutu6@gmail.com", surname: "shuaib", slide: 165, fullName: "Umar-Shaaban Onozutu Shuaib" },
+        { email: "salakoabiodun27@gmail.com", surname: "salako", slide: 166, fullName: "Fathia Abiodun Salako" },
+        { email: "dawushu8@gmail.com", surname: "dawusu", slide: 167, fullName: "Hussaini Umar Dawusu" },
+        { email: "depopf89@gmail.com", surname: "oladepo", slide: 168, fullName: "Oluwaferanmi Praise Oladepo" },
+        { email: "abduljeleeldami@gmail.com", surname: "damilare", slide: 169, fullName: "Abduljeleel Adebayo Damilare" },
+        { email: "mutmahinahjimoh@gmail.com", surname: "jimoh-ademola", slide: 170, fullName: "Mutmahinah Oyinkansolami Jimoh-Ademola" },
+        { email: "khennya003@gmail.com", surname: "adegboye", slide: 171, fullName: "Kehinde Omotoyosi Adegboye" },
+        { email: "awwalsaint@gmail.com", surname: "awwal", slide: 172, fullName: "Abdulbasit Oluwatosin Awwal" },
+        { email: "hellocelestinaa@gmail.com", surname: "akanbi", slide: 173, fullName: "Celestina Oluwatoyin Akanbi" },
+        { email: "fatwadek00@gmail.com", surname: "adekilekun", slide: 174, fullName: "Fatiu Abiodun Adekilekun" },
+        { email: "adahochanyavic@gmail.com", surname: "adah", slide: 175, fullName: "Ochanya Victoria Adah" },
+        { email: "emmanuelugheokemercy97@gmail.com", surname: "emman-ugheoke", slide: 176, fullName: "Mercy Omokhegbe Emman-Ugheoke" },
+        { email: "oluwatoyinshow13@gmail.com", surname: "shonibare", slide: 177, fullName: "Oluwatoyin Shonibare" },
+        { email: "davejinksessieno@gmail.com", surname: "essien", slide: 178, fullName: "David Solomon Essien" },
+        { email: "adeyosola11@gmail.com", surname: "abubakr", slide: 179, fullName: "Abdullah Adeyosola Abubakr" },
+        { email: "padebayo570@gmail.com", surname: "adebayo", slide: 180, fullName: "Praise Oluwatobiloba Adebayo" },
+        { email: "follyvim@gmail.com", surname: "oluwatola", slide: 181, fullName: "Stephen Fola Oluwatola" },
+        { email: "usmanismailayinde@gmail.com", surname: "ismail", slide: 182, fullName: "Usman Ayinde Ismail" },
+        { email: "dosho72@gmail.com", surname: "osho", slide: 183, fullName: "Oluwademilade Koyejo Osho" },
+        { email: "idowujohn248@gmail.com", surname: "idowu", slide: 184, fullName: "John Oluwadarasimi Idowu" },
+        { email: "mashkur.m2300593@st.futminna.edu.ng", surname: "alaran", slide: 185, fullName: "Mashkur Olalekan Alaran" },
+        { email: "sulaymanakanji001@gmail.com", surname: "oyesanmi", slide: 186, fullName: "Abdurrahman Olamilekan Oyesanmi" },
+        { email: "umarvaruq22@gmail.com", surname: "abideen", slide: 187, fullName: "Faruk Ayomide Abideen" },
+        { email: "adamadekanye941@gmail.com", surname: "adekanye", slide: 188, fullName: "Adam Adewale Adekanye" },
+        { email: "oreofearmel02@gmail.com", surname: "posun", slide: 189, fullName: "Oreofe Praise Posun" },
+        { email: "smartdon473@gmail.com", surname: "hammed", slide: 190, fullName: "Abdul Rahman Olabidemi Hammed" },
+        { email: "israellucky02@gmail.com", surname: "adoimoisili", slide: 191, fullName: "Israel Lucky Adoimoisili" },
+        { email: "adesolalukman20@gmail.com", surname: "adesola", slide: 192, fullName: "Lukman Adekunle Adesola" },
+        { email: "louizrule@gmail.com", surname: "okere", slide: 193, fullName: "Louis Chiwunnam Okere" },
+        { email: "tolurainy@gmail.com", surname: "oyewole-salem", slide: 194, fullName: "Tolulope Paul Oyewole-Salem" },
+        { email: "ameeralabi7@gmail.com", surname: "alabi", slide: 195, fullName: "Ameer Taiwo Alabi" },
+        { email: "tumiakintola@gmail.com", surname: "akintola", slide: 196, fullName: "Tumininu Tioluwani Akintola" },
+        { email: "mukhtarabimbola@gmail.com", surname: "abimbola", slide: 197, fullName: "Mukhtar Oloyede Abimbola" },
+    ];
+
+    // Build lookup map: email → array of entries (handle duplicates by email)
+    const emailMap = {};
+    participants.forEach(p => {
+        const key = p.email.toLowerCase().trim();
+        if (!emailMap[key]) emailMap[key] = [];
+        emailMap[key].push(p);
+    });
+
+    // Normalize helper: strip whitespace, lowercase, remove unicode math chars
+    function normalize(str) {
+        return str.toLowerCase().trim()
+            .normalize('NFKD')
+            .replace(/[^a-z0-9\-]/g, '')  // keep alphanumeric and hyphens
+            .replace(/\s+/g, '');
+    }
+
+    let lastMatchedSlide = null;
+
+    function verifyCertificate() {
+        const emailInput = document.getElementById('email').value.trim().toLowerCase();
+        const surnameInput = document.getElementById('surname').value.trim();
+        const errorMsg = document.getElementById('errorMsg');
+        const successMsg = document.getElementById('successMsg');
+        const btn = document.getElementById('submitBtn');
+
+        // Reset messages
+        errorMsg.style.display = 'none';
+        successMsg.style.display = 'none';
+
+        // Validate inputs
+        if (!emailInput || !surnameInput) {
+            errorMsg.textContent = 'Please enter both your email address and surname.';
+            errorMsg.style.display = 'block';
+            return;
+        }
+
+        // Lookup
+        const matches = emailMap[emailInput];
+        if (!matches) {
+            errorMsg.textContent = 'No certificate found for this email address. Please use the exact email you registered with.';
+            errorMsg.style.display = 'block';
+            return;
+        }
+
+        // Check surname
+        const normalSurname = normalize(surnameInput);
+        const match = matches.find(m => normalize(m.surname) === normalSurname);
+
+        if (!match) {
+            errorMsg.textContent = 'The surname does not match our records for this email. Please check and try again.';
+            errorMsg.style.display = 'block';
+            return;
+        }
+
+        // SUCCESS — trigger download
+        btn.classList.add('loading');
+        btn.textContent = 'Preparing Download...';
+
+        lastMatchedSlide = match.slide;
+
+        setTimeout(() => {
+            triggerDownload(match);
+            // Show success view
+            document.getElementById('formView').style.display = 'none';
+            document.getElementById('successView').style.display = 'block';
+            document.getElementById('nameDisplay').textContent = match.fullName;
+            document.getElementById('manualDownload').onclick = function(e) {
+                e.preventDefault();
+                triggerDownload(match);
+            };
+            btn.classList.remove('loading');
+            btn.textContent = 'Download My Certificate';
+        }, 800);
+    }
+
+    function triggerDownload(match) {
+        const link = document.createElement('a');
+        link.href = 'cert/Slide' + match.slide + '.png';
+        link.download = 'Meta_AI_Academy_Certificate_' + match.fullName.replace(/\s+/g, '_') + '.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    function resetForm() {
+        document.getElementById('formView').style.display = 'block';
+        document.getElementById('successView').style.display = 'none';
+        document.getElementById('email').value = '';
+        document.getElementById('surname').value = '';
+        document.getElementById('errorMsg').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'none';
+    }
+
+    // Enter key support .
+    document.getElementById('email').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') document.getElementById('surname').focus();
+    });
+    document.getElementById('surname').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') verifyCertificate();
+    });
+    </script>
+</body>
+</html>
