@@ -876,7 +876,7 @@
 
     function triggerDownload(match) {
         const link = document.createElement('a');
-        link.href = 'cert/Slide' + match.slide + '.png';
+        link.href = 'cert/Slide' + match.slide + '.PNG';
         link.download = 'Meta_AI_Academy_Certificate_' + match.fullName.replace(/\s+/g, '_') + '.png';
         document.body.appendChild(link);
         link.click();
