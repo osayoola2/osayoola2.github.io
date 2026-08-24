@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post-assessment · Practical AI Fellowship · 3MTT × Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101619;--slate:#1D272C;--paper:#F3F5F2;--paper-2:#E7EBE5;--rule:#C6CFC7;
+--muted:#5D6B64;--amber:#F0A73C;--go:#177D53;--trk-a:#3C6DF0;--trk-b:#7A5AF8;--trk-c:#CE3F52;
+--mono:"IBM Plex Mono",monospace;--sans:"IBM Plex Sans",system-ui,sans-serif;--disp:"Archivo",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
+.wrap{max-width:780px;margin:0 auto;padding:0 20px}
+header{background:var(--ink);color:var(--paper);padding:34px 0 30px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--go);margin:0}
+h1{font-family:var(--disp);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;
+   font-size:clamp(2rem,6vw,3.2rem);line-height:.98;margin:.22em 0 .3em}
+header p{color:#B7C4BC;max-width:58ch;margin:0;font-size:.95rem}
+.draft{background:#FDF1DC;border-bottom:1px solid var(--amber);color:#7A5A10;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;padding:9px 0}
+main{padding:26px 0 60px}
+fieldset{border:1px solid var(--rule);background:#fff;margin:0 0 14px;padding:0}
+.sec-h{background:var(--slate);color:var(--paper);padding:12px 18px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.sec-h .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--go);text-transform:uppercase}
+.sec-h h2{font-family:var(--disp);font-size:1.05rem;margin:0;letter-spacing:-.01em}
+.sec-h .meta{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:#8FA097;text-transform:uppercase}
+.sec-i{padding:12px 18px 0;font-size:.87rem;color:var(--muted)}
+.q{padding:16px 18px;border-bottom:1px dotted var(--rule)}
+.q:last-child{border-bottom:0}
+.q>p{margin:0 0 10px;font-weight:500}
+.q>p .num{font-family:var(--mono);font-size:11px;color:var(--muted);margin-right:8px;letter-spacing:.06em}
+label.opt{display:flex;gap:10px;align-items:flex-start;padding:7px 9px;cursor:pointer;font-size:.94rem}
+label.opt:hover{background:var(--paper-2)}
+label.opt input{margin-top:4px;accent-color:var(--ink);flex:0 0 auto}
+input[type=text],input[type=email],select,textarea{width:100%;padding:10px 11px;border:1px solid var(--rule);
+  background:#fff;font-family:var(--sans);font-size:.95rem;color:var(--ink)}
+textarea{min-height:78px;resize:vertical}
+.scale{display:flex;gap:6px;flex-wrap:wrap}
+.scale label{flex:1 1 84px;text-align:center;border:1px solid var(--rule);padding:9px 4px;cursor:pointer;font-family:var(--mono);font-size:11px}
+.scale label:has(input:checked){background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.scale input{position:absolute;opacity:0;pointer-events:none}
+.nps{display:flex;gap:3px;flex-wrap:wrap}
+.nps label{flex:1 1 40px;text-align:center;border:1px solid var(--rule);padding:10px 2px;cursor:pointer;font-family:var(--mono);font-size:12px}
+.nps label:has(input:checked){background:var(--go);color:#fff;border-color:var(--go)}
+.nps input{position:absolute;opacity:0;pointer-events:none}
+.submit{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:20px}
+button{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  padding:14px 22px;border:0;background:var(--ink);color:var(--paper);cursor:pointer}
+button:hover{background:var(--go)}
+button.ghost{background:none;border:1px solid var(--rule);color:var(--muted);padding:13px 16px}
+button.ghost:hover{background:none;border-color:var(--ink);color:var(--ink)}
+#out{display:none;margin-top:22px;border:1px solid var(--rule);background:#fff}
+#out.on{display:block}
+.res-h{background:var(--ink);color:var(--paper);padding:20px}
+.res-h .band{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--go)}
+.res-h h2{font-family:var(--disp);font-size:1.9rem;margin:6px 0 0;letter-spacing:-.02em}
+.res-b{padding:18px 20px}
+.bar{margin-bottom:10px}
+.bar .lab{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.bar .track-bar{height:7px;background:var(--paper-2);border:1px solid var(--rule);margin-top:4px;overflow:hidden}
+.bar .track-bar i{display:block;height:100%;background:var(--go)}
+.delta{border-left:4px solid var(--go);background:var(--paper-2);padding:14px 16px;margin:14px 0}
+.delta b{font-family:var(--disp);font-size:1.6rem;letter-spacing:-.02em;display:block}
+.err{background:#FBE7E7;border:1px solid #CE3F52;color:#8B2230;padding:11px 14px;font-size:.9rem;margin-top:14px;display:none}
+.err.on{display:block}
+footer{background:var(--ink);color:#8FA097;padding:26px 0;font-size:.82rem}
+footer a{color:var(--amber)}
+@media (max-width:560px){.q{padding:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="draft"><div class="wrap">Draft instrument · to be rebuilt as a Google Form before launch. Sections A–E are drawn from the same shared bank as the pre-assessment.</div></div>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Practical AI Fellowship · 3MTT × Meta · Delivered by RAIN</p>
+    <h1>Post-assessment</h1>
+    <p>Same thirty questions you answered in Week 1, in the same order. Do not look them up — a score you did not earn makes the whole cohort's impact number meaningless, and the report goes to Meta and to the Ministry with your cohort's name on it. Then a final section on what actually changed. Closes 23:59, Saturday 31 October.</p>
+  </div>
+</header>
+
+<main class="wrap">
+<form id="form" novalidate>
+
+<fieldset>
+  <div class="sec-h"><span class="n">Section 0</span><h2>Identify yourself</h2><span class="meta">Must match your pre-assessment</span></div>
+  <div class="q"><p><span class="num">0.1</span>Full name</p><input type="text" name="p_name" required></div>
+  <div class="q"><p><span class="num">0.2</span>3MTT Fellow ID</p><input type="text" name="p_id" required></div>
+  <div class="q"><p><span class="num">0.3</span>Email address (must be the one you used in Week 1)</p><input type="email" name="p_email" required></div>
+  <div class="q"><p><span class="num">0.4</span>Which track did you complete?</p>
+    <div class="scale">
+      <label><input type="radio" name="p_final_track" value="A">Track A</label>
+      <label><input type="radio" name="p_final_track" value="B">Track B</label>
+      <label><input type="radio" name="p_final_track" value="C">Track C</label>
+      <label><input type="radio" name="p_final_track" value="X">I did not finish</label>
+    </div></div>
+  <div class="q"><p><span class="num">0.5</span>Your pre-assessment score, if you kept it (leave blank if not)</p>
+    <input type="text" name="p_pre_score" placeholder="e.g. 47"></div>
+</fieldset>
+
+<fieldset>
+  <div class="sec-h"><span class="n">Section A</span><h2>AI and generative AI literacy</h2><span class="meta">10 items · scored</span></div>
+  <div id="secA"></div>
+</fieldset>
+<fieldset>
+  <div class="sec-h"><span class="n">Section B</span><h2>Data and evidence</h2><span class="meta">10 items · scored</span></div>
+  <div id="secB"></div>
+</fieldset>
+<fieldset>
+  <div class="sec-h"><span class="n">Section C</span><h2>Machine learning in practice</h2><span class="meta">10 items · scored</span></div>
+  <div id="secC"></div>
+</fieldset>
+<fieldset>
+  <div class="sec-h"><span class="n">Section D</span><h2>Python screen</h2><span class="meta">6 items · everyone attempts this time</span></div>
+  <div class="sec-i">You skipped this in Week 1 if you had never written Python. Attempt it now regardless of track — Track A fellows are not expected to score well, and that is itself a useful measurement.</div>
+  <div id="secD"></div>
+</fieldset>
+
+<fieldset>
+  <div class="sec-h"><span class="n">Section E</span><h2>How you use AI now</h2><span class="meta">Repeated verbatim from Week 1</span></div>
+  <div class="sec-i">Answer for today, not for Week 1. The comparison is the point.</div>
+  <div id="secE"></div>
+</fieldset>
+
+<fieldset>
+  <div class="sec-h"><span class="n">Section F</span><h2>What the programme changed</h2><span class="meta">Impact block · new</span></div>
+  <div id="secF"></div>
+</fieldset>
+
+<div class="err" id="err"></div>
+<div class="submit">
+  <button type="submit">Submit my post-assessment</button>
+  <button type="button" class="ghost" id="exportBtn">Export question bank</button>
+</div>
+</form>
+
+<div id="out">
+  <div class="res-h"><span class="band">Recorded</span><h2 id="headline"></h2></div>
+  <div class="res-b">
+    <div id="bars"></div>
+    <div class="delta" id="delta"></div>
+    <p style="font-size:.9rem;color:#40504A;margin:0 0 14px" id="advice"></p>
+    <p style="font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0">
+      Submitted <span id="stamp"></span></p>
+  </div>
+</div>
+</main>
+
+<footer><div class="wrap">
+Practical AI Fellowship · a 3MTT and Meta programme, delivered by Robotics and Artificial Intelligence Nigeria (RAIN).
+&nbsp;·&nbsp; <a href="../index.html">Back to the schedule</a>
+</div></footer>
+
+<script src="../data/bank.js"></script>
+<script>
+/* ---- Section F: the impact block. Only asked at the end. ---- */
+const F_QUESTIONS = [
+ {id:"f_complete", q:"How many of your assigned courses did you work all the way through?", type:"radio",
+  opts:["None","Some, under half","Most, over half","All of them"]},
+ {id:"f_capstone", q:"Did you submit a capstone?", type:"radio",
+  opts:["No","Yes, a written analysis or decision brief","Yes, a working notebook or model","Yes, something running that other people can use"]},
+ {id:"f_applied_work", q:"Since September, have you applied something from this programme to real work?", type:"radio",
+  opts:["Not yet","Once","Several times","It is now part of how I work"]},
+ {id:"f_built", q:"Have you built anything — a script, dashboard, model, automation, assistant — that you still use?", type:"radio",
+  opts:["No","I built something but do not use it","Yes, I use it occasionally","Yes, I or others use it regularly"]},
+ {id:"f_income_new", q:"Has anything from this programme led to income, a contract, a client, a raise or a new role?", type:"radio",
+  opts:["No","Not yet, but conversations are open","Yes, a small amount","Yes, meaningfully"]},
+ {id:"f_income_amt", q:"If yes, roughly what value, in naira? Leave blank if none. This is aggregated and never reported against your name.", type:"text"},
+ {id:"f_employment", q:"Has your employment status changed since 1 September?", type:"radio",
+  opts:["No change","New job or role","Started or expanded a business","Took on freelance or contract work","Lost or left a role"]},
+ {id:"f_taught_n", q:"How many other people have you shown or taught something you learned here?", type:"radio",
+  opts:["None","1–2","3–10","More than 10"]},
+ {id:"f_hardest", q:"Which week was hardest?", type:"radio",
+  opts:["Week 4 — the track split","Week 5","Week 6 — messy data","Week 7 — judgement","Week 8 — the capstone","None were especially hard"]},
+ {id:"f_pace", q:"Was the pace right for you?", type:"radio",
+  opts:["Far too fast","A little fast","About right","A little slow","Far too slow"]},
+ {id:"f_track_right", q:"Were you placed on the right track?", type:"radio",
+  opts:["No, it was too hard","No, it was too easy","Yes, it was right","I moved tracks and the second one was right"]},
+ {id:"f_nps", q:"How likely are you to recommend this programme to another fellow? 0 means not at all, 10 means certainly.", type:"nps"},
+ {id:"f_cut", q:"Name one course you would cut from the required path, and why.", type:"text"},
+ {id:"f_add", q:"Name one thing that was missing and should be added for the next cohort.", type:"text"},
+ {id:"f_story", q:"Tell us one concrete thing you can do now that you could not do on 1 September. Be specific — this is what gets quoted in the impact report, with your permission.", type:"text"},
+ {id:"f_consent", q:"May we quote your answer above, with your name, in reporting to Meta, 3MTT and the public?", type:"radio",
+  opts:["Yes, with my name","Yes, but anonymously","No"]}
+];
+
+function renderMC(host, key, items) {
+  document.getElementById(host).innerHTML = items.map((it, i) => `
+    <div class="q">
+      <p><span class="num">${key}${i + 1}</span>${it.q.replace(/\n/g, "<br>").replace(/  /g, "&nbsp;&nbsp;")}</p>
+      ${it.o.map((o, j) => `<label class="opt"><input type="radio" name="${key}${i}" value="${j}"><span>${o}</span></label>`).join("")}
+    </div>`).join("");
+}
+renderMC("secA", "A", BANK.A);
+renderMC("secB", "B", BANK.B);
+renderMC("secC", "C", BANK.C);
+renderMC("secD", "D", BANK.D);
+
+function renderOther(host, list, prefix) {
+  document.getElementById(host).innerHTML = list.map((e, i) => {
+    let body;
+    if (e.type === "text") body = `<textarea name="${e.id}"></textarea>`;
+    else if (e.type === "nps") body = `<div class="nps">${[...Array(11).keys()].map(n =>
+      `<label><input type="radio" name="${e.id}" value="${n}">${n}</label>`).join("")}</div>`;
+    else if (e.type === "scale") body = `<div class="scale">${e.opts.map((o, j) =>
+      `<label><input type="radio" name="${e.id}" value="${j}">${o}</label>`).join("")}</div>`;
+    else body = e.opts.map((o, j) => `<label class="opt"><input type="radio" name="${e.id}" value="${j}"><span>${o}</span></label>`).join("");
+    return `<div class="q"><p><span class="num">${prefix}${i + 1}</span>${e.q}</p>${body}</div>`;
+  }).join("");
+}
+renderOther("secE", E_QUESTIONS, "E");
+renderOther("secF", F_QUESTIONS, "F");
+
+document.getElementById("form").addEventListener("submit", ev => {
+  ev.preventDefault();
+  const err = document.getElementById("err");
+  const need = ["p_name", "p_id", "p_email"];
+  if (need.some(n => !document.querySelector(`[name=${n}]`).value.trim())) {
+    err.className = "err on";
+    err.textContent = "Your name, fellow ID and email are required, and the email must match the one you used in Week 1. Without it your before-and-after cannot be paired.";
+    err.scrollIntoView({ block: "center" });
+    return;
+  }
+  err.className = "err";
+
+  const score = key => {
+    let got = 0;
+    BANK[key].forEach((it, i) => {
+      const sel = document.querySelector(`input[name=${key}${i}]:checked`);
+      if (sel && +sel.value === it.a) got++;
+    });
+    return { got, of: BANK[key].length, pct: Math.round(got / BANK[key].length * 100) };
+  };
+
+  const a = score("A"), b = score("B"), c = score("C"), d = score("D");
+  const got = a.got + b.got + c.got, pct = Math.round(got / 30 * 100);
+
+  document.getElementById("headline").textContent = `${pct}% · ${got} of 30`;
+  document.getElementById("bars").innerHTML = [
+    ["A · AI literacy", a], ["B · Data and evidence", b], ["C · Machine learning", c], ["D · Python screen", d]
+  ].map(([l, s]) => `<div class="bar"><span class="lab"><span>${l}</span><span>${s.got}/${s.of}</span></span>
+    <span class="track-bar"><i style="width:${s.pct}%"></i></span></div>`).join("");
+
+  const pre = parseInt(document.querySelector("[name=p_pre_score]").value, 10);
+  const dl = document.getElementById("delta");
+  if (!isNaN(pre)) {
+    const diff = pct - pre;
+    dl.innerHTML = `<b>${diff >= 0 ? "+" : ""}${diff} points</b>
+      <span style="font-size:.9rem;color:#40504A">Week 1 baseline ${pre}% · today ${pct}%. This is the number the impact report is built on.</span>`;
+  } else {
+    dl.innerHTML = `<b>${pct}%</b><span style="font-size:.9rem;color:#40504A">Your Week 1 baseline is held on the register and will be paired with this by email address.</span>`;
+  }
+
+  document.getElementById("advice").textContent =
+    "Nothing further is required from you. Certification is confirmed against your platform records within ten working days, and the cohort impact report is published in November.";
+  document.getElementById("stamp").textContent = new Date().toLocaleString("en-GB");
+  const out = document.getElementById("out"); out.className = "on";
+  out.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+document.getElementById("exportBtn").onclick = () => {
+  let txt = "PRACTICAL AI FELLOWSHIP — POST-ASSESSMENT QUESTION BANK\n" +
+    "Sections A–D are identical to the pre-assessment. Sections E and F carry the impact evidence.\n";
+  ["A", "B", "C", "D"].forEach(k => {
+    txt += `\n===== SECTION ${k} =====\n`;
+    BANK[k].forEach((it, i) => {
+      txt += `\n${k}${i + 1}. ${it.q}\n` + it.o.map((o, j) => `   ${j === it.a ? "*" : " "} ${o}`).join("\n") + "\n";
+    });
+  });
+  [["E", E_QUESTIONS], ["F", F_QUESTIONS]].forEach(([k, list]) => {
+    txt += `\n\n===== SECTION ${k} (unscored) =====\n`;
+    list.forEach((e, i) => {
+      txt += `\n${k}${i + 1}. ${e.q}\n` +
+        (e.type === "text" ? "   [long answer]\n" :
+         e.type === "nps" ? "   [0 to 10 linear scale]\n" :
+         e.opts.map(o => `     ${o}`).join("\n") + "\n");
+    });
+  });
+  const blob = new Blob([txt], { type: "text/plain" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "post-assessment-question-bank.txt"; a.click();
+};
+</script>
+</body>
+</html>
