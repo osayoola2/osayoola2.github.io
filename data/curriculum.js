@@ -1,207 +1,250 @@
 /* ------------------------------------------------------------------
-   Practical AI Fellowship — curriculum data
+   AI Skills Development — curriculum data
    3MTT × Meta · delivered by Robotics and Artificial Intelligence Nigeria
 
-   ACCESS RULE FOR THIS PROGRAMME
-   Every course below is free to access with a free account, and every
-   course below is Meta's own material.
-     · Coursera (Meta)  — audit mode: all video and reading content,
-                          free, no payment, no certificate.
-     · DeepLearning.AI  — Meta-built short courses, taught by Meta's
-                          own partner engineering team, free to watch.
-   Nothing here requires a subscription, a licence or a card.
-   DataCamp was reviewed and removed entirely: a free DataCamp account
-   unlocks only the first lesson of any course, so no DataCamp course
-   can be completed by a fellow at no cost.
+   Built to Meta's brief. Two content sources only:
+     1. AI 101 — the curriculum Startupbootcamp developed for Meta.
+        Four modules, 20.5 hours. Slides hosted on Google Drive,
+        one link per section. Compulsory for every participant.
+     2. Meta Blueprint courses — the six named in the brief, on
+        Coursera, DeepLearning.AI and DataCamp.
+
+   Priority of this track is reach: open to the whole 3MTT community,
+   no cost barrier. Anything that cannot be completed free is marked
+   `paid: true` and kept out of the required path.
    ------------------------------------------------------------------ */
 
 const PROGRAMME = {
-  name: "Practical AI Fellowship",
+  name: "AI Skills Development",
   cohort: "3MTT × Meta · 2026",
   start: "2026-09-01",
   end: "2026-10-31",
-  // Replace with real Google Form URLs before launch.
   accessCode: "meta3mtt2026",
+  scholarship: "Top 100 performers are eligible for scholarships toward paid Meta Blueprint certifications, plus $5,000 in Meta advertising credits.",
   links: {
     register:  "https://forms.gle/REPLACE-registration",
     pre:       "https://forms.gle/REPLACE-pre-assessment",
-    check1:    "https://forms.gle/REPLACE-checkpoint-1",
-    check2:    "https://forms.gle/REPLACE-checkpoint-2",
-    check3:    "https://forms.gle/REPLACE-checkpoint-3",
+    m1quiz:    "https://forms.gle/REPLACE-module-1-assessment",
+    m2quiz:    "https://forms.gle/REPLACE-module-2-assessment",
+    m3quiz:    "https://forms.gle/REPLACE-module-3-assessment",
+    m4quiz:    "https://forms.gle/REPLACE-module-4-assessment",
     capstone:  "https://forms.gle/REPLACE-capstone-submission",
     post:      "https://forms.gle/REPLACE-post-assessment",
     progress:  "https://forms.gle/REPLACE-weekly-progress-log",
+    sessions:  "https://REPLACE-virtual-session-schedule",
     support:   "https://forms.gle/REPLACE-support-request",
     community: "https://chat.whatsapp.com/REPLACE"
   }
 };
 
-const TRACKS = {
-  A: {
-    id: "A", label: "Track A", name: "AI for Business & Decisions", tag: "No coding",
-    blurb: "Use data and AI to make better decisions at work or in a business. Statistics, spreadsheets, SQL and marketing analytics, without writing a line of code.",
-    who: "Product, marketing, operations, admin, teaching, agriculture, health, trade. Anyone whose work is decisions rather than code.",
-    placement: "Baseline under 40%, or any score with no Python experience.",
-    capstone: "A decision brief on a real problem, backed by your own data and a clear analysis."
-  },
-  B: {
-    id: "B", label: "Track B", name: "Applied AI with Python", tag: "Most fellows",
-    blurb: "Learn to work with data properly. Python from the beginning, then real analysis on messy data you bring yourself.",
-    who: "Fellows with some technical grounding who want to build, and fellows already on 3MTT data or software tracks.",
-    placement: "Baseline 40% or above, or a stated intent to code.",
-    capstone: "A working analysis in a notebook, on your own dataset, with your reasoning written out."
-  },
-  C: {
-    id: "C", label: "Track C", name: "Building with Llama", tag: "Advanced",
-    blurb: "Build applications on Meta's open models. Prompting, multimodal Llama, Llama 4, and shipping something people can actually message.",
-    who: "Fellows already comfortable in Python who can write a function and read an API response.",
-    placement: "Baseline above 70% and a pass on the Python screen.",
-    capstone: "A working application built on Llama that another person can use end to end."
-  }
-};
+/* ---- AI 101 (Startupbootcamp for Meta). One Drive link per section. ---- */
+const AI101 = [
+  { m: 1, t: "AI Essentials", h: 4.5,
+    aim: "Understand how AI works, what it can do, and how to use it responsibly.",
+    outcome: "You can explain AI to a non-technical audience, judge when to use it, and apply basic data thinking to a real problem.",
+    quiz: "m1quiz",
+    sections: [
+      { s: 1, t: "How AI Actually Works", h: 1,
+        pts: ["Neural networks simplified", "Training data and why it matters", "Generative, predictive and analytical AI", "Meta AI tools — when to use what"],
+        drive: "https://drive.google.com/REPLACE-m1s1" },
+      { s: 2, t: "Data: The Foundation of AI", h: 0.5,
+        pts: ["Data collection methods", "Data quality and cleaning basics", "From data to insights", "Understanding your audience through data", "Meta platform analytics"],
+        drive: "https://drive.google.com/REPLACE-m1s2" },
+      { s: 3, t: "AI For Your Studies & Projects", h: 1,
+        pts: ["What AI excels at", "What AI struggles with", "The hallucination problem and verification", "Positive demonstrations with Meta AI"],
+        drive: "https://drive.google.com/REPLACE-m1s3" },
+      { s: 4, t: "Using AI Responsibly", h: 1.5,
+        pts: ["Privacy and data security", "Bias in AI", "Academic integrity and plagiarism boundaries", "Misinformation and photorealistic content", "Environmental impact", "Impact on human agency"],
+        drive: "https://drive.google.com/REPLACE-m1s4" },
+      { s: 5, t: "Your AI Future Starts Here", h: 0.5,
+        pts: ["Common misconceptions", "AI won't replace you, but someone using AI will", "Regional AI development landscape", "Positive opportunities and impact"],
+        drive: "https://drive.google.com/REPLACE-m1s5" }
+    ]},
+  { m: 2, t: "Career Advantage", h: 5,
+    aim: "Position yourself for the AI-powered workplace and stand out to employers.",
+    outcome: "You finish with an AI-enhanced job search toolkit: optimised CV, tailored cover letters, interview prep and professional content samples.",
+    quiz: "m2quiz",
+    sections: [
+      { s: 1, t: "The Changing Landscape of Work", h: 1.5,
+        pts: ["How employers are using AI", "Industries disrupted vs enhanced", "Skills that become more valuable with AI", "Remote work and AI-enabled global opportunities"],
+        drive: "https://drive.google.com/REPLACE-m2s1" },
+      { s: 2, t: "Strategic Job Search with AI", h: 1.5,
+        pts: ["CV optimisation — enhancing your authentic story", "Cover letter personalisation at scale", "Interview preparation with AI role-play", "LinkedIn profile optimisation", "Smart use vs misuse"],
+        drive: "https://drive.google.com/REPLACE-m2s2" },
+      { s: 3, t: "Building Your Professional Brand", h: 1,
+        pts: ["Personal website and portfolio with AI tools", "Content creation for professional social media", "Thought leadership and knowledge sharing", "Networking message crafting"],
+        drive: "https://drive.google.com/REPLACE-m2s3" },
+      { s: 4, t: "AI Career Pathways", h: 1,
+        pts: ["Emerging roles: prompt engineers, AI trainers, AI ethicists", "AI skills in traditional roles", "Entrepreneurship in AI services", "Regional spotlight: where the opportunities are"],
+        drive: "https://drive.google.com/REPLACE-m2s4" }
+    ]},
+  { m: 3, t: "Create & Communicate", h: 5.5,
+    aim: "Create professional content across text, images and video using AI tools.",
+    outcome: "You produce a multi-channel content campaign — written, visual and video — demonstrating real prompt engineering skill.",
+    quiz: "m3quiz",
+    sections: [
+      { s: 1, t: "Mastering AI Prompts for Any Task", h: 1.5,
+        pts: ["Anatomy of effective prompts", "Context, constraints and examples", "Iteration and refinement", "Prompt libraries and templates", "Multi-turn conversations", "Meta AI across WhatsApp, Instagram, Facebook"],
+        drive: "https://drive.google.com/REPLACE-m3s1" },
+      { s: 2, t: "Written Communication", h: 1.5,
+        pts: ["Academic writing assistance", "Business communication", "Social media content across platforms", "Adapting tone for different audiences", "Translation and localisation", "Exercise: a campaign for a local issue"],
+        drive: "https://drive.google.com/REPLACE-m3s2" },
+      { s: 3, t: "Creating Visual Content That Stands Out", h: 1.5,
+        pts: ["AI image generation with Meta's Imagine", "Video creation and editing", "Presentation design and data visualisation", "Voice-overs and audio", "Instagram Reels", "Visual norms across regions"],
+        drive: "https://drive.google.com/REPLACE-m3s3" },
+      { s: 4, t: "Strategic Content Thinking", h: 1,
+        pts: ["Content calendars and campaign planning", "A/B testing and optimisation", "Analytics and performance measurement", "Authenticity vs automation", "Accessibility in AI-generated content"],
+        drive: "https://drive.google.com/REPLACE-m3s4" }
+    ]},
+  { m: 4, t: "Build the Future", h: 5.5,
+    aim: "Turn ideas into reality with AI-powered innovation and no-code tools.",
+    outcome: "You complete a Startup-in-a-Box: validated idea, business plan, functional prototype and go-to-market strategy.",
+    quiz: "m4quiz",
+    sections: [
+      { s: 1, t: "Ideation & Opportunity Discovery", h: 1.5,
+        pts: ["AI for market research and trend analysis", "Problem identification in local contexts", "Competitive analysis and positioning", "Brainstorming and idea refinement with AI"],
+        drive: "https://drive.google.com/REPLACE-m4s1" },
+      { s: 2, t: "Validation & Business Planning", h: 1.5,
+        pts: ["Customer persona development", "Value proposition testing", "Business model canvas with AI", "Financial projections and unit economics", "Pitch deck creation", "Market testing on Meta platforms"],
+        drive: "https://drive.google.com/REPLACE-m4s2" },
+      { s: 3, t: "Building Your First Prototype with AI", h: 2,
+        pts: ["AI-assisted coding with Code Llama", "Building landing pages and websites", "Chatbots for customer service", "Automating workflows with Meta Business Suite", "Practical project: build a functional MVP"],
+        drive: "https://drive.google.com/REPLACE-m4s3" },
+      { s: 4, t: "From Campus Project to Real Business", h: 0.5,
+        pts: ["AI-powered marketing and customer acquisition", "Scaling considerations", "Roadmapping", "Funding landscape for AI-enabled startups"],
+        drive: "https://drive.google.com/REPLACE-m4s4" }
+    ]}
+];
 
-/* Course catalogue. Every entry is free-access and Meta-authored. */
+/* ---- Meta Blueprint courses named in the brief ---- */
 const COURSES = {
-  CR01: { p: "Coursera", t: "Introduction to Data Management", h: 8, lvl: "Beginner",
-          url: "https://www.coursera.org/learn/introduction-to-data-management", note: "4 modules" },
-  CR02: { p: "Coursera", t: "GenAI in Data Analytics", h: 4, lvl: "Beginner",
-          url: "https://www.coursera.org/learn/genai-in-data-analytics", note: "1 module" },
-  CR03: { p: "Coursera", t: "Statistics Foundations", h: 10, lvl: "Beginner",
-          url: "https://www.coursera.org/learn/statistics-for-marketing", note: "5 modules" },
-  CR04: { p: "Coursera", t: "Data Analysis with Spreadsheets and SQL", h: 12, lvl: "Beginner",
-          url: "https://www.coursera.org/learn/data-analysis-with-spreadsheets-and-sql", note: "5 modules" },
-  CR05: { p: "Coursera", t: "Data Analytics Methods for Marketing", h: 8, lvl: "Beginner",
-          url: "https://www.coursera.org/learn/data-analytics-methods-for-marketing", note: "4 modules" },
-  CR06: { p: "Coursera", t: "Programming in Python", h: 12, lvl: "Beginner",
-          url: "https://www.coursera.org/learn/programming-in-python", note: "Modules 1–3" },
-  CR07: { p: "Coursera", t: "Python Data Analytics", h: 10, lvl: "Beginner",
-          url: "https://www.coursera.org/learn/python-data-analytics", note: "5 modules" },
-  CR08: { p: "Coursera", t: "WhatsApp Business Platform for Developers", h: 10, lvl: "Intermediate",
-          url: "https://www.coursera.org/learn/whatsapp-business-platform-for-developers", note: "4 modules" },
-
-  DL01: { p: "DeepLearning.AI", t: "Prompt Engineering with Llama 2 & 3", h: 1, lvl: "Beginner",
-          url: "https://www.deeplearning.ai/courses/prompt-engineering-with-llama-2", note: "Taught by Amit Sangani, Meta" },
-  DL02: { p: "DeepLearning.AI", t: "Introducing Multimodal Llama 3.2", h: 1, lvl: "Intermediate",
-          url: "https://www.deeplearning.ai/courses/introducing-multimodal-llama-3-2", note: "Taught by Amit Sangani, Meta" },
-  DL03: { p: "DeepLearning.AI", t: "Building with Llama 4", h: 2, lvl: "Intermediate",
-          url: "https://www.deeplearning.ai/courses/building-with-llama-4", note: "Taught by Amit Sangani, Meta" }
+  BP1: { p: "Coursera", t: "Generative AI in Social Media Marketing", h: 4, lvl: "Beginner",
+         url: "https://www.coursera.org/learn/generative-ai-in-social-media-marketing", note: "Meta · audit free" },
+  BP2: { p: "Coursera", t: "Generative AI in Data Analytics", h: 4, lvl: "Beginner",
+         url: "https://www.coursera.org/learn/genai-in-data-analytics", note: "Meta · audit free" },
+  BP3: { p: "DeepLearning.AI", t: "Prompt Engineering with Llama 2 & 3", h: 1, lvl: "Beginner",
+         url: "https://www.deeplearning.ai/courses/prompt-engineering-with-llama-2", note: "Taught by Amit Sangani, Meta" },
+  BP4: { p: "DeepLearning.AI", t: "Introducing Multimodal Llama 3.2", h: 1, lvl: "Intermediate",
+         url: "https://www.deeplearning.ai/courses/introducing-multimodal-llama-3-2", note: "Taught by Amit Sangani, Meta" },
+  BP5: { p: "Coursera", t: "Building GenAI Apps with Llama", h: 20, lvl: "Intermediate",
+         url: "https://www.coursera.org/professional-certificates/building-genai-apps-with-llama",
+         note: "Professional Certificate · optional extension" },
+  BP6: { p: "DataCamp", t: "Working with Llama 3", h: 2, lvl: "Intermediate",
+         url: "https://www.datacamp.com/courses/working-with-llama-3",
+         note: "Subscription required", paid: true }
 };
 
 const WEEKS = [
-  { n: 1, from: "2026-09-01", to: "2026-09-06", phase: "core",
+  { n: 1, from: "2026-09-01", to: "2026-09-06",
     title: "Start, and get measured",
-    aim: "Accounts open, baseline recorded, track assigned. Nobody moves to Week 2 without a pre-assessment on record.",
-    plans: { core: { tasksFirst: true, courses: ["DL01"], tasks: [
-      { kind: "form", label: "Pre-assessment — take this before anything else. It sets your track and records your starting point.", link: "pre" },
-      { kind: "form", label: "Register and open your free Coursera and DeepLearning.AI accounts", link: "register" },
-      { kind: "form", label: "Join the WhatsApp cohort community for your state", link: "community" },
-      { kind: "task", label: "Write one sentence: the task in your work you most want AI to help with. Keep it, it becomes your capstone." }
-    ] } } },
-
-  { n: 2, from: "2026-09-07", to: "2026-09-13", phase: "core",
-    title: "What generative AI is actually doing",
-    aim: "Separate what these systems can do from what they are sold as, and start using them on real work.",
-    plans: { core: { courses: ["CR02"], tasks: [
-      { kind: "form", label: "Week 2 progress log", link: "progress" },
-      { kind: "task", label: "Share one output you produced with AI for real work, and one place it got something wrong." }
-    ] } } },
-
-  { n: 3, from: "2026-09-14", to: "2026-09-20", phase: "core",
-    title: "Data is the thing underneath",
-    aim: "Every AI result is only as good as what fed it. Learn to treat data as an asset with rules attached.",
-    plans: { core: { courses: ["CR01"], tasks: [
-      { kind: "form", label: "Checkpoint 1 — core knowledge check", link: "check1" },
-      { kind: "task", label: "Confirm your track. You may move one level either way before Friday." }
-    ] } } },
-
-  { n: 4, from: "2026-09-21", to: "2026-09-27", phase: "split",
-    title: "Tracks open",
-    aim: "First week on your own path. Expect this to be the sharpest gear change of the programme.",
-    plans: {
-      A: { courses: ["CR03"], parts: { CR03: ["Modules 1–3", 6] }, tasks: [
-        { kind: "form", label: "Week 4 progress log", link: "progress" },
-        { kind: "task", label: "Bring one real dataset from your work or community: a register, a price list, a customer log." } ] },
-      B: { courses: ["CR06"], tasks: [
-        { kind: "form", label: "Week 4 progress log", link: "progress" },
-        { kind: "task", label: "Get Google Colab open and run one notebook end to end." } ] },
-      C: { courses: ["CR06"], tasks: [
-        { kind: "form", label: "Week 4 progress log", link: "progress" },
-        { kind: "task", label: "Choose what you will build. Track C works on the same idea from here to the end." } ] } } },
-
-  { n: 5, from: "2026-09-28", to: "2026-10-04", phase: "split",
-    title: "Building the working parts",
-    aim: "Short week. Thursday 1 October is a public holiday and the load is set accordingly.",
+    aim: "Register, record your baseline, and begin AI 101. Nobody moves on without a pre-assessment on record.",
+    items: [
+      { k: "form", t: "Pre-assessment — take this before anything else. It records where the cohort starts.", link: "pre", first: true },
+      { k: "form", t: "Register and open your free Coursera and DeepLearning.AI accounts", link: "register" },
+      { k: "form", t: "Join the WhatsApp cohort community for your state", link: "community" },
+      { k: "task", t: "Write one sentence: the task in your work you most want AI to help with. Keep it — it becomes your capstone." },
+      { k: "slide", m: 1, s: 1 },
+      { k: "slide", m: 1, s: 2 }
+    ]},
+  { n: 2, from: "2026-09-07", to: "2026-09-13",
+    title: "AI Essentials",
+    aim: "Finish Module 1. What AI is good at, where it fails, and how to use it without causing harm.",
+    items: [
+      { k: "slide", m: 1, s: 3 },
+      { k: "slide", m: 1, s: 4 },
+      { k: "slide", m: 1, s: 5 },
+      { k: "form", t: "Module 1 assessment — AI Essentials", link: "m1quiz" },
+      { k: "live", t: "Virtual session: AI Essentials Q&A" }
+    ]},
+  { n: 3, from: "2026-09-14", to: "2026-09-20",
+    title: "Generative AI on Meta's platforms",
+    aim: "First Blueprint courses. See how generative AI is actually applied to analytics and to reaching an audience.",
+    items: [
+      { k: "course", c: "BP2" },
+      { k: "form", t: "Week 3 progress log", link: "progress" }
+    ]},
+  { n: 4, from: "2026-09-21", to: "2026-09-27",
+    title: "Career Advantage",
+    aim: "Module 2. Build the job search toolkit — CV, cover letters, interview prep, professional presence.",
+    items: [
+      { k: "slide", m: 2, s: 1 },
+      { k: "slide", m: 2, s: 2 },
+      { k: "slide", m: 2, s: 3 },
+      { k: "slide", m: 2, s: 4 },
+      { k: "form", t: "Module 2 assessment — Career Advantage", link: "m2quiz" },
+      { k: "live", t: "Virtual session: CV and portfolio clinic" }
+    ]},
+  { n: 5, from: "2026-09-28", to: "2026-10-04",
+    title: "Reaching an audience",
+    aim: "Short week — Thursday 1 October is a public holiday, and the load is set accordingly.",
     note: "Independence Day falls on Thursday 1 October.",
-    plans: {
-      A: { courses: ["CR03"], parts: { CR03: ["Modules 4–5", 4] }, tasks: [{ kind: "form", label: "Week 5 progress log", link: "progress" }] },
-      B: { courses: ["CR07"], parts: { CR07: ["Modules 1–3", 6] }, tasks: [{ kind: "form", label: "Week 5 progress log", link: "progress" }] },
-      C: { courses: ["DL02", "DL03"], tasks: [{ kind: "form", label: "Week 5 progress log", link: "progress" }] } } },
-
-  { n: 6, from: "2026-10-05", to: "2026-10-11", phase: "split",
-    title: "Real, messy data",
-    aim: "Everything so far used clean examples. This week it stops being clean.",
-    plans: {
-      A: { courses: ["CR04"], parts: { CR04: ["Modules 1–3", 7] }, tasks: [{ kind: "form", label: "Checkpoint 2 — track skills check", link: "check2" }] },
-      B: { courses: ["CR07"], parts: { CR07: ["Modules 4–5", 4] }, tasks: [{ kind: "form", label: "Checkpoint 2 — track skills check", link: "check2" }] },
-      C: { courses: ["CR08"], parts: { CR08: ["Modules 1–2", 5] }, tasks: [{ kind: "form", label: "Checkpoint 2 — track skills check", link: "check2" }] } } },
-
-  { n: 7, from: "2026-10-12", to: "2026-10-18", phase: "split",
-    title: "Judgement, not just output",
-    aim: "Learn to tell a good result from a convincing one. This is the week that separates users of AI from practitioners.",
-    plans: {
-      A: { courses: ["CR04"], parts: { CR04: ["Modules 4–5", 5] }, tasks: [{ kind: "form", label: "Capstone proposal — one page", link: "capstone" }] },
-      B: { courses: ["CR03"], tasks: [{ kind: "form", label: "Capstone proposal — one page", link: "capstone" }] },
-      C: { courses: ["CR08"], parts: { CR08: ["Modules 3–4", 5] }, tasks: [{ kind: "form", label: "Capstone proposal — one page", link: "capstone" }] } } },
-
-  { n: 8, from: "2026-10-19", to: "2026-10-25", phase: "split",
-    title: "Build it",
-    aim: "Last taught week. Finish what is outstanding and build your capstone. No new material after Wednesday.",
-    plans: {
-      A: { courses: ["CR05"], tasks: [
-        { kind: "form", label: "Checkpoint 3 — readiness check", link: "check3" },
-        { kind: "task", label: "Build your capstone: a decision brief backed by your own data." } ] },
-      B: { courses: [], tasks: [
-        { kind: "form", label: "Checkpoint 3 — readiness check", link: "check3" },
-        { kind: "task", label: "Build your capstone: a working analysis in a notebook on your own dataset." } ] },
-      C: { courses: [], tasks: [
-        { kind: "form", label: "Checkpoint 3 — readiness check", link: "check3" },
-        { kind: "task", label: "Build your capstone: an application on Llama that another person can use end to end." } ] } } },
-
-  { n: 9, from: "2026-10-26", to: "2026-10-31", phase: "close",
+    items: [
+      { k: "course", c: "BP1" },
+      { k: "form", t: "Week 5 progress log", link: "progress" }
+    ]},
+  { n: 6, from: "2026-10-05", to: "2026-10-11",
+    title: "Create & Communicate",
+    aim: "Module 3. Prompting properly, then producing real content across text, image and video.",
+    items: [
+      { k: "slide", m: 3, s: 1 },
+      { k: "slide", m: 3, s: 2 },
+      { k: "slide", m: 3, s: 3 },
+      { k: "slide", m: 3, s: 4 },
+      { k: "form", t: "Module 3 assessment — Create & Communicate", link: "m3quiz" },
+      { k: "live", t: "Virtual session: prompt engineering workshop" }
+    ]},
+  { n: 7, from: "2026-10-12", to: "2026-10-18",
+    title: "Building on Llama",
+    aim: "Meta's own engineers on Meta's own open models. Short courses, high value.",
+    items: [
+      { k: "course", c: "BP3" },
+      { k: "course", c: "BP4" },
+      { k: "form", t: "Capstone proposal — one page", link: "capstone" }
+    ]},
+  { n: 8, from: "2026-10-19", to: "2026-10-25",
+    title: "Build the Future",
+    aim: "Module 4 and your capstone. Last taught week — no new material after Wednesday.",
+    items: [
+      { k: "slide", m: 4, s: 1 },
+      { k: "slide", m: 4, s: 2 },
+      { k: "slide", m: 4, s: 3 },
+      { k: "slide", m: 4, s: 4 },
+      { k: "form", t: "Module 4 assessment — Build the Future", link: "m4quiz" },
+      { k: "live", t: "Virtual session: prototype build-along" }
+    ]},
+  { n: 9, from: "2026-10-26", to: "2026-10-31",
     title: "Submit, measure, close",
-    aim: "Capstones in, impact measured. Everything closes at 23:59 on Saturday 31 October.",
-    plans: { close: { courses: [], tasks: [
-      { kind: "form", label: "Capstone submission — final", link: "capstone" },
-      { kind: "form", label: "Post-assessment — impact measurement", link: "post" },
-      { kind: "task", label: "Showcase day: state-level demo sessions, Thursday 29 October." }
-    ] } } }
+    aim: "Capstones in, impact measured, top 100 confirmed. Everything closes at 23:59 on Saturday 31 October.",
+    items: [
+      { k: "form", t: "Capstone submission — final", link: "capstone" },
+      { k: "form", t: "Post-assessment — impact measurement", link: "post" },
+      { k: "task", t: "Showcase day: state-level demo sessions, Thursday 29 October." }
+    ]}
 ];
 
-/* Completion is evidence-based, not certificate-based, because free access
-   to this material does not include certificates on either platform. */
+/* Optional extension for participants who want to go further. Not required,
+   not counted toward completion, and flagged where it costs money. */
+const EXTENSION = [
+  { c: "BP5", why: "The full professional certificate on building applications with Llama. Substantial — around 20 hours — so it sits outside the nine weeks. Audit access is free; the certificate is paid." },
+  { c: "BP6", why: "Named in the programme brief, but a free DataCamp account opens only the first lesson of a course. Listed for completeness and for anyone who already has a subscription." }
+];
+
 const COMPLETION = [
   { t: "Pre-assessment on record",
     d: "Submitted before Sunday 6 September. Without a baseline there is nothing to measure against." },
-  { t: "Weekly progress logs",
-    d: "At least seven of nine, each carrying a screenshot of your course progress page." },
-  { t: "Two of three checkpoints passed",
-    d: "Pass mark 60%. Retakes stay open until the Sunday of the following week." },
+  { t: "All four AI 101 modules worked through",
+    d: "Every section downloaded and completed. AI 101 is compulsory for every participant." },
+  { t: "All four module assessments passed",
+    d: "Pass mark 60%. Retakes stay open until the Sunday of the following week. These scores decide the top 100." },
+  { t: "The required Blueprint courses completed",
+    d: "Generative AI in Data Analytics, Generative AI in Social Media Marketing, and both Llama short courses." },
   { t: "Capstone submitted",
-    d: "One artefact, plus 300 words on the problem, the data, and what you would not trust it with." },
+    d: "One artefact, plus 300 words on the problem, what you built, and what you would not trust it with." },
   { t: "Post-assessment on record",
     d: "Submitted by 23:59 on Saturday 31 October. The cohort closes together." }
 ];
 
-const REMOVED = {
-  headline: "Fifty-seven courses were removed after checking what each one actually costs a fellow.",
-  groups: [
-    { g: "The whole of DataCamp",
-      why: "A free DataCamp account unlocks the first lesson of a course and nothing more. No fellow could finish one without paying, so the platform was dropped rather than half-used.",
-      items: ["Introduction to AI for Work", "Understanding Machine Learning", "Machine Learning for Business",
-              "Supervised Learning with scikit-learn", "Working with Llama 3", "Fine-Tuning with Llama 3",
-              "Building Agentic Workflows with LlamaIndex", "and 50 others across ML, MLOps, NLP and time series"] },
-    { g: "Free courses from other providers",
-      why: "Free, certificate-bearing AI courses do exist elsewhere. This is a Meta programme, so the curriculum stays on Meta's own material.",
-      items: [] }
-  ]
+const helpers = {
+  sec: (m, s) => AI101.find(x => x.m === m).sections.find(y => y.s === s),
+  mod: m => AI101.find(x => x.m === m)
 };
