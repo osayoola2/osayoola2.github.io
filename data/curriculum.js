@@ -20,6 +20,10 @@ const PROGRAMME = {
   start: "2026-09-01",
   end: "2026-10-31",
   accessCode: "meta3mtt2026",
+  formats: [
+    { id: "self", t: "Self-paced only", d: "Work through everything on your own schedule. All materials, no fixed times. Best if your week is unpredictable or data is tight." },
+    { id: "live", t: "Self-paced + live sessions", d: "Everything above, plus scheduled virtual instructor-led sessions where you can ask questions and build alongside a facilitator." }
+  ],
   scholarship: "Top 100 performers are eligible for scholarships toward paid Meta Blueprint certifications, plus $5,000 in Meta advertising credits.",
   links: {
     register:  "https://forms.gle/REPLACE-registration",
