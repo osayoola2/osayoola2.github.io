@@ -376,6 +376,7 @@ footer{background:var(--meta-dark);color:#fff;padding:44px 24px 34px;margin-top:
     <span class="av" id="pAv"></span>
     <span class="who"><b id="pName"></b><span id="pMeta"></span></span>
     <span class="acts">
+      <button class="btn btn-ghost btn-sm" id="btnSave">Save backup file</button>
       <button class="btn btn-ghost btn-sm" id="btnPwd">Change password</button>
       <button class="btn btn-ghost btn-sm" id="btnLock">Lock</button>
     </span>
@@ -385,6 +386,7 @@ footer{background:var(--meta-dark);color:#fff;padding:44px 24px 34px;margin-top:
     <div class="top"><b>Your progress</b><span id="pctTxt">0%</span></div>
     <div class="meter"><i id="fill"></i></div>
     <div class="upnext" id="upnext"></div>
+    <div class="upnext" id="bkNote" style="font-size:12.8px;color:var(--muted);border-top:0;padding-top:8px;margin-top:8px"></div>
   </div>
 
   <div id="weeks"></div>
@@ -405,8 +407,27 @@ footer{background:var(--meta-dark);color:#fff;padding:44px 24px 34px;margin-top:
         <a href="mailto:info@rainigeria.com">info@rainigeria.com</a></div>
     </div>
   </div>
-  <div class="f-bot"><span>© 2026 Robotics and Artificial Intelligence Nigeria</span><span>meta3mtt.rainigeria.com · build 4</span></div>
+  <div class="f-bot"><span>© 2026 Robotics and Artificial Intelligence Nigeria</span><span>meta3mtt.rainigeria.com · build 5</span></div>
 </footer>
+
+<!-- ================= CONFIRM PASSWORD ================= -->
+<div class="overlay hide" id="pwOv" style="background:rgba(21,26,31,.72);backdrop-filter:blur(3px)">
+  <div class="wz" style="max-width:400px">
+    <div class="wz-body" style="padding:30px">
+      <h2 id="pwTitle">Confirm it's you</h2>
+      <p class="sub" id="pwSub">Enter your password to record this step.</p>
+      <div class="wz-err" id="pwErr"></div>
+      <div class="fld"><input type="password" id="pwIn" placeholder="Password" autocomplete="current-password"></div>
+      <label class="confirm" id="pwRemWrap" style="padding:12px 14px;margin-top:4px">
+        <input type="checkbox" id="pwRem" checked>
+        <span style="font-size:13.5px">Don't ask again for 30 minutes</span></label>
+    </div>
+    <div class="wz-foot">
+      <button class="back" id="pwCancel">Cancel</button>
+      <button class="btn btn-primary" id="pwGo">Confirm</button>
+    </div>
+  </div>
+</div>
 
 <!-- ================= OVERLAY ================= -->
 <div class="overlay hide" id="ov">
@@ -424,7 +445,7 @@ footer{background:var(--meta-dark);color:#fff;padding:44px 24px 34px;margin-top:
   </div>
 </div>
 
-<script src="data/curriculum.js?v=4"></script>
+<script src="data/curriculum.js?v=5"></script>
 <script>
 /* ================= storage ================= */
 const KEY="raiin-3mtt-aiskills-v2";
@@ -471,6 +492,60 @@ const ENROLLED=()=>!!(P&&P.pw&&P.pre&&Sess.on());
 function gate(href,label,cls){
   if(!href||!ENROLLED())return `<span class="${cls||""} inert">${label}</span>`;
   return `<a class="${cls||""}" href="${href}" target="_blank" rel="noopener">${label}</a>`;
+}
+
+/* ================= password confirmation ================= */
+let pwOkUntil=0;
+function verify(title,sub,cb){
+  if(Date.now()<pwOkUntil)return cb();
+  const ov=document.getElementById("pwOv"),inp=document.getElementById("pwIn"),
+        er=document.getElementById("pwErr"),rem=document.getElementById("pwRem");
+  document.getElementById("pwTitle").textContent=title;
+  document.getElementById("pwSub").textContent=sub;
+  er.classList.remove("on");inp.value="";ov.classList.remove("hide");
+  setTimeout(()=>inp.focus(),60);
+  const close=()=>{ov.classList.add("hide");inp.onkeypress=null};
+  const go=()=>{
+    if(hash(inp.value)!==P.pw){inp.value="";er.textContent="That password is not right.";er.classList.add("on");return}
+    if(rem.checked)pwOkUntil=Date.now()+30*60*1000;
+    close();cb()};
+  document.getElementById("pwGo").onclick=go;
+  document.getElementById("pwCancel").onclick=close;
+  inp.onkeypress=e=>{if(e.key==="Enter")go()};
+}
+
+/* ================= backup file =================
+   localStorage is per-browser by design — a static site cannot write to
+   the device itself. A backup file is the portable record: it moves
+   progress between browsers, between devices, and survives the browser
+   clearing its storage.                                              */
+function exportProfile(){
+  if(!P)return;
+  const blob=new Blob([JSON.stringify({_app:"ai-skills-development",_v:1,saved:new Date().toISOString(),profile:P},null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=`ai-skills-progress-${(P.fellowId||"me").replace(/[^\w-]/g,"")}.json`;
+  a.click();URL.revokeObjectURL(a.href);
+}
+function importProfile(after){
+  const inp=document.createElement("input");
+  inp.type="file";inp.accept="application/json,.json";
+  inp.onchange=()=>{
+    const f=inp.files&&inp.files[0];if(!f)return;
+    const r=new FileReader();
+    r.onload=()=>{
+      try{
+        const d=JSON.parse(r.result);
+        const prof=d&&d.profile;
+        if(!prof||!prof.pw||!prof.name)throw new Error("not a progress file");
+        prof.done=prof.done||{};
+        P=prof;save();Sess.set(true);
+        alert(`Restored ${P.name}'s progress. Sign in with the same password you set originally.`);
+        if(after)after();
+      }catch(e){alert("That file could not be read. Choose the .json backup this site produced.")}
+    };
+    r.readAsText(f)};
+  inp.click();
 }
 
 /* ================= flat item list ================= */
@@ -562,12 +637,14 @@ function drawDashInner(){
 
   host.querySelectorAll(".whead:not([disabled])").forEach(b=>b.onclick=()=>b.parentElement.classList.toggle("open"));
   host.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{
-    P.done[b.dataset.do]=1;save();drawDash();
-    const el=document.querySelector(".item.current");if(el)el.scrollIntoView({behavior:"smooth",block:"center"})});
+    verify("Confirm it's you","Enter your password to record this step as done.",()=>{
+      P.done[b.dataset.do]=1;save();drawDash();
+      const el=document.querySelector(".item.current");
+      if(el)el.scrollIntoView({behavior:"smooth",block:"center"})})});
   host.querySelectorAll("[data-undo]").forEach(b=>b.onclick=()=>{
-    // undoing a step also undoes everything after it, so the sequence stays honest
-    const from=FLAT.findIndex(f=>f.key===b.dataset.undo);
-    FLAT.slice(from).forEach(f=>delete P.done[f.key]);save();drawDash()});
+    verify("Undo this step","This also clears every step after it, so the order stays honest. Enter your password to continue.",()=>{
+      const from=FLAT.findIndex(f=>f.key===b.dataset.undo);
+      FLAT.slice(from).forEach(f=>delete P.done[f.key]);save();drawDash()})});
 
   const got=FLAT.filter(f=>isDone(f.key)).length,pc=Math.round(got/FLAT.length*100);
   document.getElementById("fill").style.width=pc+"%";
@@ -578,6 +655,11 @@ function drawDashInner(){
        <span style="color:var(--muted)">· Week ${nx.w}</span>
        <button class="btn btn-primary btn-sm" id="jump" style="margin-left:10px">Take me there</button>`
     : `<b>You have finished every step.</b> Well done.`;
+  const bk=document.getElementById("bkNote");
+  if(bk)bk.innerHTML=got>0
+    ? `Your progress lives in this browser only. <a id="bkLink" style="color:var(--meta-blue);font-weight:650;cursor:pointer;text-decoration:underline">Save a backup file</a> to carry it to another browser or device, or to survive clearing your browser data.`
+    : "";
+  const bl=document.getElementById("bkLink");if(bl)bl.onclick=exportProfile;
   const j=document.getElementById("jump");
   if(j)j.onclick=()=>{const el=document.querySelector(".item.current");
     if(el){el.closest(".week").classList.add("open");
@@ -600,7 +682,8 @@ function render(){
       <p class="sub">Use the code from your 3MTT admission email. You only enter this once on this device.</p>
       <div class="wz-err" id="wzErr"></div>
       <div class="fld"><label>Access code</label><input type="text" id="fCode" placeholder="Access code" autocomplete="off" value="${draft.code||""}"></div>`;
-    F.innerHTML=`<button class="btn btn-primary" id="next">Continue</button>`;
+    F.innerHTML=`<button class="back" id="restore">Restore backup</button><button class="btn btn-primary" id="next">Continue</button>`;
+    document.getElementById("restore").onclick=()=>importProfile(()=>{closeOv();showDash()});
     document.getElementById("fCode").addEventListener("keypress",e=>{if(e.key==="Enter")go()});
     document.getElementById("next").onclick=go;
     function go(){const v=document.getElementById("fCode").value.trim();
@@ -690,6 +773,8 @@ function askPassword(){
     <div class="fld"><input type="password" id="fPw" placeholder="Password" autocomplete="current-password"></div>
     <p class="hint" style="font-size:12.3px;color:var(--muted)">Forgotten it? You can start setup again, but your ticked progress on this device will be cleared.</p>`;
   F.innerHTML=`<button class="back" id="reset">Start over</button><button class="btn btn-primary" id="go">Unlock</button>`;
+  B.insertAdjacentHTML("beforeend",`<p class="hint" style="font-size:12.3px;color:var(--muted);margin-top:10px">Moved from another browser or device? <a id="rst" style="color:var(--meta-blue);font-weight:650;cursor:pointer;text-decoration:underline">Restore a backup file</a>.</p>`);
+  document.getElementById("rst").onclick=()=>importProfile(()=>{closeOv();showDash()});
   const inp=document.getElementById("fPw");
   inp.addEventListener("keypress",e=>{if(e.key==="Enter")go()});
   setTimeout(()=>inp.focus(),60);
@@ -768,6 +853,7 @@ document.querySelectorAll("[data-go]").forEach(a=>a.onclick=()=>{
   a.classList.add("active");
   const t=document.querySelector(a.dataset.go);if(t)t.scrollIntoView({behavior:"smooth"})});
 
+document.getElementById("btnSave").onclick=exportProfile;
 document.getElementById("btnLock").onclick=()=>{Sess.set(false);location.reload()};
 document.getElementById("btnPwd").onclick=()=>{
   const cur=prompt("Enter your current password");
