@@ -405,7 +405,7 @@ footer{background:var(--meta-dark);color:#fff;padding:44px 24px 34px;margin-top:
         <a href="mailto:info@rainigeria.com">info@rainigeria.com</a></div>
     </div>
   </div>
-  <div class="f-bot"><span>© 2026 Robotics and Artificial Intelligence Nigeria</span><span>meta3mtt.rainigeria.com · build 3</span></div>
+  <div class="f-bot"><span>© 2026 Robotics and Artificial Intelligence Nigeria</span><span>meta3mtt.rainigeria.com · build 4</span></div>
 </footer>
 
 <!-- ================= OVERLAY ================= -->
@@ -424,7 +424,7 @@ footer{background:var(--meta-dark);color:#fff;padding:44px 24px 34px;margin-top:
   </div>
 </div>
 
-<script src="data/curriculum.js?v=3"></script>
+<script src="data/curriculum.js?v=4"></script>
 <script>
 /* ================= storage ================= */
 const KEY="raiin-3mtt-aiskills-v2";
@@ -442,6 +442,26 @@ function hash(s){let h=5381;s="rain·"+s;for(let i=0;i<s.length;i++)h=((h<<5)+h+
 let P=Store.get();               // profile or null
 let draft={};                    // wizard scratch
 const save=()=>Store.set(P);
+
+/* ================= compatibility shims =================
+   index.html must not die if data/curriculum.js is an older copy.
+   Anything optional is defaulted here rather than assumed.        */
+const FORMATS = (typeof PROGRAMME!=="undefined" && Array.isArray(PROGRAMME.formats) && PROGRAMME.formats.length)
+  ? PROGRAMME.formats
+  : [{id:"self",t:"Self-paced only",d:"Work through everything on your own schedule. All materials, no fixed times."},
+     {id:"live",t:"Self-paced + live sessions",d:"Everything above, plus scheduled virtual sessions with a facilitator."}];
+const H = (typeof helpers!=="undefined" && helpers) ? helpers : {
+  mod:m=>AI101.find(x=>x.m===m),
+  sec:(m,s)=>AI101.find(x=>x.m===m).sections.find(y=>y.s===s)
+};
+function fatal(msg){
+  const d=document.getElementById("weeks");
+  if(d)d.innerHTML=`<div class="section" style="border-left:4px solid #D3364A">
+    <h2 style="color:#A32235;border-color:#A32235">Something did not load</h2>
+    <p class="lead">${msg}</p>
+    <p class="lead">Try a hard refresh (Ctrl+Shift+R, or pull down to refresh on mobile).
+    If it persists, <code>data/curriculum.js</code> on the server is out of date and needs re-uploading.</p></div>`;
+}
 
 /* ================= access gate for ALL links =================
    Single choke point. Nothing anywhere on this page emits a clickable
@@ -463,7 +483,7 @@ const weekStarted=w=>w.items.some((it,i)=>isDone(w.n+":"+i));
 
 /* ================= item rendering ================= */
 function itemMeta(it){
-  if(it.k==="slide"){const m=helpers.mod(it.m),s=helpers.sec(it.m,it.s);
+  if(it.k==="slide"){const m=H.mod(it.m),s=H.sec(it.m,it.s);
     return{title:`Module ${it.m}.${it.s} — ${s.t}`,sub:s.pts.join(" · "),
       tags:`<span class="tagx slide">AI 101 slides</span><span class="tagx">${m.t}</span><span class="tagx">${s.h} hr</span>`,
       href:s.drive,cta:"Download slides ↓"}}
@@ -500,14 +520,15 @@ function itemHTML(f,state){
 }
 
 function weekHours(w){return w.items.reduce((x,it)=>{
-  if(it.k==="slide")return x+helpers.sec(it.m,it.s).h;
+  if(it.k==="slide")return x+H.sec(it.m,it.s).h;
   if(it.k==="course")return x+COURSES[it.c].h;return x},0)}
 
-function drawDash(){
+function drawDash(){try{ drawDashInner() }catch(e){ console.error(e); fatal("The programme schedule could not be built: "+e.message) }}
+function drawDashInner(){
   document.getElementById("pAv").textContent=(P.name||"?").trim().charAt(0).toUpperCase();
   document.getElementById("pName").textContent=P.name;
-  const fmtName=(PROGRAMME.formats.find(f=>f.id===P.format)||{}).t||"";
-  document.getElementById("pMeta").textContent=`${P.fellowId} · ${fmtName}`;
+  const fmtName=(FORMATS.find(f=>f.id===P.format)||{}).t||"Self-paced";
+  document.getElementById("pMeta").textContent=`${P.fellowId||"—"} · ${fmtName}`;
 
   const ci=currentIdx();
   const host=document.getElementById("weeks");
@@ -553,8 +574,14 @@ function drawDash(){
   document.getElementById("pctTxt").textContent=`${pc}% · ${got} of ${FLAT.length} steps`;
   const nx=FLAT[currentIdx()];
   document.getElementById("upnext").innerHTML=nx
-    ? `<b>Up next:</b> ${itemMeta(nx.it).title} <span style="color:var(--muted)">· Week ${nx.w}</span>`
+    ? `<b>Do this next:</b> ${itemMeta(nx.it).title}
+       <span style="color:var(--muted)">· Week ${nx.w}</span>
+       <button class="btn btn-primary btn-sm" id="jump" style="margin-left:10px">Take me there</button>`
     : `<b>You have finished every step.</b> Well done.`;
+  const j=document.getElementById("jump");
+  if(j)j.onclick=()=>{const el=document.querySelector(".item.current");
+    if(el){el.closest(".week").classList.add("open");
+      el.scrollIntoView({behavior:"smooth",block:"center"})}};
 }
 
 /* ================= wizard ================= */
@@ -619,7 +646,7 @@ function render(){
     B.innerHTML=`<p class="wz-step">Step 4 of 5</p><h2>How do you want to learn?</h2>
       <p class="sub">Both cover exactly the same material — this only decides whether you also join the scheduled live sessions. You can change your mind at any time.</p>
       <div class="wz-err" id="wzErr"></div>
-      ${PROGRAMME.formats.map(f=>`<div class="pick ${draft.format===f.id?"on":""}" data-f="${f.id}">
+      ${FORMATS.map(f=>`<div class="pick ${draft.format===f.id?"on":""}" data-f="${f.id}">
         <h3>${f.t}</h3><p>${f.d}</p></div>`).join("")}`;
     F.innerHTML=`<button class="back" id="back">Back</button><button class="btn btn-primary" id="next">Continue</button>`;
     B.querySelectorAll(".pick").forEach(p=>p.onclick=()=>{
