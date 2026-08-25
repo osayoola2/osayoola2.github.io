@@ -122,17 +122,17 @@ const AI101 = [
 
 /* ---- Meta Blueprint courses named in the brief ---- */
 const COURSES = {
-  BP1: { p: "Coursera", t: "Generative AI in Social Media Marketing", h: 4, lvl: "Beginner",
-         url: "https://www.coursera.org/learn/generative-ai-in-social-media-marketing", note: "Meta · audit free" },
-  BP2: { p: "Coursera", t: "Generative AI in Data Analytics", h: 4, lvl: "Beginner",
-         url: "https://www.coursera.org/learn/genai-in-data-analytics", note: "Meta · audit free" },
+  BP1: { p: "Coursera", t: "GenAI in Social Media Marketing", h: 4, lvl: "Beginner",
+         url: "https://www.coursera.org/learn/genai-in-social-media-marketing", note: "Meta · 1 module · audit free" },
+  BP2: { p: "Coursera", t: "GenAI in Data Analytics", h: 4, lvl: "Beginner",
+         url: "https://www.coursera.org/learn/genai-in-data-analytics", note: "Meta · 1 module · audit free" },
   BP3: { p: "DeepLearning.AI", t: "Prompt Engineering with Llama 2 & 3", h: 1, lvl: "Beginner",
          url: "https://www.deeplearning.ai/courses/prompt-engineering-with-llama-2", note: "Taught by Amit Sangani, Meta" },
   BP4: { p: "DeepLearning.AI", t: "Introducing Multimodal Llama 3.2", h: 1, lvl: "Intermediate",
          url: "https://www.deeplearning.ai/courses/introducing-multimodal-llama-3-2", note: "Taught by Amit Sangani, Meta" },
-  BP5: { p: "Coursera", t: "Building GenAI Apps with Llama", h: 20, lvl: "Intermediate",
-         url: "https://www.coursera.org/professional-certificates/building-genai-apps-with-llama",
-         note: "Professional Certificate · optional extension" },
+  BP5: { p: "Coursera", t: "Building Generative AI Apps with Llama", h: 96, lvl: "Advanced",
+         url: "https://www.coursera.org/professional-certificates/building-generative-ai-apps-llama",
+         note: "Meta · Professional Certificate · 3 courses" },
   BP6: { p: "DataCamp", t: "Working with Llama 3", h: 2, lvl: "Intermediate",
          url: "https://www.datacamp.com/courses/working-with-llama-3",
          note: "Subscription required", paid: true }
@@ -229,7 +229,7 @@ const WEEKS = [
 /* Optional extension for participants who want to go further. Not required,
    not counted toward completion, and flagged where it costs money. */
 const EXTENSION = [
-  { c: "BP5", why: "The full professional certificate on building applications with Llama. Substantial — around 20 hours — so it sits outside the nine weeks. Audit access is free; the certificate is paid." },
+  { c: "BP5", why: "Meta's full professional certificate on building applications with Llama — three courses, advertised as three months at eight hours a week, and pitched at developers with one to two years of Python. Far too large for the nine weeks, so it sits outside the programme as the natural next step. Audit access is free; the certificate is paid." },
   { c: "BP6", why: "Named in the programme brief, but a free DataCamp account opens only the first lesson of a course. Listed for completeness and for anyone who already has a subscription." }
 ];
 
