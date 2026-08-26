@@ -22,9 +22,22 @@ const PROGRAMME = {
   accessCode: "meta3mtt2026",
   formats: [
     { id: "self", t: "Self-paced only", d: "Work through everything on your own schedule. All materials, no fixed times. Best if your week is unpredictable or data is tight." },
-    { id: "live", t: "Self-paced + live sessions", d: "Everything above, plus scheduled virtual instructor-led sessions where you can ask questions and build alongside a facilitator." }
+    { id: "live", t: "Self-paced + 2 live sessions", d: "Everything above, plus the two virtual instructor-led sessions — one on AI 101, one on machine learning. Two sessions in the whole programme, not a weekly commitment." }
   ],
   scholarship: "Top 100 performers are eligible for scholarships toward paid Meta Blueprint certifications, plus $5,000 in Meta advertising credits.",
+  // Registration Google Form. The wizard opens this pre-filled from what the
+  // participant typed, so RAIN receives a record of every enrolment.
+  // Get the entry IDs from the form's "Get pre-filled link" option.
+  registerForm: {
+    url: "https://docs.google.com/forms/d/e/REPLACE-FORM-ID/viewform",
+    entries: {
+      name:     "entry.REPLACE1",
+      email:    "entry.REPLACE2",
+      phone:    "entry.REPLACE3",
+      fellowId: "entry.REPLACE4",
+      format:   "entry.REPLACE5"
+    }
+  },
   links: {
     register:  "https://forms.gle/REPLACE-registration",
     pre:       "https://forms.gle/REPLACE-pre-assessment",
@@ -143,9 +156,8 @@ const WEEKS = [
     title: "Start, and get measured",
     aim: "Register, record your baseline, and begin AI 101. Nobody moves on without a pre-assessment on record.",
     items: [
-      { k: "form", t: "Pre-assessment — take this before anything else. It records where the cohort starts.", link: "pre", first: true },
-      { k: "form", t: "Register and open your free Coursera and DeepLearning.AI accounts", link: "register" },
-      { k: "form", t: "Join the WhatsApp cohort community for your state", link: "community" },
+      { k: "form", t: "Join the WhatsApp cohort community for your state", link: "community", first: true },
+      { k: "task", t: "Create your Coursera and DeepLearning.AI accounts using the same email you registered with." },
       { k: "task", t: "Write one sentence: the task in your work you most want AI to help with. Keep it — it becomes your capstone." },
       { k: "slide", m: 1, s: 1 },
       { k: "slide", m: 1, s: 2 }
@@ -157,8 +169,7 @@ const WEEKS = [
       { k: "slide", m: 1, s: 3 },
       { k: "slide", m: 1, s: 4 },
       { k: "slide", m: 1, s: 5 },
-      { k: "form", t: "Module 1 assessment — AI Essentials", link: "m1quiz" },
-      { k: "live", t: "Virtual session: AI Essentials Q&A" }
+      { k: "form", t: "Module 1 assessment — AI Essentials", link: "m1quiz" }
     ]},
   { n: 3, from: "2026-09-14", to: "2026-09-20",
     title: "Generative AI on Meta's platforms",
@@ -175,8 +186,7 @@ const WEEKS = [
       { k: "slide", m: 2, s: 2 },
       { k: "slide", m: 2, s: 3 },
       { k: "slide", m: 2, s: 4 },
-      { k: "form", t: "Module 2 assessment — Career Advantage", link: "m2quiz" },
-      { k: "live", t: "Virtual session: CV and portfolio clinic" }
+      { k: "form", t: "Module 2 assessment — Career Advantage", link: "m2quiz" }
     ]},
   { n: 5, from: "2026-09-28", to: "2026-10-04",
     title: "Reaching an audience",
@@ -184,6 +194,8 @@ const WEEKS = [
     note: "Independence Day falls on Thursday 1 October.",
     items: [
       { k: "course", c: "BP1" },
+      { k: "live", t: "Live session 1 of 2 — Machine Learning", link: "sessions",
+        d: "The one topic the Blueprint courses do not cover, and the reason we are not relying on DataCamp. What machine learning is, how models learn, where they fail, and how to judge a result. Held mid-programme, for the whole cohort." },
       { k: "form", t: "Week 5 progress log", link: "progress" }
     ]},
   { n: 6, from: "2026-10-05", to: "2026-10-11",
@@ -194,8 +206,7 @@ const WEEKS = [
       { k: "slide", m: 3, s: 2 },
       { k: "slide", m: 3, s: 3 },
       { k: "slide", m: 3, s: 4 },
-      { k: "form", t: "Module 3 assessment — Create & Communicate", link: "m3quiz" },
-      { k: "live", t: "Virtual session: prompt engineering workshop" }
+      { k: "form", t: "Module 3 assessment — Create & Communicate", link: "m3quiz" }
     ]},
   { n: 7, from: "2026-10-12", to: "2026-10-18",
     title: "Building on Llama",
@@ -214,7 +225,8 @@ const WEEKS = [
       { k: "slide", m: 4, s: 3 },
       { k: "slide", m: 4, s: 4 },
       { k: "form", t: "Module 4 assessment — Build the Future", link: "m4quiz" },
-      { k: "live", t: "Virtual session: prototype build-along" }
+      { k: "live", t: "Live session 2 of 2 — AI 101 wrap-up", link: "sessions",
+        d: "All four AI 101 modules pulled together, with time for questions before the capstone. Held at the end of AI 101, for the whole cohort." }
     ]},
   { n: 9, from: "2026-10-26", to: "2026-10-31",
     title: "Submit, measure, close",
@@ -230,7 +242,7 @@ const WEEKS = [
    not counted toward completion, and flagged where it costs money. */
 const EXTENSION = [
   { c: "BP5", why: "Meta's full professional certificate on building applications with Llama — three courses, advertised as three months at eight hours a week, and pitched at developers with one to two years of Python. Far too large for the nine weeks, so it sits outside the programme as the natural next step. Audit access is free; the certificate is paid." },
-  { c: "BP6", why: "Your free DataCamp account opens only the first lesson of a course. Listed for completeness and for anyone who already has a subscription." }
+  { c: "BP6", why: "Named in the programme brief, but a free DataCamp account opens only the first lesson of a course. Listed for completeness and for anyone who already has a subscription." }
 ];
 
 const COMPLETION = [
