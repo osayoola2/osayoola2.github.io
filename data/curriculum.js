@@ -230,7 +230,7 @@ const WEEKS = [
    not counted toward completion, and flagged where it costs money. */
 const EXTENSION = [
   { c: "BP5", why: "Meta's full professional certificate on building applications with Llama — three courses, advertised as three months at eight hours a week, and pitched at developers with one to two years of Python. Far too large for the nine weeks, so it sits outside the programme as the natural next step. Audit access is free; the certificate is paid." },
-  { c: "BP6", why: "Named in the programme brief, but a free DataCamp account opens only the first lesson of a course. Listed for completeness and for anyone who already has a subscription." }
+  { c: "BP6", why: "Your free DataCamp account opens only the first lesson of a course. Listed for completeness and for anyone who already has a subscription." }
 ];
 
 const COMPLETION = [
