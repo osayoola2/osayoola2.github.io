@@ -404,7 +404,7 @@ footer{background:var(--meta-dark);color:#fff;padding:44px 24px 34px;margin-top:
         <a href="mailto:info@rainigeria.com">info@rainigeria.com</a></div>
     </div>
   </div>
-  <div class="f-bot"><span>© 2026 Robotics and Artificial Intelligence Nigeria</span><span>meta3mtt.rainigeria.com · build 5</span></div>
+  <div class="f-bot"><span>© 2026 Robotics and Artificial Intelligence Nigeria</span><span>meta3mtt.rainigeria.com · build 6</span></div>
 </footer>
 
 <!-- ================= CONFIRM PASSWORD ================= -->
@@ -442,7 +442,7 @@ footer{background:var(--meta-dark);color:#fff;padding:44px 24px 34px;margin-top:
   </div>
 </div>
 
-<script src="data/curriculum.js?v=5"></script>
+<script src="data/curriculum.js?v=6"></script>
 <script>
 /* ================= storage ================= */
 const KEY="raiin-3mtt-aiskills-v2";
@@ -545,6 +545,21 @@ function importProfile(after){
   inp.click();
 }
 
+/* ================= registration form =================
+   The wizard saves to the device; RAIN receives nothing unless the
+   participant also submits the Google Form. This builds that form
+   pre-filled from what they typed, so it is one tap, not re-typing. */
+function registerURL(d){
+  const rf = (typeof PROGRAMME!=="undefined" && PROGRAMME.registerForm) || null;
+  if(!rf || !rf.url || /REPLACE-FORM-ID/.test(rf.url))
+    return (PROGRAMME.links && PROGRAMME.links.register) || "#";
+  const e=rf.entries||{}, q=[];
+  const add=(k,v)=>{if(e[k]&&v&&!/REPLACE/.test(e[k]))q.push(encodeURIComponent(e[k])+"="+encodeURIComponent(v))};
+  add("name",d.name);add("email",d.email);add("phone",d.phone);add("fellowId",d.fellowId);
+  add("format",(FORMATS.find(f=>f.id===d.format)||{}).t);
+  return rf.url+(q.length?(rf.url.includes("?")?"&":"?")+"usp=pp_url&"+q.join("&"):"");
+}
+
 /* ================= flat item list ================= */
 const FLAT=[];
 WEEKS.forEach(w=>w.items.forEach((it,i)=>FLAT.push({w:w.n,i,key:w.n+":"+i,it,week:w})));
@@ -563,9 +578,9 @@ function itemMeta(it){
     return{title:c.t,sub:"",
       tags:`<span class="tagx plat">${c.p}</span><span class="tagx">${c.lvl}</span><span class="tagx">${c.note}</span><span class="tagx">${c.h} hr</span>`,
       href:c.url,cta:"Open the course ↗"}}
-  if(it.k==="live"){return{title:it.t,sub:"",
-    tags:`<span class="tagx live">Virtual session</span><span class="tagx">Optional — tick to skip</span>`,
-    href:PROGRAMME.links.sessions,cta:"See session times ↗"}}
+  if(it.k==="live"){return{title:it.t,sub:it.d||"",
+    tags:`<span class="tagx live">Live session</span><span class="tagx">Whole cohort</span>`,
+    href:PROGRAMME.links.sessions,cta:"See date and joining link ↗"}}
   const href=it.link?PROGRAMME.links[it.link]:null;
   return{title:it.t,sub:"",
     tags:`<span class="tagx ${it.k==="form"?"form":""}">${it.k==="form"?"Google Form":"Activity"}</span>`,
@@ -665,8 +680,8 @@ function drawDashInner(){
 
 /* ================= wizard ================= */
 let step=0;
-const STEPS=["code","details","pre","format","password","done"];
-function bar(){document.getElementById("wzBar").innerHTML=STEPS.slice(0,5).map((s,i)=>
+const STEPS=["code","details","format","register","pre","password","done"];
+function bar(){document.getElementById("wzBar").innerHTML=STEPS.slice(0,6).map((s,i)=>
   `<i class="${i<step?"ok":i===step?"on":""}"></i>`).join("")}
 function err(msg){const e=document.getElementById("wzErr");if(e){e.textContent=msg;e.classList.add("on")}}
 
@@ -675,7 +690,7 @@ function render(){
   const B=document.getElementById("wzBody"),F=document.getElementById("wzFoot");
   const s=STEPS[step];
   if(s==="code"){
-    B.innerHTML=`<p class="wz-step">Step 1 of 5</p><h2>Enter your access code</h2>
+    B.innerHTML=`<p class="wz-step">Step 1 of 6</p><h2>Enter your access code</h2>
       <p class="sub">Use the code from your 3MTT admission email. You only enter this once on this device.</p>
       <div class="wz-err" id="wzErr"></div>
       <div class="fld"><label>Access code</label><input type="text" id="fCode" placeholder="Access code" autocomplete="off" value="${draft.code||""}"></div>`;
@@ -688,7 +703,7 @@ function render(){
       draft.code=v;step++;render()}
   }
   else if(s==="details"){
-    B.innerHTML=`<p class="wz-step">Step 2 of 5</p><h2>Your details</h2>
+    B.innerHTML=`<p class="wz-step">Step 2 of 6</p><h2>Your details</h2>
       <p class="sub">This stays on your device. Use the same name and email you gave 3MTT, so your assessments can be matched to you.</p>
       <div class="wz-err" id="wzErr"></div>
       <div class="fld"><label>Full name</label><input type="text" id="fName" value="${draft.name||""}"></div>
@@ -705,8 +720,25 @@ function render(){
       if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e))return err("That email address does not look right.");
       Object.assign(draft,{name:n,email:e,phone:ph,fellowId:id});step++;render()};
   }
+  else if(s==="register"){
+    B.innerHTML=`<p class="wz-step">Step 4 of 6</p><h2>Submit your registration</h2>
+      <p class="sub">This is how RAIN receives your enrolment. The form opens already filled in with what you typed — check it and press submit. Without this we have no record of you on the programme.</p>
+      <div class="wz-err" id="wzErr"></div>
+      <a class="big-link" href="${registerURL(draft)}" target="_blank" rel="noopener">
+        <span>Open my registration form</span><span>↗</span></a>
+      <label class="confirm ${draft.reg?"on":""}" id="cf">
+        <input type="checkbox" id="fReg" ${draft.reg?"checked":""}>
+        <span>Yes — I have submitted the registration form.</span></label>`;
+    F.innerHTML=`<button class="back" id="back">Back</button><button class="btn btn-primary" id="next">Continue</button>`;
+    const cb=document.getElementById("fReg");
+    cb.onchange=()=>document.getElementById("cf").classList.toggle("on",cb.checked);
+    document.getElementById("back").onclick=()=>{step--;render()};
+    document.getElementById("next").onclick=()=>{
+      if(!cb.checked)return err("Please submit the registration form first, then tick the box.");
+      draft.reg=true;step++;render()};
+  }
   else if(s==="pre"){
-    B.innerHTML=`<p class="wz-step">Step 3 of 5</p><h2>Take the pre-assessment</h2>
+    B.innerHTML=`<p class="wz-step">Step 5 of 6</p><h2>Take the pre-assessment</h2>
       <p class="sub">This records where the cohort starts, so we can measure what the programme actually changed. It takes about 20 minutes. Nothing else opens until it is submitted.</p>
       <div class="wz-err" id="wzErr"></div>
       <a class="big-link" href="${PROGRAMME.links.pre}" target="_blank" rel="noopener">
@@ -723,7 +755,7 @@ function render(){
       draft.pre=true;step++;render()};
   }
   else if(s==="format"){
-    B.innerHTML=`<p class="wz-step">Step 4 of 5</p><h2>How do you want to learn?</h2>
+    B.innerHTML=`<p class="wz-step">Step 3 of 6</p><h2>How do you want to learn?</h2>
       <p class="sub">Both cover exactly the same material — this only decides whether you also join the scheduled live sessions. You can change your mind at any time.</p>
       <div class="wz-err" id="wzErr"></div>
       ${FORMATS.map(f=>`<div class="pick ${draft.format===f.id?"on":""}" data-f="${f.id}">
@@ -736,7 +768,7 @@ function render(){
       if(!draft.format)return err("Pick one to continue.");step++;render()};
   }
   else if(s==="password"){
-    B.innerHTML=`<p class="wz-step">Step 5 of 5</p><h2>Create a password</h2>
+    B.innerHTML=`<p class="wz-step">Step 6 of 6</p><h2>Create a password</h2>
       <p class="sub">From now on this device only asks for this password — never the access code again. Choose something you will remember.</p>
       <div class="wz-err" id="wzErr"></div>
       <div class="fld"><label>Password</label><input type="password" id="fP1" autocomplete="new-password"></div>
@@ -749,7 +781,7 @@ function render(){
       if(a.length<6)return err("Use at least 6 characters.");
       if(a!==b)return err("The two passwords do not match.");
       P={name:draft.name,email:draft.email,phone:draft.phone,fellowId:draft.fellowId,
-         format:draft.format,pre:true,pw:hash(a),done:{},created:new Date().toISOString()};
+         format:draft.format,pre:true,reg:true,pw:hash(a),done:{},created:new Date().toISOString()};
       save();Sess.set(true);step++;render()};
   }
   else if(s==="done"){
