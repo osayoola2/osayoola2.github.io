@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assessment Bank — AI Skills Development | 3MTT × Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--meta-blue:#0668E1;--meta-blue-dk:#0453BA;--meta-dark:#1C2B33;--green:#00A854;--green-dk:#00843F;
+--violet:#7B5BEA;--bg:#F5F7FA;--ink:#151A1F;--body:#4A525C;--muted:#7B838E;--border:#DFE3E8;--border-soft:#EDF0F3;
+--tint:#E9F2FE;--amber:#FFF4DE;--amber-ink:#8A5D0B;--violet-tint:#F0EBFE;
+--f:"Inter",-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{font-family:var(--f);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+header{background:#fff;box-shadow:0 1px 0 var(--border);padding:16px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+header b{font-size:17px;font-weight:750;letter-spacing:-.025em;color:var(--meta-blue)}
+header p{font-size:12px;color:var(--muted)}
+.note{background:var(--amber);color:var(--amber-ink);font-size:13px;padding:10px 0;font-weight:550}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:var(--f);font-size:14px;
+font-weight:600;padding:10px 18px;border-radius:8px;transition:all .2s}
+.btn-primary{background:var(--meta-blue);color:#fff}.btn-primary:hover{background:var(--meta-blue-dk)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--meta-blue);color:var(--meta-blue)}
+h1{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;letter-spacing:-.032em;margin:32px 0 10px}
+.dek{color:var(--body);max-width:68ch;margin-bottom:26px}
+.pickers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px;margin-bottom:30px}
+.pk{background:#fff;border:2px solid var(--border);border-radius:13px;padding:20px;cursor:pointer;transition:all .2s;text-align:left;font-family:var(--f)}
+.pk:hover{border-color:var(--meta-blue);transform:translateY(-2px)}
+.pk.on{border-color:var(--meta-blue);background:var(--tint)}
+.pk .k{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--meta-blue)}
+.pk h3{font-size:16px;font-weight:700;letter-spacing:-.02em;margin:5px 0 4px}
+.pk p{font-size:13px;color:var(--muted);line-height:1.5}
+.card{background:#fff;border-radius:14px;padding:0;margin-bottom:16px;box-shadow:0 2px 8px rgba(28,43,51,.07);overflow:hidden}
+.card .hd{background:var(--meta-dark);color:#fff;padding:16px 22px;display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.card .hd h2{font-size:17px;font-weight:700;letter-spacing:-.02em}
+.card .hd span{font-size:12px;opacity:.7;font-weight:600}
+.q{padding:18px 22px;border-bottom:1px dotted var(--border)}
+.q:last-child{border-bottom:0}
+.q>p{font-weight:600;margin-bottom:11px;font-size:15px;line-height:1.45}
+.q>p .n{font-size:11.5px;color:var(--muted);margin-right:8px;font-weight:700}
+label.opt{display:flex;gap:11px;align-items:flex-start;padding:9px 11px;cursor:pointer;font-size:14.5px;border-radius:8px}
+label.opt:hover{background:var(--bg)}
+label.opt input{margin-top:4px;accent-color:var(--meta-blue);flex:0 0 auto}
+.key label.opt.right{background:#E9F7EF;font-weight:600}
+textarea,input[type=text]{width:100%;padding:11px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--f);font-size:14.5px}
+.scale{display:flex;gap:6px;flex-wrap:wrap}
+.scale label{flex:1 1 88px;text-align:center;border:1.5px solid var(--border);padding:9px 5px;cursor:pointer;font-size:12.5px;border-radius:8px;font-weight:550}
+.scale label:has(input:checked){background:var(--meta-blue);color:#fff;border-color:var(--meta-blue)}
+.scale input,.nps input{position:absolute;opacity:0;pointer-events:none}
+.nps{display:flex;gap:4px;flex-wrap:wrap}
+.nps label{flex:1 1 40px;text-align:center;border:1.5px solid var(--border);padding:10px 2px;cursor:pointer;font-size:13px;border-radius:8px;font-weight:600}
+.nps label:has(input:checked){background:var(--green);color:#fff;border-color:var(--green)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 30px;align-items:center}
+.res{display:none;background:#fff;border-radius:14px;overflow:hidden;margin-bottom:20px;box-shadow:0 2px 8px rgba(28,43,51,.07)}
+.res.on{display:block}
+.res .hd{background:var(--meta-dark);color:#fff;padding:22px}
+.res .hd h2{font-size:28px;font-weight:800;letter-spacing:-.03em}
+.res .hd span{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.res .bd{padding:20px 22px}
+.verdict{padding:14px 16px;border-radius:10px;font-size:14.5px;margin-bottom:14px}
+.verdict.pass{background:#E9F7EF;color:var(--green-dk)}
+.verdict.fail{background:#FDECEE;color:#A32235}
+footer{padding:30px 0 50px;color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:600px){.q{padding:15px}}
+</style>
+</head>
+<body>
+<div class="note"><div class="wrap">Internal working copy. These are the master questions — build the Google Forms from the exported bank, then paste the form URLs into <code>data/curriculum.js</code>.</div></div>
+<header><div class="wrap">
+  <div><b>Assessment Bank</b><p>AI Skills Development · 3MTT × Meta · delivered by RAIN</p></div>
+  <a class="btn btn-ghost" href="../index.html">← Back to the programme</a>
+</div></header>
+
+<div class="wrap">
+  <h1>Six instruments, 78 scored questions</h1>
+  <p class="dek">The pre and post assessments share the same 30 questions, so the gap between them is the impact number. The four module assessments are the ones that rank the cohort for the top 100 scholarships. Pick one to preview, take it, or export it for Google Forms.</p>
+  <div class="pickers" id="pickers"></div>
+  <div class="bar">
+    <button class="btn btn-primary" id="mark">Mark my answers</button>
+    <button class="btn btn-ghost" id="key">Show answer key</button>
+    <button class="btn btn-ghost" id="exp">Export for Google Forms</button>
+    <button class="btn btn-ghost" id="expAll">Export everything</button>
+  </div>
+  <div class="res" id="res"><div class="hd"><span id="rBand"></span><h2 id="rScore"></h2></div>
+    <div class="bd"><div class="verdict" id="rVerdict"></div><div id="rBreak"></div></div></div>
+  <div id="body"></div>
+</div>
+<footer>Master question bank · edit <code>data/bank.js</code>, never the Google Form, so the two never drift.</footer>
+
+<script src="../data/bank.js"></script>
+<script>
+const INSTR=[
+ {id:"pre", k:"Week 1", t:"Pre-assessment", d:"30 scored questions plus 11 baseline questions. Taken during enrolment."},
+ {id:"m1",  k:"Week 2", t:"Module 1 assessment", d:"AI Essentials. 12 questions, pass mark 60%."},
+ {id:"m2",  k:"Week 4", t:"Module 2 assessment", d:"Career Advantage. 12 questions, pass mark 60%."},
+ {id:"m3",  k:"Week 6", t:"Module 3 assessment", d:"Create & Communicate. 12 questions, pass mark 60%."},
+ {id:"m4",  k:"Week 8", t:"Module 4 assessment", d:"Build the Future. 12 questions, pass mark 60%."},
+ {id:"post",k:"Week 9", t:"Post-assessment", d:"The same 30 questions, the same 11 baseline items, plus 18 impact questions."}
+];
+let cur="pre", showKey=false;
+
+document.getElementById("pickers").innerHTML=INSTR.map(i=>
+ `<button class="pk ${i.id===cur?"on":""}" data-i="${i.id}"><span class="k">${i.k}</span>
+   <h3>${i.t}</h3><p>${i.d}</p></button>`).join("");
+document.querySelectorAll(".pk").forEach(b=>b.onclick=()=>{
+  cur=b.dataset.i;showKey=false;
+  document.querySelectorAll(".pk").forEach(x=>x.classList.toggle("on",x.dataset.i===cur));
+  document.getElementById("res").classList.remove("on");draw();window.scrollTo({top:280,behavior:"smooth"})});
+
+const scored=()=>cur==="pre"||cur==="post" ? [["A",PRE.A],["B",PRE.B],["C",PRE.C]]
+  : [[cur.toUpperCase(),{t:MODULES[cur[1]].t,items:MODULES[cur[1]].items}]];
+const unscored=()=>cur==="pre"?[["Baseline",BASELINE]] : cur==="post"?[["Baseline",BASELINE],["Impact",IMPACT]] : [];
+
+function mcq(pfx,items){return items.map((it,i)=>`<div class="q ${showKey?"key":""}">
+  <p><span class="n">${pfx}${i+1}</span>${it.q}</p>
+  ${it.o.map((o,j)=>`<label class="opt ${showKey&&j===it.a?"right":""}">
+    <input type="radio" name="${pfx}${i}" value="${j}"><span>${o}</span></label>`).join("")}</div>`).join("")}
+
+function other(pfx,list){return list.map((e,i)=>{
+  let b;
+  if(e.type==="text")b=`<textarea name="${e.id}"></textarea>`;
+  else if(e.type==="nps")b=`<div class="nps">${[...Array(11).keys()].map(n=>
+    `<label><input type="radio" name="${e.id}" value="${n}">${n}</label>`).join("")}</div>`;
+  else if(e.type==="scale")b=`<div class="scale">${e.opts.map((o,j)=>
+    `<label><input type="radio" name="${e.id}" value="${j}">${o}</label>`).join("")}</div>`;
+  else b=e.opts.map((o,j)=>`<label class="opt"><input type="radio" name="${e.id}" value="${j}"><span>${o}</span></label>`).join("");
+  return `<div class="q"><p><span class="n">${pfx}${i+1}</span>${e.q}</p>${b}</div>`}).join("")}
+
+function draw(){
+  let h="";
+  scored().forEach(([k,sec])=>{h+=`<div class="card"><div class="hd"><h2>${sec.t}</h2>
+    <span>${sec.items.length} questions · scored</span></div>${mcq(k,sec.items)}</div>`});
+  unscored().forEach(([label,list])=>{h+=`<div class="card"><div class="hd"><h2>${label}</h2>
+    <span>${list.length} questions · not scored</span></div>${other(label[0],list)}</div>`});
+  document.getElementById("body").innerHTML=h;
+}
+
+document.getElementById("key").onclick=()=>{showKey=!showKey;draw();
+  document.getElementById("key").textContent=showKey?"Hide answer key":"Show answer key"};
+
+document.getElementById("mark").onclick=()=>{
+  let got=0,tot=0,rows=[];
+  scored().forEach(([k,sec])=>{let g=0;
+    sec.items.forEach((it,i)=>{const s=document.querySelector(`input[name="${k}${i}"]:checked`);
+      if(s&&+s.value===it.a){g++;got++}tot++});
+    rows.push([sec.t,g,sec.items.length])});
+  const pc=Math.round(got/tot*100);
+  const pass=cur.startsWith("m")?pc>=MODULES[cur[1]].pass:null;
+  document.getElementById("rBand").textContent=cur==="pre"?"Baseline recorded":cur==="post"?"Final score":"Module result";
+  document.getElementById("rScore").textContent=`${pc}% · ${got} of ${tot}`;
+  const v=document.getElementById("rVerdict");
+  if(pass===null){v.className="verdict pass";
+    v.textContent="Pre and post assessments are not pass/fail. What matters is the difference between the two sittings."}
+  else{v.className="verdict "+(pass?"pass":"fail");
+    v.textContent=pass?"Pass. 60% or above.":"Below the 60% pass mark. A retake stays open until the Sunday of the following week."}
+  document.getElementById("rBreak").innerHTML=rows.map(([t,g,n])=>
+    `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border-soft);font-size:14px">
+      <span>${t}</span><b>${g}/${n}</b></div>`).join("");
+  document.getElementById("res").classList.add("on");
+  window.scrollTo({top:document.getElementById("res").offsetTop-70,behavior:"smooth"})};
+
+function dump(id){
+  const was=cur;cur=id;
+  let t=`===== ${INSTR.find(i=>i.id===id).t.toUpperCase()} =====\n`;
+  t+=`Google Forms setup: turn on "Make this a quiz", collect email addresses, limit to 1 response.\n`;
+  t+=id.startsWith("m")?`Pass mark 60%. 1 point per question.\n`:`1 point per question across the scored sections. Unscored sections carry 0 points.\n`;
+  scored().forEach(([k,sec])=>{t+=`\n--- ${sec.t} (scored) ---\n`;
+    sec.items.forEach((it,i)=>{t+=`\n${k}${i+1}. ${it.q}\n`+it.o.map((o,j)=>`   ${j===it.a?"*":" "} ${o}`).join("\n")+"\n"})});
+  unscored().forEach(([label,list])=>{t+=`\n--- ${label} (not scored) ---\n`;
+    list.forEach((e,i)=>{t+=`\n${label[0]}${i+1}. ${e.q}\n`+
+      (e.type==="text"?"   [long answer]\n":e.type==="nps"?"   [0-10 linear scale]\n":e.opts.map(o=>`     ${o}`).join("\n")+"\n")})});
+  cur=was;return t}
+
+const dl=(name,txt)=>{const b=new Blob([txt],{type:"text/plain"});const a=document.createElement("a");
+  a.href=URL.createObjectURL(b);a.download=name;a.click();URL.revokeObjectURL(a.href)};
+document.getElementById("exp").onclick=()=>dl(`${cur}-question-bank.txt`,dump(cur));
+document.getElementById("expAll").onclick=()=>dl("all-assessments-question-bank.txt",
+  "AI SKILLS DEVELOPMENT — COMPLETE ASSESSMENT BANK\n3MTT x Meta, delivered by RAIN\nCorrect answers marked *\n\n"
+  +INSTR.map(i=>dump(i.id)).join("\n\n"));
+
+draw();
+</script>
+</body>
+</html>
