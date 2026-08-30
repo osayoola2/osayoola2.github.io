@@ -41,7 +41,10 @@ const PROGRAMME = {
   links: {
     register:  "https://forms.gle/REPLACE-registration",
     pre:       "https://forms.gle/REPLACE-pre-assessment",
+    m1pre:     "https://forms.gle/REPLACE-module-1-pre-check",
     m1quiz:    "https://forms.gle/REPLACE-module-1-assessment",
+    bpquiz:    "https://forms.gle/REPLACE-blueprint-assessment",
+
     m2quiz:    "https://forms.gle/REPLACE-module-2-assessment",
     m3quiz:    "https://forms.gle/REPLACE-module-3-assessment",
     m4quiz:    "https://forms.gle/REPLACE-module-4-assessment",
@@ -136,9 +139,11 @@ const AI101 = [
 /* ---- Meta Blueprint courses named in the brief ---- */
 const COURSES = {
   BP1: { p: "Coursera", t: "GenAI in Social Media Marketing", h: 4, lvl: "Beginner",
-         url: "https://www.coursera.org/learn/genai-in-social-media-marketing", note: "Meta · 1 module · audit free" },
-  BP2: { p: "Coursera", t: "GenAI in Data Analytics", h: 4, lvl: "Beginner",
-         url: "https://www.coursera.org/learn/genai-in-data-analytics", note: "Meta · 1 module · audit free" },
+         url: "https://www.coursera.org/learn/genai-in-social-media-marketing",
+         note: "Meta · 9 videos, 6 readings, 5 assignments" },
+  BP2: { p: "Coursera", t: "GenAI in Data Analytics", h: 3, lvl: "Beginner",
+         url: "https://www.coursera.org/learn/genai-in-data-analytics",
+         note: "Meta · 8 videos, 4 readings, 4 assignments" },
   BP3: { p: "DeepLearning.AI", t: "Prompt Engineering with Llama 2 & 3", h: 1, lvl: "Beginner",
          url: "https://www.deeplearning.ai/courses/prompt-engineering-with-llama-2", note: "Taught by Amit Sangani, Meta" },
   BP4: { p: "DeepLearning.AI", t: "Introducing Multimodal Llama 3.2", h: 1, lvl: "Intermediate",
@@ -159,6 +164,7 @@ const WEEKS = [
       { k: "form", t: "Join the WhatsApp cohort community for your state", link: "community", first: true },
       { k: "task", t: "Create your Coursera and DeepLearning.AI accounts using the same email you registered with." },
       { k: "task", t: "Write one sentence: the task in your work you most want AI to help with. Keep it — it becomes your capstone." },
+      { k: "form", t: "Module 1 pre-course check — 10 questions, not pass or fail", link: "m1pre" },
       { k: "slide", m: 1, s: 1 },
       { k: "slide", m: 1, s: 2 }
     ]},
@@ -169,7 +175,7 @@ const WEEKS = [
       { k: "slide", m: 1, s: 3 },
       { k: "slide", m: 1, s: 4 },
       { k: "slide", m: 1, s: 5 },
-      { k: "form", t: "Module 1 assessment — AI Essentials", link: "m1quiz" }
+      { k: "form", t: "Module 1 assessment — AI Essentials (20 questions)", link: "m1quiz" }
     ]},
   { n: 3, from: "2026-09-14", to: "2026-09-20",
     title: "Generative AI on Meta's platforms",
@@ -186,7 +192,7 @@ const WEEKS = [
       { k: "slide", m: 2, s: 2 },
       { k: "slide", m: 2, s: 3 },
       { k: "slide", m: 2, s: 4 },
-      { k: "form", t: "Module 2 assessment — Career Advantage", link: "m2quiz" }
+      { k: "form", t: "Module 2 assessment — Career Advantage (20 questions)", link: "m2quiz" }
     ]},
   { n: 5, from: "2026-09-28", to: "2026-10-04",
     title: "Reaching an audience",
@@ -206,7 +212,7 @@ const WEEKS = [
       { k: "slide", m: 3, s: 2 },
       { k: "slide", m: 3, s: 3 },
       { k: "slide", m: 3, s: 4 },
-      { k: "form", t: "Module 3 assessment — Create & Communicate", link: "m3quiz" }
+      { k: "form", t: "Module 3 assessment — Create & Communicate (20 questions)", link: "m3quiz" }
     ]},
   { n: 7, from: "2026-10-12", to: "2026-10-18",
     title: "Building on Llama",
@@ -214,6 +220,7 @@ const WEEKS = [
     items: [
       { k: "course", c: "BP3" },
       { k: "course", c: "BP4" },
+      { k: "form", t: "Blueprint assessment — all four courses (20 questions)", link: "bpquiz" },
       { k: "form", t: "Capstone proposal — one page", link: "capstone" }
     ]},
   { n: 8, from: "2026-10-19", to: "2026-10-25",
@@ -224,7 +231,7 @@ const WEEKS = [
       { k: "slide", m: 4, s: 2 },
       { k: "slide", m: 4, s: 3 },
       { k: "slide", m: 4, s: 4 },
-      { k: "form", t: "Module 4 assessment — Build the Future", link: "m4quiz" },
+      { k: "form", t: "Module 4 assessment — Build the Future (20 questions)", link: "m4quiz" },
       { k: "live", t: "Live session 2 of 2 — AI 101 wrap-up", link: "sessions",
         d: "All four AI 101 modules pulled together, with time for questions before the capstone. Held at the end of AI 101, for the whole cohort." }
     ]},
@@ -242,7 +249,8 @@ const WEEKS = [
    not counted toward completion, and flagged where it costs money. */
 const EXTENSION = [
   { c: "BP5", why: "Meta's full professional certificate on building applications with Llama — three courses, advertised as three months at eight hours a week, and pitched at developers with one to two years of Python. Far too large for the nine weeks, so it sits outside the programme as the natural next step. Audit access is free; the certificate is paid." },
-  
+  { c: "BP6", why: "Named in the programme brief, but a free DataCamp account opens only the first lesson of a course. Listed for completeness and for anyone who already has a subscription." }
+];
 
 const COMPLETION = [
   { t: "Pre-assessment on record",
