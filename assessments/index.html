@@ -77,8 +77,8 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13px;text-align:center}
 </div></header>
 
 <div class="wrap">
-  <h1>Six instruments, 78 scored questions</h1>
-  <p class="dek">The pre and post assessments share the same 30 questions, so the gap between them is the impact number. The four module assessments are the ones that rank the cohort for the top 100 scholarships. Pick one to preview, take it, or export it for Google Forms.</p>
+  <h1>Eight assessments, 140 scored questions</h1>
+  <p class="dek">Every module has a full 20-question assessment written from its slide deck, and the four Blueprint courses have their own. Within each question all options carry an identical word count, so length reveals nothing, and correct answers sit evenly across A, B, C and D. Pick one to preview, take it, or export it for Google Forms.</p>
   <div class="pickers" id="pickers"></div>
   <div class="bar">
     <button class="btn btn-primary" id="mark">Mark my answers</button>
@@ -95,12 +95,14 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13px;text-align:center}
 <script src="../data/bank.js"></script>
 <script>
 const INSTR=[
- {id:"pre", k:"Week 1", t:"Pre-assessment", d:"30 scored questions plus 11 baseline questions. Taken during enrolment."},
- {id:"m1",  k:"Week 2", t:"Module 1 assessment", d:"AI Essentials. 12 questions, pass mark 60%."},
- {id:"m2",  k:"Week 4", t:"Module 2 assessment", d:"Career Advantage. 12 questions, pass mark 60%."},
- {id:"m3",  k:"Week 6", t:"Module 3 assessment", d:"Create & Communicate. 12 questions, pass mark 60%."},
- {id:"m4",  k:"Week 8", t:"Module 4 assessment", d:"Build the Future. 12 questions, pass mark 60%."},
- {id:"post",k:"Week 9", t:"Post-assessment", d:"The same 30 questions, the same 11 baseline items, plus 18 impact questions."}
+ {id:"pre",  k:"Week 1", t:"Programme pre-assessment", d:"30 scored questions spanning all four modules and the Blueprint courses, plus 11 baseline questions."},
+ {id:"m1pre",k:"Week 1", t:"Module 1 pre-course check", d:"10 questions taken before Module 1 begins. Not pass or fail — it shows where each participant starts."},
+ {id:"m1",   k:"Week 2", t:"Module 1 — AI Essentials", d:"20 questions. Pass mark 60%."},
+ {id:"m2",   k:"Week 4", t:"Module 2 — Career Advantage", d:"20 questions from the Career Advantage deck. Pass mark 60%."},
+ {id:"m3",   k:"Week 6", t:"Module 3 — Create & Communicate", d:"20 questions from the Create & Communicate deck. Pass mark 60%."},
+ {id:"bp",   k:"Week 7", t:"Meta Blueprint courses", d:"20 questions across all four Blueprint courses — GenAI analytics, GenAI social, and both Llama courses."},
+ {id:"m4",   k:"Week 8", t:"Module 4 — Build the Future", d:"20 questions from the Build the Future deck. Pass mark 60%."},
+ {id:"post", k:"Week 9", t:"Programme post-assessment", d:"The same 30 questions as Week 1, the same 11 baseline items, plus 18 impact questions."}
 ];
 let cur="pre", showKey=false;
 
@@ -112,9 +114,12 @@ document.querySelectorAll(".pk").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".pk").forEach(x=>x.classList.toggle("on",x.dataset.i===cur));
   document.getElementById("res").classList.remove("on");draw();window.scrollTo({top:280,behavior:"smooth"})});
 
-const scored=()=>cur==="pre"||cur==="post" ? [["A",PRE.A],["B",PRE.B],["C",PRE.C]]
-  : [[cur.toUpperCase(),{t:MODULES[cur[1]].t,items:MODULES[cur[1]].items}]];
+const scored=()=>{
+  if(cur==="pre"||cur==="post") return [["A",PRE.A],["B",PRE.B],["C",PRE.C]];
+  return [["Q",ASSESSMENTS[cur]]];
+};
 const unscored=()=>cur==="pre"?[["Baseline",BASELINE]] : cur==="post"?[["Baseline",BASELINE],["Impact",IMPACT]] : [];
+const passMark=()=>(cur==="pre"||cur==="post")?null:(ASSESSMENTS[cur].pass||null);
 
 function mcq(pfx,items){return items.map((it,i)=>`<div class="q ${showKey?"key":""}">
   <p><span class="n">${pfx}${i+1}</span>${it.q}</p>
@@ -133,6 +138,7 @@ function other(pfx,list){return list.map((e,i)=>{
 
 function draw(){
   let h="";
+
   scored().forEach(([k,sec])=>{h+=`<div class="card"><div class="hd"><h2>${sec.t}</h2>
     <span>${sec.items.length} questions · scored</span></div>${mcq(k,sec.items)}</div>`});
   unscored().forEach(([label,list])=>{h+=`<div class="card"><div class="hd"><h2>${label}</h2>
@@ -150,8 +156,8 @@ document.getElementById("mark").onclick=()=>{
       if(s&&+s.value===it.a){g++;got++}tot++});
     rows.push([sec.t,g,sec.items.length])});
   const pc=Math.round(got/tot*100);
-  const pass=cur.startsWith("m")?pc>=MODULES[cur[1]].pass:null;
-  document.getElementById("rBand").textContent=cur==="pre"?"Baseline recorded":cur==="post"?"Final score":"Module result";
+  const pm=passMark(); const pass=pm===null?null:pc>=pm;
+  document.getElementById("rBand").textContent=cur==="pre"?"Baseline recorded":cur==="post"?"Final score":"Result";
   document.getElementById("rScore").textContent=`${pc}% · ${got} of ${tot}`;
   const v=document.getElementById("rVerdict");
   if(pass===null){v.className="verdict pass";
