@@ -1,13 +1,902 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>loading...</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Skills Development — 3MTT × Meta | RAIN Nigeria</title>
+<meta name="description" content="Practical AI skills for the 3MTT community. AI 101 plus Meta Blueprint courses, nine weeks, free to join.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --meta-blue:#0668E1; --meta-blue-dk:#0453BA; --meta-dark:#1C2B33;
+  --green:#00A854; --green-dk:#00843F; --violet:#7B5BEA;
+  --bg:#F5F7FA; --card:#FFFFFF; --ink:#151A1F; --body:#4A525C; --muted:#7B838E;
+  --border:#DFE3E8; --border-soft:#EDF0F3;
+  --tint:#E9F2FE; --amber:#FFF4DE; --amber-ink:#8A5D0B; --violet-tint:#F0EBFE;
+  --sh:0 2px 8px rgba(28,43,51,.07); --sh-h:0 10px 28px rgba(28,43,51,.13);
+  --f:"Inter",-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.hide{display:none!important}
 
+/* header / nav */
+header{background:#fff;box-shadow:0 1px 0 var(--border);position:relative;z-index:900}
+.header-content{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logos{display:flex;align-items:center;gap:18px}
+.logos .lg{display:flex;align-items:center;height:42px}
+.logos img{height:100%;width:auto;max-width:150px;object-fit:contain}
+.logos .fb{font-weight:800;font-size:17px;letter-spacing:-.03em;color:#39424C;line-height:1.05}
+.logos .fb small{display:block;font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.divider{width:1px;height:34px;background:var(--border)}
+.brand-text h1{font-size:18px;font-weight:700;letter-spacing:-.025em;color:var(--meta-blue);line-height:1.25}
+.brand-text p{font-size:11.5px;color:var(--muted);font-weight:500}
+.header-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hdr-date{font-size:13px;color:var(--body);font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;
+  font-family:var(--f);font-size:14.5px;font-weight:600;padding:11px 22px;border-radius:8px;transition:all .2s}
+.btn:disabled{opacity:.42;cursor:not-allowed}
+.btn-primary{background:var(--meta-blue);color:#fff;box-shadow:0 2px 6px rgba(6,104,225,.28)}
+.btn-primary:hover:not(:disabled){background:var(--meta-blue-dk);box-shadow:0 6px 18px rgba(6,104,225,.36);transform:translateY(-1px)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover:not(:disabled){background:var(--green-dk);transform:translateY(-1px)}
+.btn-white{background:#fff;color:var(--meta-blue)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,255,255,.34)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--meta-blue);color:var(--meta-blue)}
+.btn-sm{padding:8px 15px;font-size:13.5px}
+
+nav{background:var(--meta-dark);position:sticky;top:0;z-index:800;overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav ul{list-style:none;display:flex;max-width:1200px;margin:0 auto;padding:0 24px}
+nav li{white-space:nowrap}
+nav a{display:block;padding:14px 18px;color:#fff;font-weight:500;font-size:14.5px;transition:background .2s;opacity:.88;cursor:pointer}
+nav a:hover,nav a.active{background:var(--meta-blue);opacity:1}
+nav a.lock::after{content:" 🔒";font-size:11px}
+
+/* hero + sections */
+.hero{background:linear-gradient(135deg,var(--meta-blue) 0%,#0A47A8 100%);color:#fff;padding:64px 34px;
+  border-radius:16px;margin:30px 0;box-shadow:0 14px 40px rgba(6,104,225,.24)}
+.hero .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:14px}
+.hero h2{font-size:clamp(1.9rem,4.4vw,2.9rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin-bottom:18px;max-width:20ch}
+.hero p{font-size:clamp(1rem,1.9vw,1.13rem);opacity:.94;max-width:64ch;margin-bottom:28px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{margin-top:22px;font-size:13.5px;opacity:.8}
+
+.section{background:var(--card);border-radius:14px;padding:32px;margin-bottom:26px;box-shadow:var(--sh)}
+.section>h2{color:var(--meta-blue);font-size:22px;font-weight:700;letter-spacing:-.025em;border-bottom:3px solid var(--meta-blue);padding-bottom:11px;margin-bottom:20px}
+.lead{color:var(--body);max-width:72ch;margin-bottom:22px}
+
+.alert{padding:18px 20px;background:#E6F6ED;border-left:4px solid var(--green);border-radius:10px;margin-bottom:20px}
+.alert h3{color:var(--green-dk);font-size:15.5px;font-weight:650;margin-bottom:5px}
+.alert p{color:#1E5637;font-size:14.5px}
+.alert.blue{background:var(--tint);border-left-color:var(--meta-blue)}
+.alert.blue h3{color:#0B3F86}.alert.blue p{color:#134C99}
+.alert.violet{background:var(--violet-tint);border-left-color:var(--violet)}
+.alert.violet h3,.alert.violet p{color:#4A2FA8}
+.alert.amber{background:var(--amber);border-left-color:#E8A317}
+.alert.amber h3,.alert.amber p{color:var(--amber-ink)}
+
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:15px}
+.topic-card{background:var(--bg);padding:18px 20px;border-radius:10px;border-left:4px solid var(--meta-blue)}
+.topic-card strong{display:block;font-size:15.5px;font-weight:650;letter-spacing:-.015em;margin-bottom:5px}
+.topic-card .d{font-size:13.8px;color:var(--body);line-height:1.55;display:block}
+.topic-card.green{border-left-color:var(--green)}
+.topic-card.locked{border-left-color:#C8CED6;opacity:.9}
+.topic-card.locked strong::after{content:" 🔒";font-size:11px;opacity:.6}
+
+.mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.mod{border:2px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.mod .h{background:linear-gradient(135deg,var(--meta-blue) 0%,#5B7BE8 100%);color:#fff;padding:18px 20px}
+.mod .h .n{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.86}
+.mod .h h3{font-size:19px;font-weight:750;letter-spacing:-.025em;margin-top:4px;line-height:1.2}
+.mod .h .hrs{display:inline-block;margin-top:9px;background:rgba(255,255,255,.22);border-radius:20px;padding:3px 11px;font-size:12px;font-weight:650}
+.mod .b{padding:18px 20px;flex:1;display:flex;flex-direction:column;gap:12px}
+.mod .b>p{font-size:14.2px;color:var(--body)}
+.mod ol{margin:0;padding-left:18px;display:grid;gap:7px}
+.mod ol li{font-size:13.6px;color:var(--body)}
+.mod ol li b{font-weight:600;color:var(--ink)}
+.mod .out{margin-top:auto;padding-top:13px;border-top:1px solid var(--border-soft);font-size:13.2px;color:var(--muted)}
+
+.link-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.link-card{background:linear-gradient(135deg,var(--meta-blue) 0%,var(--meta-blue-dk) 100%);color:#fff;padding:24px;border-radius:12px;display:block}
+.link-card h3{font-size:17px;font-weight:680;letter-spacing:-.018em;margin-bottom:7px}
+.link-card p{font-size:13.6px;opacity:.92;line-height:1.5}
+.link-card.green{background:linear-gradient(135deg,var(--green) 0%,var(--green-dk) 100%)}
+.link-card .stamp{display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;padding:3px 11px;font-size:11.5px;font-weight:650;margin-bottom:10px}
+
+.done-list{display:grid;gap:2px}
+.done-row{display:flex;gap:15px;padding:17px 18px;background:var(--bg);border-radius:10px;align-items:flex-start}
+.done-row .n{flex:0 0 auto;width:28px;height:28px;border-radius:9px;background:var(--meta-blue);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:700}
+.done-row h3{font-size:15.3px;font-weight:650;letter-spacing:-.015em;margin-bottom:3px}
+.done-row p{font-size:14px;color:var(--body);line-height:1.55}
+
+.ext{display:grid;gap:13px}
+.ext-row{display:flex;gap:15px;padding:18px 20px;background:var(--bg);border-radius:11px;align-items:flex-start;border-left:4px solid var(--muted)}
+.ext-row h3{font-size:15.3px;font-weight:650;margin-bottom:4px;letter-spacing:-.015em}
+.ext-row p{font-size:14px;color:var(--body);line-height:1.55}
+.ext-row .meta{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap}
+.inert{opacity:.5;cursor:not-allowed;pointer-events:none;text-decoration:none!important}
+.lockline{display:block;margin-top:9px;padding-top:9px;border-top:1px solid var(--border);
+  font-size:12.3px;font-weight:600;color:var(--muted)}
+
+/* ============ WIZARD / GATE OVERLAY ============ */
+.overlay{position:fixed;inset:0;z-index:3000;background:linear-gradient(150deg,#0B3F86,#0668E1 55%,#5B7BE8);
+  display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.wz{background:#fff;border-radius:18px;max-width:560px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.4);
+  overflow:hidden;margin:auto}
+.wz-top{padding:26px 30px 0}
+.wz-logos{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.wz-logos .lg{height:30px;display:flex;align-items:center}
+.wz-logos img{height:100%;width:auto;max-width:110px;object-fit:contain}
+.wz-logos .fb{font-weight:800;font-size:14px;letter-spacing:-.03em;color:#39424C}
+.wz-bar{display:flex;gap:5px;margin-bottom:20px}
+.wz-bar i{flex:1;height:4px;border-radius:99px;background:var(--border);transition:background .3s}
+.wz-bar i.on{background:var(--meta-blue)}
+.wz-bar i.ok{background:var(--green)}
+.wz-body{padding:0 30px 26px}
+.wz-step{font-size:11.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--meta-blue);margin-bottom:7px}
+.wz h2{font-size:24px;font-weight:750;letter-spacing:-.03em;line-height:1.2;margin-bottom:8px}
+.wz>.wz-body>p.sub{font-size:14.5px;color:var(--body);margin-bottom:22px}
+.fld{margin-bottom:14px}
+.fld label{display:block;font-size:12.5px;font-weight:650;color:var(--body);margin-bottom:6px}
+.fld input{width:100%;padding:13px 14px;border:1.8px solid var(--border);border-radius:9px;font-size:15.5px;font-family:var(--f);color:var(--ink)}
+.fld input:focus{outline:none;border-color:var(--meta-blue);box-shadow:0 0 0 3px var(--tint)}
+.fld .hint{font-size:12.3px;color:var(--muted);margin-top:5px}
+.pick{border:2px solid var(--border);border-radius:12px;padding:16px 18px;cursor:pointer;margin-bottom:11px;transition:all .18s}
+.pick:hover{border-color:#A9C4EE}
+.pick.on{border-color:var(--meta-blue);background:var(--tint)}
+.pick h3{font-size:15.5px;font-weight:680;letter-spacing:-.018em;margin-bottom:4px}
+.pick p{font-size:13.5px;color:var(--body);line-height:1.5}
+.wz-foot{display:flex;gap:10px;padding:18px 30px;background:var(--bg);border-top:1px solid var(--border-soft);align-items:center}
+.wz-foot .btn{flex:1}
+.wz-foot .back{flex:0 0 auto;background:none;border:0;color:var(--muted);font-family:var(--f);font-size:13.5px;font-weight:600;cursor:pointer;padding:10px 6px}
+.wz-foot .back:hover{color:var(--ink)}
+.wz-err{background:#FDECEE;border:1px solid #F0B6BF;color:#A32235;border-radius:9px;padding:11px 14px;font-size:13.6px;margin-bottom:14px;display:none}
+.wz-err.on{display:block}
+.confirm{display:flex;gap:12px;align-items:flex-start;padding:15px;border:2px solid var(--border);border-radius:11px;cursor:pointer;margin-top:16px}
+.confirm.on{border-color:var(--green);background:#F1F9F5}
+.confirm input{appearance:none;flex:0 0 auto;width:21px;height:21px;border:2px solid #BFC7D1;border-radius:7px;margin-top:1px;cursor:pointer;background:#fff;position:relative}
+.confirm input:checked{background:var(--green);border-color:var(--green)}
+.confirm input:checked::after{content:"";position:absolute;left:6px;top:2.4px;width:4.5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(42deg)}
+.confirm span{font-size:14.2px;font-weight:550;line-height:1.45}
+.big-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(135deg,var(--meta-blue),var(--meta-blue-dk));
+  color:#fff;padding:18px 20px;border-radius:12px;font-weight:650;font-size:15.5px}
+.big-link:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(6,104,225,.34)}
+.wz-done{text-align:center;padding:12px 0 4px}
+.wz-done .tick{width:64px;height:64px;border-radius:50%;background:#E6F6ED;color:var(--green);display:grid;place-items:center;margin:0 auto 16px}
+
+/* ============ DASHBOARD ============ */
+.profbar{background:#fff;border:1.5px solid var(--border);border-radius:13px;padding:18px 22px;margin-bottom:20px;
+  display:flex;gap:18px;align-items:center;flex-wrap:wrap;box-shadow:var(--sh)}
+.profbar .av{width:46px;height:46px;border-radius:13px;background:var(--meta-blue);color:#fff;display:grid;place-items:center;font-weight:750;font-size:17px;flex:0 0 auto}
+.profbar .who{flex:1;min-width:150px}
+.profbar .who b{display:block;font-size:16px;font-weight:680;letter-spacing:-.02em}
+.profbar .who span{font-size:13px;color:var(--muted)}
+.profbar .acts{display:flex;gap:9px;flex-wrap:wrap}
+
+.progwrap{background:#fff;border:1.5px solid var(--border);border-radius:13px;padding:20px 22px;margin-bottom:20px;box-shadow:var(--sh)}
+.progwrap .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.progwrap .top b{font-size:15.5px;font-weight:680;letter-spacing:-.02em}
+.progwrap .top span{font-size:13.5px;color:var(--muted);font-weight:600}
+.meter{height:9px;border-radius:99px;background:var(--border-soft);overflow:hidden}
+.meter i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--meta-blue),#3B8DFF);transition:width .45s cubic-bezier(.4,0,.2,1)}
+.upnext{margin-top:15px;padding-top:15px;border-top:1px solid var(--border-soft);font-size:13.8px;color:var(--body)}
+.upnext b{color:var(--ink);font-weight:650}
+
+.week{background:#fff;border:1.5px solid var(--border);border-radius:13px;margin-bottom:13px;overflow:hidden}
+.week.now{border-color:var(--meta-blue);box-shadow:0 0 0 3px var(--tint)}
+.week.locked{opacity:.72;background:#FCFCFD}
+.week.finished .wbadge{background:#E6F6ED;color:var(--green-dk)}
+.whead{display:flex;gap:18px;align-items:center;width:100%;text-align:left;background:none;border:0;padding:20px 22px;cursor:pointer;font-family:var(--f)}
+.whead:hover{background:var(--bg)}
+.week.locked .whead{cursor:default}
+.wbadge{flex:0 0 auto;width:50px;height:50px;border-radius:12px;background:var(--bg);color:var(--body);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;gap:2px}
+.wbadge b{font-size:17px;font-weight:750;letter-spacing:-.03em}
+.wbadge i{font-size:9px;font-style:normal;font-weight:650;letter-spacing:.08em;text-transform:uppercase;opacity:.65}
+.week.now .wbadge{background:var(--meta-blue);color:#fff}
+.wtxt{flex:1;min-width:0}
+.wtxt h3{font-size:16.5px;font-weight:650;letter-spacing:-.022em;margin-bottom:3px}
+.wtxt p{font-size:13.8px;color:var(--muted);line-height:1.5}
+.wpill{flex:0 0 auto;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 11px;border-radius:20px;background:var(--bg);color:var(--muted)}
+.wpill.now{background:var(--tint);color:var(--meta-blue)}
+.wpill.ok{background:#E6F6ED;color:var(--green-dk)}
+.chev{flex:0 0 auto;color:#AEB6C0;transition:transform .22s}
+.week.open .chev{transform:rotate(180deg)}
+.wbody{display:none;padding:4px 22px 20px;border-top:1px solid var(--border-soft)}
+.week.open .wbody{display:block}
+.holiday{display:flex;gap:10px;background:var(--amber);color:var(--amber-ink);border-radius:10px;padding:12px 15px;font-size:13.7px;margin-top:16px;line-height:1.5}
+.locknote{margin-top:16px;padding:16px 18px;background:var(--bg);border-radius:11px;color:var(--muted);font-size:14px;display:flex;gap:10px;align-items:center}
+
+.items{list-style:none;display:grid;gap:10px;margin-top:16px}
+.item{border:1.8px solid var(--border-soft);border-radius:12px;padding:16px 18px;background:#fff;transition:all .2s}
+.item.done{background:#F4FAF6;border-color:#D5EDE0}
+.item.locked{background:#FBFCFD;border-color:var(--border-soft);opacity:.66}
+.item.current{border-color:var(--meta-blue);box-shadow:0 0 0 3px var(--tint);background:#fff}
+.item .row{display:flex;gap:13px;align-items:flex-start}
+.item .stat{flex:0 0 auto;width:26px;height:26px;border-radius:9px;display:grid;place-items:center;font-size:12px;font-weight:750;margin-top:1px}
+.item.done .stat{background:var(--green);color:#fff}
+.item.locked .stat{background:var(--border);color:var(--muted)}
+.item.current .stat{background:var(--meta-blue);color:#fff}
+.item .m{flex:1;min-width:0}
+.item .t{font-weight:600;font-size:15.5px;line-height:1.4;letter-spacing:-.01em;display:block}
+.item .sub{font-size:13.2px;color:var(--muted);margin-top:5px;line-height:1.5}
+.item .meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px;align-items:center}
+.tagx{font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:6px;background:#E5E9EE;color:var(--body)}
+.tagx.plat{background:var(--tint);color:var(--meta-blue)}
+.tagx.form{background:var(--amber);color:var(--amber-ink)}
+.tagx.slide{background:var(--violet-tint);color:#4A2FA8}
+.tagx.live{background:#E6F6ED;color:var(--green-dk)}
+.item .acts{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center}
+.item .acts .btn{flex:0 0 auto}
+.doneline{font-size:13px;font-weight:700;color:var(--green-dk);letter-spacing:.03em;text-transform:uppercase}
+.undo{background:none;border:0;color:var(--muted);font-family:var(--f);font-size:13px;font-weight:600;cursor:pointer;text-decoration:underline}
+.undo:hover{color:var(--ink)}
+.wkhrs{margin-top:15px;font-size:13px;color:var(--muted);font-weight:550}
+
+footer{background:var(--meta-dark);color:#fff;padding:44px 24px 34px;margin-top:44px}
+.f-in{max-width:1200px;margin:0 auto;display:flex;gap:44px;flex-wrap:wrap;justify-content:space-between}
+.f-brand{max-width:40ch}
+.f-brand h3{font-size:16.5px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.f-brand p{font-size:13.6px;opacity:.72;line-height:1.65}
+.f-cols{display:flex;gap:50px;flex-wrap:wrap}
+.f-col h4{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;opacity:.55;margin-bottom:11px}
+.f-col a{display:block;font-size:13.8px;opacity:.82;margin-bottom:8px}
+.f-col a:hover{opacity:1;color:#7FB4FF}
+.f-bot{max-width:1200px;margin:34px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.13);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.8px;opacity:.6}
+
+@media (max-width:860px){
+  nav a{padding:12px 15px;font-size:14px}
+  .header-content{padding:14px 16px;gap:14px}
+  .brand{width:100%;justify-content:space-between;gap:12px}
+  .divider,.brand-text p{display:none}
+  .brand-text h1{font-size:15px}
+  .logos .lg{height:32px}
+  .container{padding:0 16px}
+  .hero{padding:40px 22px;margin:20px 0}
+  .section{padding:22px 18px}
+  .whead{padding:16px;gap:13px}
+  .wpill{display:none}
+  .wbody{padding:4px 16px 18px}
+  .topic-grid,.link-grid,.mods{grid-template-columns:1fr}
+  .overlay{padding:0}
+  .wz{border-radius:0;min-height:100vh;max-width:100%}
+  .wz-top,.wz-body{padding-left:20px;padding-right:20px}
+  .wz-foot{padding:16px 20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-    <p>
-        loading
-    </p>
+
+<header>
+  <div class="header-content">
+    <div class="brand">
+      <div class="logos">
+        <span class="lg"><img src="assets/logo-3mtt.png" alt="3MTT"
+          onerror="this.outerHTML='&lt;span class=\'fb\'&gt;3MTT&lt;small&gt;3 Million Technical Talent&lt;/small&gt;&lt;/span&gt;'"></span>
+        <span class="lg"><img src="assets/logo-meta.png" alt="Meta"
+          onerror="this.outerHTML='&lt;span class=\'fb\'&gt;Meta&lt;/span&gt;'"></span>
+        <span class="lg"><img src="assets/logo-rain.png" alt="RAIN Nigeria"
+          onerror="this.outerHTML='&lt;span class=\'fb\'&gt;RAIN&lt;small&gt;Robotics &amp; AI Nigeria&lt;/small&gt;&lt;/span&gt;'"></span>
+      </div>
+      <span class="divider"></span>
+      <div class="brand-text">
+        <h1>AI Skills Development</h1>
+        <p>A 3MTT &amp; Meta programme · Delivered by RAIN Nigeria</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="hdr-date"><strong>Programme:</strong> 1 Sept – 31 Oct 2026</div>
+      <button class="btn btn-primary" id="loginBtn">Enter Programme</button>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a data-go="#overview" class="active">Overview</a></li>
+    <li><a data-go="#ai101">AI 101 Course</a></li>
+    <li><a data-go="#courses">Blueprint Courses</a></li>
+    <li><a data-go="#assessments">Assessments</a></li>
+    <li><a data-go="#completion">Completion</a></li>
+    <li><a id="navDash" class="lock">My Programme</a></li>
+  </ul>
+</nav>
+
+<!-- ================= PUBLIC ================= -->
+<div class="container" id="publicView">
+
+  <div class="hero">
+    <p class="eyebrow">3MTT × Meta · Nine weeks · 2026 Cohort</p>
+    <h2>Practical AI skills, open to the whole 3MTT community.</h2>
+    <p>Work through AI 101 — the curriculum built for Meta — alongside a curated set of Meta Blueprint courses, from generative AI fundamentals through to building applications with Llama. Self-paced, with live sessions if you want more structure.</p>
+    <div class="hero-btns">
+      <button class="btn btn-white" id="heroCta">Enrol and begin</button>
+      <button class="btn btn-white" style="background:rgba(255,255,255,.16);color:#fff" onclick="document.getElementById('ai101').scrollIntoView({behavior:'smooth'})">See the curriculum</button>
+    </div>
+    
+  </div>
+
+  <section id="overview" class="section">
+    <h2>Programme Overview</h2>
+    <div class="alert">
+      <p>This Programme is open to the 3MTT community of developers, students and early-career professionals.</p>
+    </div>
+    <div class="topic-grid" style="margin-top:20px">
+      <div class="topic-card"><strong>Duration</strong><span class="d">9 weeks · 1 September to 31 October 2026. Around 4 to 6 hours a week.</span></div>
+      <div class="topic-card"><strong>Delivery</strong><span class="d">Self-paced modules you complete on your own schedule, plus scheduled virtual instructor-led sessions for those who want more structure. You choose when you enrol.</span></div>
+      <div class="topic-card"><strong>Content</strong><span class="d">AI 101: 20.5 hours across 4 modules — plus the Meta Blueprint courses. AI 101 is compulsory for every participant.</span></div>
+     
+    </div>
+    <div class="alert violet" style="margin-top:22px">
+      <h3>🏆 Scholarships for top performers</h3>
+      <p id="scholarship"></p>
+    </div>
+  </section>
+
+  <section id="ai101" class="section">
+    <h2>AI 101 Course</h2>
+    <p class="lead">4 modules, 20.5 hours, developed by Startupbootcamp for Meta. This is the compulsory course which starts once you enrol.</p>
+    <div class="mods" id="mods"></div>
+  </section>
+
+  <section id="courses" class="section">
+    <h2>Meta Blueprint AI Courses</h2>
+    <p class="lead">The curated set named in the programme brief, taken alongside AI 101. These sit on Coursera and DeepLearning.AI. </p>
+    <div class="topic-grid" id="courses-grid"></div>
+
+   
+    <p class="lead" style="margin-bottom:16px"></p>
+    <div class="ext" id="ext"></div>
+  </section>
+
+  <section id="assessments" class="section">
+    <h2>Mode of Assessment</h2>
+    <p class="lead">You will be assessed at intervals. Every assessment is submitted via Google Forms curated by RAIN. Assessments on the external learning platforms would not be used in grading all participants. The pre-assessment and the post-assessment are for impact assessment and are very important. They carry the same questions with the difference simply being the impact number. The four module assessments in between are the ones that will rank candidates ahead of the final scholarship prize.</p>
+    <div class="link-grid" id="asmt"></div>
+  </section>
+
+  <section id="completion" class="section">
+        <div class="done-list" id="completion"></div>
+  </section>
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+<div class="container hide" id="dashView">
+  <div class="profbar">
+    <span class="av" id="pAv"></span>
+    <span class="who"><b id="pName"></b><span id="pMeta"></span></span>
+    <span class="acts">
+      <button class="btn btn-ghost btn-sm" id="btnSave">Save backup file</button>
+      <button class="btn btn-ghost btn-sm" id="btnPwd">Change password</button>
+      <button class="btn btn-ghost btn-sm" id="btnLock">Lock</button>
+    </span>
+  </div>
+
+  <div class="progwrap">
+    <div class="top"><b>Your progress</b><span id="pctTxt">0%</span></div>
+    <div class="meter"><i id="fill"></i></div>
+    <div class="upnext" id="upnext"></div>
+    <div class="upnext" id="bkNote" style="font-size:12.8px;color:var(--muted);border-top:0;padding-top:8px;margin-top:8px"></div>
+  </div>
+
+  <div id="weeks"></div>
+</div>
+
+<footer>
+  <div class="f-in">
+    <div class="f-brand">
+      <h3>AI Skills Development</h3>
+      <p>A 3MTT and Meta programme, delivered by Robotics and Artificial Intelligence Nigeria.<br>
+      20 Oba Adesida Road, Iyaganku GRA, Ibadan, Nigeria.</p>
+    </div>
+    <div class="f-cols">
+      <div class="f-col"><h4>Programme</h4>
+        <a data-go="#overview">Overview</a><a data-go="#ai101">AI 101</a><a data-go="#courses">Blueprint courses</a><a data-go="#completion">Completion</a></div>
+      <div class="f-col"><h4>Support</h4>
+        <a href="#" id="fSupport">Report a problem</a><a href="#" id="fCommunity">Cohort community</a>
+        <a href="mailto:info@rainigeria.com">info@rainigeria.com</a></div>
+    </div>
+  </div>
+  <div class="f-bot"><span>© 2026 Robotics and Artificial Intelligence Nigeria</span><span>meta3mtt.rainigeria.com · build 6</span></div>
+</footer>
+
+<!-- ================= CONFIRM PASSWORD ================= -->
+<div class="overlay hide" id="pwOv" style="background:rgba(21,26,31,.72);backdrop-filter:blur(3px)">
+  <div class="wz" style="max-width:400px">
+    <div class="wz-body" style="padding:30px">
+      <h2 id="pwTitle">Confirm it's you</h2>
+      <p class="sub" id="pwSub">Enter your password to record this step.</p>
+      <div class="wz-err" id="pwErr"></div>
+      <div class="fld"><input type="password" id="pwIn" placeholder="Password" autocomplete="current-password"></div>
+      <label class="confirm" id="pwRemWrap" style="padding:12px 14px;margin-top:4px">
+        <input type="checkbox" id="pwRem" checked>
+        <span style="font-size:13.5px">Don't ask again for 30 minutes</span></label>
+    </div>
+    <div class="wz-foot">
+      <button class="back" id="pwCancel">Cancel</button>
+      <button class="btn btn-primary" id="pwGo">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= OVERLAY ================= -->
+<div class="overlay hide" id="ov">
+  <div class="wz">
+    <div class="wz-top">
+      <div class="wz-logos">
+        <span class="lg"><img src="assets/logo-3mtt.png" alt="3MTT" onerror="this.outerHTML='&lt;span class=\'fb\'&gt;3MTT&lt;/span&gt;'"></span>
+        <span class="lg"><img src="assets/logo-meta.png" alt="Meta" onerror="this.outerHTML='&lt;span class=\'fb\'&gt;Meta&lt;/span&gt;'"></span>
+        <span class="lg"><img src="assets/logo-rain.png" alt="RAIN" onerror="this.outerHTML='&lt;span class=\'fb\'&gt;RAIN&lt;/span&gt;'"></span>
+      </div>
+      <div class="wz-bar" id="wzBar"></div>
+    </div>
+    <div class="wz-body" id="wzBody"></div>
+    <div class="wz-foot" id="wzFoot"></div>
+  </div>
+</div>
+
+<script src="data/curriculum.js?v=6"></script>
+<script>
+/* ================= storage ================= */
+const KEY="raiin-3mtt-aiskills-v2";
+const Store=(()=>{let mem=null;
+  return{get:()=>{try{return JSON.parse(localStorage.getItem(KEY))||null}catch{return mem}},
+         set:o=>{try{localStorage.setItem(KEY,JSON.stringify(o))}catch{mem=o}},
+         clear:()=>{try{localStorage.removeItem(KEY)}catch{mem=null}}}})();
+const Sess=(()=>{const k="raiin-3mtt-unlocked";
+  return{on:()=>{try{return sessionStorage.getItem(k)==="1"}catch{return false}},
+         set:v=>{try{v?sessionStorage.setItem(k,"1"):sessionStorage.removeItem(k)}catch{}}}})();
+
+/* obfuscation only — this is a device convenience lock, not security */
+function hash(s){let h=5381;s="rain·"+s;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))>>>0;return h.toString(36)}
+
+let P=Store.get();               // profile or null
+let draft={};                    // wizard scratch
+const save=()=>Store.set(P);
+
+/* ================= compatibility shims =================
+   index.html must not die if data/curriculum.js is an older copy.
+   Anything optional is defaulted here rather than assumed.        */
+const FORMATS = (typeof PROGRAMME!=="undefined" && Array.isArray(PROGRAMME.formats) && PROGRAMME.formats.length)
+  ? PROGRAMME.formats
+  : [{id:"self",t:"Self-paced only",d:"Work through everything on your own schedule. All materials, no fixed times."},
+     {id:"live",t:"Self-paced + live sessions",d:"Everything above, plus scheduled virtual sessions with a facilitator."}];
+const H = (typeof helpers!=="undefined" && helpers) ? helpers : {
+  mod:m=>AI101.find(x=>x.m===m),
+  sec:(m,s)=>AI101.find(x=>x.m===m).sections.find(y=>y.s===s)
+};
+function fatal(msg){
+  const d=document.getElementById("weeks");
+  if(d)d.innerHTML=`<div class="section" style="border-left:4px solid #D3364A">
+    <h2 style="color:#A32235;border-color:#A32235">Something did not load</h2>
+    <p class="lead">${msg}</p>
+    <p class="lead">Try a hard refresh (Ctrl+Shift+R, or pull down to refresh on mobile).
+    If it persists, <code>data/curriculum.js</code> on the server is out of date and needs re-uploading.</p></div>`;
+}
+
+/* ================= access gate for ALL links =================
+   Single choke point. Nothing anywhere on this page emits a clickable
+   course/material link unless the participant has finished the wizard
+   AND unlocked this session. Renders inert text otherwise.          */
+const ENROLLED=()=>!!(P&&P.pw&&P.pre&&Sess.on());
+function gate(href,label,cls){
+  if(!href||!ENROLLED())return `<span class="${cls||""} inert">${label}</span>`;
+  return `<a class="${cls||""}" href="${href}" target="_blank" rel="noopener">${label}</a>`;
+}
+
+/* ================= password confirmation ================= */
+let pwOkUntil=0;
+function verify(title,sub,cb){
+  if(Date.now()<pwOkUntil)return cb();
+  const ov=document.getElementById("pwOv"),inp=document.getElementById("pwIn"),
+        er=document.getElementById("pwErr"),rem=document.getElementById("pwRem");
+  document.getElementById("pwTitle").textContent=title;
+  document.getElementById("pwSub").textContent=sub;
+  er.classList.remove("on");inp.value="";ov.classList.remove("hide");
+  setTimeout(()=>inp.focus(),60);
+  const close=()=>{ov.classList.add("hide");inp.onkeypress=null};
+  const go=()=>{
+    if(hash(inp.value)!==P.pw){inp.value="";er.textContent="That password is not right.";er.classList.add("on");return}
+    if(rem.checked)pwOkUntil=Date.now()+30*60*1000;
+    close();cb()};
+  document.getElementById("pwGo").onclick=go;
+  document.getElementById("pwCancel").onclick=close;
+  inp.onkeypress=e=>{if(e.key==="Enter")go()};
+}
+
+/* ================= backup file =================
+   localStorage is per-browser by design — a static site cannot write to
+   the device itself. A backup file is the portable record: it moves
+   progress between browsers, between devices, and survives the browser
+   clearing its storage.                                              */
+function exportProfile(){
+  if(!P)return;
+  const blob=new Blob([JSON.stringify({_app:"ai-skills-development",_v:1,saved:new Date().toISOString(),profile:P},null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=`ai-skills-progress-${(P.fellowId||"me").replace(/[^\w-]/g,"")}.json`;
+  a.click();URL.revokeObjectURL(a.href);
+}
+function importProfile(after){
+  const inp=document.createElement("input");
+  inp.type="file";inp.accept="application/json,.json";
+  inp.onchange=()=>{
+    const f=inp.files&&inp.files[0];if(!f)return;
+    const r=new FileReader();
+    r.onload=()=>{
+      try{
+        const d=JSON.parse(r.result);
+        const prof=d&&d.profile;
+        if(!prof||!prof.pw||!prof.name)throw new Error("not a progress file");
+        prof.done=prof.done||{};
+        P=prof;save();Sess.set(true);
+        alert(`Restored ${P.name}'s progress. Sign in with the same password you set originally.`);
+        if(after)after();
+      }catch(e){alert("That file could not be read. Choose the .json backup this site produced.")}
+    };
+    r.readAsText(f)};
+  inp.click();
+}
+
+/* ================= registration form =================
+   The wizard saves to the device; RAIN receives nothing unless the
+   participant also submits the Google Form. This builds that form
+   pre-filled from what they typed, so it is one tap, not re-typing. */
+function registerURL(d){
+  const rf = (typeof PROGRAMME!=="undefined" && PROGRAMME.registerForm) || null;
+  if(!rf || !rf.url || /REPLACE-FORM-ID/.test(rf.url))
+    return (PROGRAMME.links && PROGRAMME.links.register) || "#";
+  const e=rf.entries||{}, q=[];
+  const add=(k,v)=>{if(e[k]&&v&&!/REPLACE/.test(e[k]))q.push(encodeURIComponent(e[k])+"="+encodeURIComponent(v))};
+  add("name",d.name);add("email",d.email);add("phone",d.phone);add("fellowId",d.fellowId);
+  add("format",(FORMATS.find(f=>f.id===d.format)||{}).t);
+  return rf.url+(q.length?(rf.url.includes("?")?"&":"?")+"usp=pp_url&"+q.join("&"):"");
+}
+
+/* ================= flat item list ================= */
+const FLAT=[];
+WEEKS.forEach(w=>w.items.forEach((it,i)=>FLAT.push({w:w.n,i,key:w.n+":"+i,it,week:w})));
+const isDone=k=>!!(P&&P.done&&P.done[k]);
+const currentIdx=()=>{const x=FLAT.findIndex(f=>!isDone(f.key));return x<0?FLAT.length:x};
+const weekDone=w=>w.items.every((it,i)=>isDone(w.n+":"+i));
+const weekStarted=w=>w.items.some((it,i)=>isDone(w.n+":"+i));
+
+/* ================= item rendering ================= */
+function itemMeta(it){
+  if(it.k==="slide"){const m=H.mod(it.m),s=H.sec(it.m,it.s);
+    return{title:`Module ${it.m}.${it.s} — ${s.t}`,sub:s.pts.join(" · "),
+      tags:`<span class="tagx slide">AI 101 slides</span><span class="tagx">${m.t}</span><span class="tagx">${s.h} hr</span>`,
+      href:s.drive,cta:"Download slides ↓"}}
+  if(it.k==="course"){const c=COURSES[it.c];
+    return{title:c.t,sub:"",
+      tags:`<span class="tagx plat">${c.p}</span><span class="tagx">${c.lvl}</span><span class="tagx">${c.note}</span><span class="tagx">${c.h} hr</span>`,
+      href:c.url,cta:"Open the course ↗"}}
+  if(it.k==="live"){return{title:it.t,sub:it.d||"",
+    tags:`<span class="tagx live">Live session</span><span class="tagx">Whole cohort</span>`,
+    href:PROGRAMME.links.sessions,cta:"See date and joining link ↗"}}
+  const href=it.link?PROGRAMME.links[it.link]:null;
+  return{title:it.t,sub:"",
+    tags:`<span class="tagx ${it.k==="form"?"form":""}">${it.k==="form"?"Google Form":"Activity"}</span>`,
+    href,cta:it.k==="form"?"Open the form ↗":null}
+}
+function itemHTML(f,state){
+  const m=itemMeta(f.it);
+  const icon=state==="done"?"✓":state==="locked"?"🔒":"→";
+  let acts="";
+  if(state==="current"){
+    acts=`<div class="acts">${m.href?gate(m.href,m.cta,"btn btn-primary btn-sm"):""}
+      <button class="btn btn-green btn-sm" data-do="${f.key}">Mark as done</button></div>`;
+  } else if(state==="done"){
+    acts=`<div class="acts"><span class="doneline">Completed</span>
+      ${m.href?gate(m.href,"Open again","undo"):""}
+      <button class="undo" data-undo="${f.key}">Undo</button></div>`;
+  } else {
+    acts=`<div class="acts"><span style="font-size:13.2px;color:var(--muted)">Unlocks when the step above is done</span></div>`;
+  }
+  return `<li class="item ${state}"><div class="row"><span class="stat">${icon}</span>
+    <span class="m"><span class="t">${m.title}</span>
+      ${m.sub&&state!=="locked"?`<span class="sub">${m.sub}</span>`:""}
+      <span class="meta">${m.tags}</span>${acts}</span></div></li>`;
+}
+
+function weekHours(w){return w.items.reduce((x,it)=>{
+  if(it.k==="slide")return x+H.sec(it.m,it.s).h;
+  if(it.k==="course")return x+COURSES[it.c].h;return x},0)}
+
+function drawDash(){try{ drawDashInner() }catch(e){ console.error(e); fatal("The programme schedule could not be built: "+e.message) }}
+function drawDashInner(){
+  document.getElementById("pAv").textContent=(P.name||"?").trim().charAt(0).toUpperCase();
+  document.getElementById("pName").textContent=P.name;
+  const fmtName=(FORMATS.find(f=>f.id===P.format)||{}).t||"Self-paced";
+  document.getElementById("pMeta").textContent=`${P.fellowId||"—"} · ${fmtName}`;
+
+  const ci=currentIdx();
+  const host=document.getElementById("weeks");
+  host.innerHTML=WEEKS.map((w,wi)=>{
+    const prev=wi===0?true:weekDone(WEEKS[wi-1]);
+    const fin=weekDone(w);
+    const locked=!prev;
+    const active=prev&&!fin;
+    const open=active;
+    let inner;
+    if(locked){
+      inner=`<div class="locknote"><span>🔒</span><span>Finish Week ${WEEKS[wi-1].n} first. Everything opens in order so you always know exactly what to do next.</span></div>`;
+    }else{
+      const hrs=weekHours(w);
+      inner=(w.note?`<div class="holiday"><span>ℹ️</span><span>${w.note}</span></div>`:"")
+        +`<ul class="items">${w.items.map((it,i)=>{
+            const f=FLAT.find(x=>x.key===w.n+":"+i);
+            const idx=FLAT.indexOf(f);
+            const st=isDone(f.key)?"done":(idx===ci?"current":"locked");
+            return itemHTML(f,st)}).join("")}</ul>`
+        +(hrs?`<p class="wkhrs">About ${hrs} hours of study this week</p>`:"");
+    }
+    const pill=fin?`<span class="wpill ok">Complete</span>`:active?`<span class="wpill now">In progress</span>`:`<span class="wpill">Locked</span>`;
+    return `<article class="week ${locked?"locked":""} ${active?"now":""} ${fin?"finished":""} ${open?"open":""}" id="w${w.n}">
+      <button class="whead" ${locked?"disabled style=opacity:1":""} data-w="${w.n}">
+        <span class="wbadge"><i>Week</i><b>${w.n}</b></span>
+        <span class="wtxt"><h3>${w.title}</h3><p>${locked?"Locked until the previous week is finished.":w.aim}</p></span>
+        ${pill}
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button><div class="wbody">${inner}</div></article>`}).join("");
+
+  host.querySelectorAll(".whead:not([disabled])").forEach(b=>b.onclick=()=>b.parentElement.classList.toggle("open"));
+  host.querySelectorAll("[data-do]").forEach(b=>b.onclick=()=>{
+    verify("Confirm it's you","Enter your password to record this step as done.",()=>{
+      P.done[b.dataset.do]=1;save();drawDash();
+      const el=document.querySelector(".item.current");
+      if(el)el.scrollIntoView({behavior:"smooth",block:"center"})})});
+  host.querySelectorAll("[data-undo]").forEach(b=>b.onclick=()=>{
+    verify("Undo this step","This also clears every step after it, so the order stays honest. Enter your password to continue.",()=>{
+      const from=FLAT.findIndex(f=>f.key===b.dataset.undo);
+      FLAT.slice(from).forEach(f=>delete P.done[f.key]);save();drawDash()})});
+
+  const got=FLAT.filter(f=>isDone(f.key)).length,pc=Math.round(got/FLAT.length*100);
+  document.getElementById("fill").style.width=pc+"%";
+  document.getElementById("pctTxt").textContent=`${pc}% · ${got} of ${FLAT.length} steps`;
+  const nx=FLAT[currentIdx()];
+  document.getElementById("upnext").innerHTML=nx
+    ? `<b>Do this next:</b> ${itemMeta(nx.it).title}
+       <span style="color:var(--muted)">· Week ${nx.w}</span>
+       <button class="btn btn-primary btn-sm" id="jump" style="margin-left:10px">Take me there</button>`
+    : `<b>You have finished every step.</b> Well done.`;
+  const bk=document.getElementById("bkNote");
+  if(bk)bk.innerHTML=got>0
+    ? `Your progress lives in this browser only. <a id="bkLink" style="color:var(--meta-blue);font-weight:650;cursor:pointer;text-decoration:underline">Save a backup file</a> to carry it to another browser or device, or to survive clearing your browser data.`
+    : "";
+  const bl=document.getElementById("bkLink");if(bl)bl.onclick=exportProfile;
+  const j=document.getElementById("jump");
+  if(j)j.onclick=()=>{const el=document.querySelector(".item.current");
+    if(el){el.closest(".week").classList.add("open");
+      el.scrollIntoView({behavior:"smooth",block:"center"})}};
+}
+
+/* ================= wizard ================= */
+let step=0;
+const STEPS=["code","details","format","register","pre","password","done"];
+function bar(){document.getElementById("wzBar").innerHTML=STEPS.slice(0,6).map((s,i)=>
+  `<i class="${i<step?"ok":i===step?"on":""}"></i>`).join("")}
+function err(msg){const e=document.getElementById("wzErr");if(e){e.textContent=msg;e.classList.add("on")}}
+
+function render(){
+  bar();
+  const B=document.getElementById("wzBody"),F=document.getElementById("wzFoot");
+  const s=STEPS[step];
+  if(s==="code"){
+    B.innerHTML=`<p class="wz-step">Step 1 of 6</p><h2>Enter your access code</h2>
+      <p class="sub">Use the code from your 3MTT admission email. You only enter this once on this device.</p>
+      <div class="wz-err" id="wzErr"></div>
+      <div class="fld"><label>Access code</label><input type="text" id="fCode" placeholder="Access code" autocomplete="off" value="${draft.code||""}"></div>`;
+    F.innerHTML=`<button class="back" id="restore">Restore backup</button><button class="btn btn-primary" id="next">Continue</button>`;
+    document.getElementById("restore").onclick=()=>importProfile(()=>{closeOv();showDash()});
+    document.getElementById("fCode").addEventListener("keypress",e=>{if(e.key==="Enter")go()});
+    document.getElementById("next").onclick=go;
+    function go(){const v=document.getElementById("fCode").value.trim();
+      if(v.toLowerCase()!==String(PROGRAMME.accessCode).toLowerCase())return err("That code is not right. Check your admission email.");
+      draft.code=v;step++;render()}
+  }
+  else if(s==="details"){
+    B.innerHTML=`<p class="wz-step">Step 2 of 6</p><h2>Your details</h2>
+      <p class="sub">This stays on your device. Use the same name and email you gave 3MTT, so your assessments can be matched to you.</p>
+      <div class="wz-err" id="wzErr"></div>
+      <div class="fld"><label>Full name</label><input type="text" id="fName" value="${draft.name||""}"></div>
+      <div class="fld"><label>Email address</label><input type="email" id="fEmail" value="${draft.email||""}"></div>
+      <div class="fld"><label>Phone number</label><input type="tel" id="fPhone" value="${draft.phone||""}"></div>
+      <div class="fld"><label>3MTT Fellow ID</label><input type="text" id="fId" value="${draft.fellowId||""}">
+        <p class="hint">Exactly as it appears on your 3MTT record.</p></div>`;
+    F.innerHTML=`<button class="back" id="back">Back</button><button class="btn btn-primary" id="next">Continue</button>`;
+    document.getElementById("back").onclick=()=>{step--;render()};
+    document.getElementById("next").onclick=()=>{
+      const n=document.getElementById("fName").value.trim(),e=document.getElementById("fEmail").value.trim(),
+            ph=document.getElementById("fPhone").value.trim(),id=document.getElementById("fId").value.trim();
+      if(!n||!e||!ph||!id)return err("Please fill in all four fields.");
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e))return err("That email address does not look right.");
+      Object.assign(draft,{name:n,email:e,phone:ph,fellowId:id});step++;render()};
+  }
+  else if(s==="register"){
+    B.innerHTML=`<p class="wz-step">Step 4 of 6</p><h2>Submit your registration</h2>
+      <p class="sub">This is how RAIN receives your enrolment. The form opens already filled in with what you typed — check it and press submit. Without this we have no record of you on the programme.</p>
+      <div class="wz-err" id="wzErr"></div>
+      <a class="big-link" href="${registerURL(draft)}" target="_blank" rel="noopener">
+        <span>Open my registration form</span><span>↗</span></a>
+      <label class="confirm ${draft.reg?"on":""}" id="cf">
+        <input type="checkbox" id="fReg" ${draft.reg?"checked":""}>
+        <span>Yes — I have submitted the registration form.</span></label>`;
+    F.innerHTML=`<button class="back" id="back">Back</button><button class="btn btn-primary" id="next">Continue</button>`;
+    const cb=document.getElementById("fReg");
+    cb.onchange=()=>document.getElementById("cf").classList.toggle("on",cb.checked);
+    document.getElementById("back").onclick=()=>{step--;render()};
+    document.getElementById("next").onclick=()=>{
+      if(!cb.checked)return err("Please submit the registration form first, then tick the box.");
+      draft.reg=true;step++;render()};
+  }
+  else if(s==="pre"){
+    B.innerHTML=`<p class="wz-step">Step 5 of 6</p><h2>Take the pre-assessment</h2>
+      <p class="sub">This records where the cohort starts, so we can measure what the programme actually changed. It takes about 20 minutes. Nothing else opens until it is submitted.</p>
+      <div class="wz-err" id="wzErr"></div>
+      <a class="big-link" href="${PROGRAMME.links.pre}" target="_blank" rel="noopener">
+        <span>Open the pre-assessment</span><span>↗</span></a>
+      <label class="confirm ${draft.pre?"on":""}" id="cf">
+        <input type="checkbox" id="fPre" ${draft.pre?"checked":""}>
+        <span>Yes — I have submitted the pre-assessment.</span></label>`;
+    F.innerHTML=`<button class="back" id="back">Back</button><button class="btn btn-primary" id="next">Continue</button>`;
+    const cb=document.getElementById("fPre");
+    cb.onchange=()=>document.getElementById("cf").classList.toggle("on",cb.checked);
+    document.getElementById("back").onclick=()=>{step--;render()};
+    document.getElementById("next").onclick=()=>{
+      if(!cb.checked)return err("Please submit the pre-assessment first, then tick the box.");
+      draft.pre=true;step++;render()};
+  }
+  else if(s==="format"){
+    B.innerHTML=`<p class="wz-step">Step 3 of 6</p><h2>How do you want to learn?</h2>
+      <p class="sub">Both cover exactly the same material — this only decides whether you also join the scheduled live sessions. You can change your mind at any time.</p>
+      <div class="wz-err" id="wzErr"></div>
+      ${FORMATS.map(f=>`<div class="pick ${draft.format===f.id?"on":""}" data-f="${f.id}">
+        <h3>${f.t}</h3><p>${f.d}</p></div>`).join("")}`;
+    F.innerHTML=`<button class="back" id="back">Back</button><button class="btn btn-primary" id="next">Continue</button>`;
+    B.querySelectorAll(".pick").forEach(p=>p.onclick=()=>{
+      draft.format=p.dataset.f;B.querySelectorAll(".pick").forEach(x=>x.classList.remove("on"));p.classList.add("on")});
+    document.getElementById("back").onclick=()=>{step--;render()};
+    document.getElementById("next").onclick=()=>{
+      if(!draft.format)return err("Pick one to continue.");step++;render()};
+  }
+  else if(s==="password"){
+    B.innerHTML=`<p class="wz-step">Step 6 of 6</p><h2>Create a password</h2>
+      <p class="sub">From now on this device only asks for this password — never the access code again. Choose something you will remember.</p>
+      <div class="wz-err" id="wzErr"></div>
+      <div class="fld"><label>Password</label><input type="password" id="fP1" autocomplete="new-password"></div>
+      <div class="fld"><label>Confirm password</label><input type="password" id="fP2" autocomplete="new-password">
+        <p class="hint">At least 6 characters. Saved only on this device — if you switch to another phone or laptop you start again, so stay on the one you use most.</p></div>`;
+    F.innerHTML=`<button class="back" id="back">Back</button><button class="btn btn-primary" id="next">Finish setup</button>`;
+    document.getElementById("back").onclick=()=>{step--;render()};
+    document.getElementById("next").onclick=()=>{
+      const a=document.getElementById("fP1").value,b=document.getElementById("fP2").value;
+      if(a.length<6)return err("Use at least 6 characters.");
+      if(a!==b)return err("The two passwords do not match.");
+      P={name:draft.name,email:draft.email,phone:draft.phone,fellowId:draft.fellowId,
+         format:draft.format,pre:true,reg:true,pw:hash(a),done:{},created:new Date().toISOString()};
+      save();Sess.set(true);step++;render()};
+  }
+  else if(s==="done"){
+    B.innerHTML=`<div class="wz-done"><div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></div>
+      <h2>You are enrolled</h2>
+      <p class="sub" style="margin-bottom:0">Welcome, ${P.name.split(" ")[0]}. Your programme opens one step at a time — finish what is in front of you and the next unlocks. Week 1 is ready now.</p></div>`;
+    F.innerHTML=`<button class="btn btn-primary" id="next">Go to my programme</button>`;
+    document.getElementById("next").onclick=()=>{closeOv();showDash()};
+  }
+}
+
+function askPassword(){
+  document.getElementById("wzBar").innerHTML="";
+  const B=document.getElementById("wzBody"),F=document.getElementById("wzFoot");
+  B.innerHTML=`<h2>Welcome back, ${P.name.split(" ")[0]}</h2>
+    <p class="sub">Enter your password to open your programme.</p>
+    <div class="wz-err" id="wzErr"></div>
+    <div class="fld"><input type="password" id="fPw" placeholder="Password" autocomplete="current-password"></div>
+    <p class="hint" style="font-size:12.3px;color:var(--muted)">Forgotten it? You can start setup again, but your ticked progress on this device will be cleared.</p>`;
+  F.innerHTML=`<button class="back" id="reset">Start over</button><button class="btn btn-primary" id="go">Unlock</button>`;
+  B.insertAdjacentHTML("beforeend",`<p class="hint" style="font-size:12.3px;color:var(--muted);margin-top:10px">Moved from another browser or device? <a id="rst" style="color:var(--meta-blue);font-weight:650;cursor:pointer;text-decoration:underline">Restore a backup file</a>.</p>`);
+  document.getElementById("rst").onclick=()=>importProfile(()=>{closeOv();showDash()});
+  const inp=document.getElementById("fPw");
+  inp.addEventListener("keypress",e=>{if(e.key==="Enter")go()});
+  setTimeout(()=>inp.focus(),60);
+  document.getElementById("go").onclick=go;
+  document.getElementById("reset").onclick=()=>{
+    if(!confirm("Clear this device and set up again from the access code? Your ticked progress will be lost."))return;
+    Store.clear();Sess.set(false);P=null;draft={};step=0;render()};
+  function go(){if(hash(inp.value)!==P.pw){inp.value="";return err("That password is not right.")}
+    Sess.set(true);closeOv();showDash()}
+}
+
+function openOv(){document.getElementById("ov").classList.remove("hide");document.body.style.overflow="hidden"}
+function closeOv(){document.getElementById("ov").classList.add("hide");document.body.style.overflow=""}
+function showDash(){
+  document.getElementById("publicView").classList.add("hide");
+  document.getElementById("dashView").classList.remove("hide");
+  document.getElementById("navDash").classList.remove("lock");
+  document.getElementById("loginBtn").textContent="My Programme";
+  drawDash();window.scrollTo({top:0,behavior:"smooth"});
+}
+function showPublic(){
+  document.getElementById("dashView").classList.add("hide");
+  document.getElementById("publicView").classList.remove("hide");
+}
+function enter(){
+  if(P&&Sess.on())return showDash();
+  openOv();
+  if(P)askPassword(); else {step=0;render()}
+}
+
+/* ================= public content ================= */
+document.getElementById("scholarship").textContent=PROGRAMME.scholarship;
+document.getElementById("fSupport").href=PROGRAMME.links.support;
+document.getElementById("fCommunity").href=PROGRAMME.links.community;
+
+document.getElementById("mods").innerHTML=AI101.map(m=>`<article class="mod">
+  <div class="h"><span class="n">Module ${m.m}</span><h3>${m.t}</h3><span class="hrs">${m.h} hours · ${m.sections.length} sections</span></div>
+  <div class="b"><p>${m.aim}</p>
+    <ol>${m.sections.map(s=>`<li><b>${s.t}</b> · ${s.h} hr</li>`).join("")}</ol>
+    <p class="out"><strong>You finish with:</strong> ${m.outcome}</p></div></article>`).join("");
+
+/* course titles are NOT links before enrolment */
+document.getElementById("courses-grid").innerHTML=["BP2","BP1","BP3","BP4"].map(id=>{const c=COURSES[id];
+  return `<div class="topic-card locked"><strong>${c.t}</strong>
+    <span class="d">${c.p} · ${c.lvl} · about ${c.h} ${c.h===1?"hour":"hours"}<br>${c.note}</span>
+    <span class="lockline">🔒 Opens in Week ${courseWeek(id)} of your programme</span></div>`}).join("");
+
+function courseWeek(id){const w=WEEKS.find(w=>w.items.some(it=>it.k==="course"&&it.c===id));return w?w.n:"—"}
+document.getElementById("ext").innerHTML=EXTENSION.map(e=>{const c=COURSES[e.c];
+  return `<div class="ext-row" style="border-left-color:${c.paid?"#E8A317":"var(--meta-blue)"}">
+    <div><h3>${c.t}</h3><p>${e.why}</p>
+    <div class="meta"><span class="tagx plat">${c.p}</span><span class="tagx">${c.h} hrs</span>
+    ${c.paid?'<span class="tagx form">Subscription required</span>':'<span class="tagx">Audit free</span>'}
+    <span class="tagx">🔒 Link after enrolment</span></div></div></div>`}).join("");
+
+document.getElementById("asmt").innerHTML=[
+ ["Week 1","Pre-assessment","Records where you start. Taken during enrolment, before anything else opens.",0],
+ ["Week 2","Module 1 assessment","AI Essentials — how AI works, data, responsible use.",1],
+ ["Week 4","Module 2 assessment","Career Advantage — the AI-powered workplace and your job search toolkit.",1],
+ ["Week 6","Module 3 assessment","Create & Communicate — prompting, writing, visual content.",1],
+ ["Week 8","Module 4 assessment","Build the Future — ideation, validation, prototyping.",1],
+ ["Week 9","Post-assessment","The same questions as Week 1, plus what changed — confidence, what you built, what you applied.",0]
+].map(([w,h,p,green])=>`<div class="link-card ${green?"green":""}">
+  <span class="stamp">${w}</span><h3>${h}</h3><p>${p}</p></div>`).join("");
+
+document.getElementById("completion").innerHTML=COMPLETION.map((c,i)=>`<div class="done-row">
+  <span class="n">${i+1}</span><div><h3>${c.t}</h3><p>${c.d}</p></div></div>`).join("");
+
+/* ================= wiring ================= */
+document.getElementById("loginBtn").onclick=enter;
+document.getElementById("heroCta").onclick=enter;
+document.getElementById("navDash").onclick=enter;
+document.querySelectorAll("[data-go]").forEach(a=>a.onclick=()=>{
+  showPublic();
+  document.querySelectorAll("nav a").forEach(x=>x.classList.remove("active"));
+  a.classList.add("active");
+  const t=document.querySelector(a.dataset.go);if(t)t.scrollIntoView({behavior:"smooth"})});
+
+document.getElementById("btnSave").onclick=exportProfile;
+document.getElementById("btnLock").onclick=()=>{Sess.set(false);location.reload()};
+document.getElementById("btnPwd").onclick=()=>{
+  const cur=prompt("Enter your current password");
+  if(cur===null)return;
+  if(hash(cur)!==P.pw)return alert("That password is not right.");
+  const n1=prompt("New password (at least 6 characters)");
+  if(n1===null)return;
+  if(n1.length<6)return alert("Use at least 6 characters.");
+  const n2=prompt("Confirm the new password");
+  if(n2===null)return;
+  if(n1!==n2)return alert("The two passwords do not match.");
+  P.pw=hash(n1);save();alert("Password changed on this device.")};
+
+if(P&&Sess.on())showDash();
+</script>
 </body>
 </html>
