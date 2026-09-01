@@ -39,21 +39,21 @@ const PROGRAMME = {
     }
   },
   links: {
-    register:  "https://forms.gle/REPLACE-registration",
-    pre:       "https://forms.gle/REPLACE-pre-assessment",
-    m1pre:     "https://forms.gle/REPLACE-module-1-pre-check",
-    m1quiz:    "https://forms.gle/REPLACE-module-1-assessment",
-    bpquiz:    "https://forms.gle/REPLACE-blueprint-assessment",
-
-    m2quiz:    "https://forms.gle/REPLACE-module-2-assessment",
-    m3quiz:    "https://forms.gle/REPLACE-module-3-assessment",
-    m4quiz:    "https://forms.gle/REPLACE-module-4-assessment",
-    capstone:  "https://forms.gle/REPLACE-capstone-submission",
-    post:      "https://forms.gle/REPLACE-post-assessment",
-    progress:  "https://forms.gle/REPLACE-weekly-progress-log",
-    sessions:  "https://REPLACE-virtual-session-schedule",
-    support:   "https://forms.gle/REPLACE-support-request",
-    community: "https://chat.whatsapp.com/REPLACE"
+    register:           "https://docs.google.com/forms/d/e/1FAIpQLScGPMaz3mWACa7zTt0jj3GHaoNVoGEeRhHeppWWiBusDj_cTg/viewform",
+    pre:                "https://docs.google.com/forms/d/e/1FAIpQLSdxNMC2dcKn_HdEzYZTCtV8_P8ZgxfpXmnVhiDWZWf95mH5Qw/viewform",
+    m1pre:              "https://docs.google.com/forms/d/e/1FAIpQLSc5IRYM3RrE_DQnkKcruE4UV4raZjxUtMwTzzZ5E7Ugm7Q44Q/viewform",
+    m1quiz:             "https://docs.google.com/forms/d/e/1FAIpQLScqVj9fflNkCA_9swkeInT60lQCyGSzucA3rmYSBQsznbq8hg/viewform",
+    m2quiz:             "https://docs.google.com/forms/d/e/1FAIpQLScAke2a6YR3p-NEJ8zYOhfsJFUZtmcd6nbEPuF3MYWoP3mMgw/viewform",
+    m3quiz:             "https://docs.google.com/forms/d/e/1FAIpQLSciFl6WdlAjS1aA-ekod07ZqjE18kgZ627yWgNsm7oV2e6NFg/viewform",
+    bpquiz:             "https://docs.google.com/forms/d/e/1FAIpQLSed5HBuTbGQwfh8V-8ZjQrV7bECU7IJMaDo11gaOb143eWAsQ/viewform",
+    m4quiz:             "https://docs.google.com/forms/d/e/1FAIpQLSeJbGXNPAELq_SMAOKctWfRax5PSclA0kWWHMeOg1NK6DT2iw/viewform",
+    capstoneProposal:   "https://docs.google.com/forms/d/e/1FAIpQLSdnDkrdFRlqQmKih_ZSFcloCCA-G32Tv6MP1qMhOByGjzWK1A/viewform",
+    capstone:           "https://docs.google.com/forms/d/e/1FAIpQLSdejZ-QyZVt6is3WfphEoWqL_xCSy9O-daD8sXEGSXBBk4YRg/viewform",
+    post:               "https://docs.google.com/forms/d/e/1FAIpQLSfA0mRwDLj8e0KdiRrQWFFCZkhwg9svnCJq2GB1NefB_9RV5w/viewform",
+    progress:           "https://docs.google.com/forms/d/e/1FAIpQLSeTe28LxmW6deGaZ7mnPFhrnLDbZmTPl1CLB1VHnxepq4pO7Q/viewform",
+    sessions:           "https://REPLACE-virtual-session-schedule",
+    support:            "https://docs.google.com/forms/d/e/1FAIpQLSemRwluO_H72aAfppFSkxHoOLbMYS-VIaZxqwU8mPhX7BThuA/viewform",
+    community:          "https://chat.whatsapp.com/F5xggrrre5M6PqgNtmKiah"
   }
 };
 
@@ -66,19 +66,19 @@ const AI101 = [
     sections: [
       { s: 1, t: "How AI Actually Works", h: 1,
         pts: ["Neural networks simplified", "Training data and why it matters", "Generative, predictive and analytical AI", "Meta AI tools — when to use what"],
-        drive: "https://drive.google.com/REPLACE-m1s1" },
+        drive: "https://docs.google.com/presentation/d/1U9BxDItVCB_ahYdP4sbbb_DG6cg4SMlO/edit?usp=sharing" },
       { s: 2, t: "Data: The Foundation of AI", h: 0.5,
         pts: ["Data collection methods", "Data quality and cleaning basics", "From data to insights", "Understanding your audience through data", "Meta platform analytics"],
-        drive: "https://drive.google.com/REPLACE-m1s2" },
+        drive: "https://docs.google.com/presentation/d/1U9BxDItVCB_ahYdP4sbbb_DG6cg4SMlO/edit?usp=sharing" },
       { s: 3, t: "AI For Your Studies & Projects", h: 1,
         pts: ["What AI excels at", "What AI struggles with", "The hallucination problem and verification", "Positive demonstrations with Meta AI"],
-        drive: "https://drive.google.com/REPLACE-m1s3" },
+        drive: "https://docs.google.com/presentation/d/1U9BxDItVCB_ahYdP4sbbb_DG6cg4SMlO/edit?usp=sharing" },
       { s: 4, t: "Using AI Responsibly", h: 1.5,
         pts: ["Privacy and data security", "Bias in AI", "Academic integrity and plagiarism boundaries", "Misinformation and photorealistic content", "Environmental impact", "Impact on human agency"],
-        drive: "https://drive.google.com/REPLACE-m1s4" },
+        drive: "https://docs.google.com/presentation/d/1U9BxDItVCB_ahYdP4sbbb_DG6cg4SMlO/edit?usp=sharing" },
       { s: 5, t: "Your AI Future Starts Here", h: 0.5,
         pts: ["Common misconceptions", "AI won't replace you, but someone using AI will", "Regional AI development landscape", "Positive opportunities and impact"],
-        drive: "https://drive.google.com/REPLACE-m1s5" }
+        drive: "https://docs.google.com/presentation/d/1U9BxDItVCB_ahYdP4sbbb_DG6cg4SMlO/edit?usp=sharing" }
     ]},
   { m: 2, t: "Career Advantage", h: 5,
     aim: "Position yourself for the AI-powered workplace and stand out to employers.",
@@ -87,16 +87,16 @@ const AI101 = [
     sections: [
       { s: 1, t: "The Changing Landscape of Work", h: 1.5,
         pts: ["How employers are using AI", "Industries disrupted vs enhanced", "Skills that become more valuable with AI", "Remote work and AI-enabled global opportunities"],
-        drive: "https://drive.google.com/REPLACE-m2s1" },
+        drive: "https://docs.google.com/presentation/d/1nHEHkI6Z3_048n7BEeGrjihr_M6TVRq_/edit?usp=sharing" },
       { s: 2, t: "Strategic Job Search with AI", h: 1.5,
         pts: ["CV optimisation — enhancing your authentic story", "Cover letter personalisation at scale", "Interview preparation with AI role-play", "LinkedIn profile optimisation", "Smart use vs misuse"],
-        drive: "https://drive.google.com/REPLACE-m2s2" },
+        drive: "https://docs.google.com/presentation/d/1nHEHkI6Z3_048n7BEeGrjihr_M6TVRq_/edit?usp=sharing" },
       { s: 3, t: "Building Your Professional Brand", h: 1,
         pts: ["Personal website and portfolio with AI tools", "Content creation for professional social media", "Thought leadership and knowledge sharing", "Networking message crafting"],
-        drive: "https://drive.google.com/REPLACE-m2s3" },
+        drive: "https://docs.google.com/presentation/d/1nHEHkI6Z3_048n7BEeGrjihr_M6TVRq_/edit?usp=sharing" },
       { s: 4, t: "AI Career Pathways", h: 1,
         pts: ["Emerging roles: prompt engineers, AI trainers, AI ethicists", "AI skills in traditional roles", "Entrepreneurship in AI services", "Regional spotlight: where the opportunities are"],
-        drive: "https://drive.google.com/REPLACE-m2s4" }
+        drive: "https://docs.google.com/presentation/d/1nHEHkI6Z3_048n7BEeGrjihr_M6TVRq_/edit?usp=sharing" }
     ]},
   { m: 3, t: "Create & Communicate", h: 5.5,
     aim: "Create professional content across text, images and video using AI tools.",
@@ -105,16 +105,16 @@ const AI101 = [
     sections: [
       { s: 1, t: "Mastering AI Prompts for Any Task", h: 1.5,
         pts: ["Anatomy of effective prompts", "Context, constraints and examples", "Iteration and refinement", "Prompt libraries and templates", "Multi-turn conversations", "Meta AI across WhatsApp, Instagram, Facebook"],
-        drive: "https://drive.google.com/REPLACE-m3s1" },
+        drive: "https://docs.google.com/presentation/d/11fmuiV_P5OdxUb-vv4Ul7v2u1o46HA7J/edit?usp=sharing" },
       { s: 2, t: "Written Communication", h: 1.5,
         pts: ["Academic writing assistance", "Business communication", "Social media content across platforms", "Adapting tone for different audiences", "Translation and localisation", "Exercise: a campaign for a local issue"],
-        drive: "https://drive.google.com/REPLACE-m3s2" },
+        drive: "https://docs.google.com/presentation/d/11fmuiV_P5OdxUb-vv4Ul7v2u1o46HA7J/edit?usp=sharing" },
       { s: 3, t: "Creating Visual Content That Stands Out", h: 1.5,
         pts: ["AI image generation with Meta's Imagine", "Video creation and editing", "Presentation design and data visualisation", "Voice-overs and audio", "Instagram Reels", "Visual norms across regions"],
-        drive: "https://drive.google.com/REPLACE-m3s3" },
+        drive: "https://docs.google.com/presentation/d/11fmuiV_P5OdxUb-vv4Ul7v2u1o46HA7J/edit?usp=sharing" },
       { s: 4, t: "Strategic Content Thinking", h: 1,
         pts: ["Content calendars and campaign planning", "A/B testing and optimisation", "Analytics and performance measurement", "Authenticity vs automation", "Accessibility in AI-generated content"],
-        drive: "https://drive.google.com/REPLACE-m3s4" }
+        drive: "https://docs.google.com/presentation/d/11fmuiV_P5OdxUb-vv4Ul7v2u1o46HA7J/edit?usp=sharing" }
     ]},
   { m: 4, t: "Build the Future", h: 5.5,
     aim: "Turn ideas into reality with AI-powered innovation and no-code tools.",
@@ -123,16 +123,16 @@ const AI101 = [
     sections: [
       { s: 1, t: "Ideation & Opportunity Discovery", h: 1.5,
         pts: ["AI for market research and trend analysis", "Problem identification in local contexts", "Competitive analysis and positioning", "Brainstorming and idea refinement with AI"],
-        drive: "https://drive.google.com/REPLACE-m4s1" },
+        drive: "https://docs.google.com/presentation/d/1QBL5i37Gc7i6MdLbSR_O3HVebM-cbFrh/edit?usp=sharing" },
       { s: 2, t: "Validation & Business Planning", h: 1.5,
         pts: ["Customer persona development", "Value proposition testing", "Business model canvas with AI", "Financial projections and unit economics", "Pitch deck creation", "Market testing on Meta platforms"],
-        drive: "https://drive.google.com/REPLACE-m4s2" },
+        drive: "https://docs.google.com/presentation/d/1QBL5i37Gc7i6MdLbSR_O3HVebM-cbFrh/edit?usp=sharing" },
       { s: 3, t: "Building Your First Prototype with AI", h: 2,
         pts: ["AI-assisted coding with Code Llama", "Building landing pages and websites", "Chatbots for customer service", "Automating workflows with Meta Business Suite", "Practical project: build a functional MVP"],
-        drive: "https://drive.google.com/REPLACE-m4s3" },
+        drive: "https://docs.google.com/presentation/d/1QBL5i37Gc7i6MdLbSR_O3HVebM-cbFrh/edit?usp=sharing" },
       { s: 4, t: "From Campus Project to Real Business", h: 0.5,
         pts: ["AI-powered marketing and customer acquisition", "Scaling considerations", "Roadmapping", "Funding landscape for AI-enabled startups"],
-        drive: "https://drive.google.com/REPLACE-m4s4" }
+        drive: "https://docs.google.com/presentation/d/1QBL5i37Gc7i6MdLbSR_O3HVebM-cbFrh/edit?usp=sharing" }
     ]}
 ];
 
@@ -221,7 +221,7 @@ const WEEKS = [
       { k: "course", c: "BP3" },
       { k: "course", c: "BP4" },
       { k: "form", t: "Blueprint assessment — all four courses (20 questions)", link: "bpquiz" },
-      { k: "form", t: "Capstone proposal — one page", link: "capstone" }
+      { k: "form", t: "Capstone proposal — one page", link: "capstoneProposal" }
     ]},
   { n: 8, from: "2026-10-19", to: "2026-10-25",
     title: "Build the Future",
