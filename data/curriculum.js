@@ -24,7 +24,7 @@ const PROGRAMME = {
     { id: "self", t: "Self-paced only", d: "Work through everything on your own schedule. All materials, no fixed times. Best if your week is unpredictable or data is tight." },
     { id: "live", t: "Self-paced + 2 live sessions", d: "Everything above, plus the two virtual instructor-led sessions — one on AI 101, one on machine learning. Two sessions in the whole programme, not a weekly commitment." }
   ],
-  scholarship: "Top 100 performers are eligible for scholarships toward paid Meta Blueprint certifications, plus $5,000 in Meta advertising credits.",
+  scholarship: "Top 100 performers are eligible for certifications, plus $5,000 in Meta advertising credits.",
   // Registration Google Form. The wizard opens this pre-filled from what the
   // participant typed, so RAIN receives a record of every enrolment.
   // Get the entry IDs from the form's "Get pre-filled link" option.
@@ -151,9 +151,7 @@ const COURSES = {
   BP5: { p: "Coursera", t: "Building Generative AI Apps with Llama", h: 96, lvl: "Advanced",
          url: "https://www.coursera.org/professional-certificates/building-generative-ai-apps-llama",
          note: "Meta · Professional Certificate · 3 courses" },
-  BP6: { p: "DataCamp", t: "Working with Llama 3", h: 2, lvl: "Intermediate",
-         url: "https://www.datacamp.com/courses/working-with-llama-3",
-         note: "Subscription required", paid: true }
+  
 };
 
 const WEEKS = [
@@ -248,13 +246,12 @@ const WEEKS = [
 /* Optional extension for participants who want to go further. Not required,
    not counted toward completion, and flagged where it costs money. */
 const EXTENSION = [
-  { c: "BP5", why: "Meta's full professional certificate on building applications with Llama — three courses, advertised as three months at eight hours a week, and pitched at developers with one to two years of Python. Far too large for the nine weeks, so it sits outside the programme as the natural next step. Audit access is free; the certificate is paid." },
-  { c: "BP6", why: "Named in the programme brief, but a free DataCamp account opens only the first lesson of a course. Listed for completeness and for anyone who already has a subscription." }
+  { c: "BP5", why: "Meta's full professional certificate on building applications with Llama — three courses, advertised as three months at eight hours a week, and pitched at developers with one to two years of Python. Far too large for the nine weeks, so it sits outside the programme as the natural next step. Audit access is free; the certificate is paid." }
 ];
 
 const COMPLETION = [
   { t: "Pre-assessment on record",
-    d: "Submitted before Sunday 6 September. Without a baseline there is nothing to measure against." },
+    d: "Submitted on time. Without a baseline there is nothing to measure against." },
   { t: "All four AI 101 modules worked through",
     d: "Every section downloaded and completed. AI 101 is compulsory for every participant." },
   { t: "All four module assessments passed",
